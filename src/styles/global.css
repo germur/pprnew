@@ -489,3 +489,13 @@ section{position:relative;}
 
 .proj-photo{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius);background:var(--surface-2,#eee);}
 .proj-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* home: imagenes reales sobre placeholders */
+.hero-img{overflow:hidden;border-radius:var(--radius);}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.svc-media{position:relative;overflow:hidden;}
+.svc-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.9;}
+.svc-media .svc-icon{position:relative;z-index:2;}
+.svc-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,30,.15),rgba(10,15,30,.55));z-index:1;}
+.area-map{overflow:hidden;border-radius:var(--radius);}
+.area-map img{width:100%;height:100%;object-fit:cover;display:block;}
