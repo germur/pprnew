@@ -19,11 +19,11 @@ export const COMPANY = {
   region: "South Florida",
   // Credenciales REALES (sin claims de General Contractor, riesgo legal):
   credentials: ["IICRC Certified", "Fully Insured & Bonded", "24/7 Response"],
-  responseTime: "60 minutes",
+  responseTime: "24/7",
   // Métricas: pendientes de dato real (rating/reseñas de Google).
-  rating: "X.X",
-  reviewCount: "XXX",
-  projectsRestored: "XXX+",
+  rating: "5.0",
+  reviewCount: "16",
+  projectsRestored: "",
   social: {
     linkedin: "https://www.linkedin.com/company/paramount-property-restoration",
     facebook: "https://www.facebook.com/paramountpropertyrestoration",
