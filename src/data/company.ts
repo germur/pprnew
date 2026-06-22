@@ -3,17 +3,24 @@
 export const COMPANY = {
   name: "Paramount Property Restoration",
   shortName: "Paramount",
-  // Placeholders confirmados por el usuario (reemplazar con datos reales):
-  phone: "(XXX) XXX-XXXX",
-  phoneRaw: "+10000000000",
+  // Datos reales (migrados del sitio anterior):
+  phone: "(786) 602-2217",
+  phoneRaw: "7866022217",
   email: "services@paramountpropertyrestoration.com",
+  // Dirección real (alimenta el schema LocalBusiness y el local pack):
+  address: "10890 NW 17th St Suite 138",
+  city: "Miami",
+  state: "FL",
+  zip: "33172",
+  fullAddress: "10890 NW 17th St Suite 138, Miami, FL 33172",
+  googleMapsLink: "https://www.google.com/maps/place/Paramount+Property+Restoration/",
   // Alcance y posicionamiento (del blueprint SEO 2.0):
   tagline: "South Florida's 24/7 restoration response",
   region: "South Florida",
   // Credenciales REALES (sin claims de General Contractor, riesgo legal):
   credentials: ["IICRC Certified", "Fully Insured & Bonded", "24/7 Response"],
   responseTime: "60 minutes",
-  // Métricas placeholder (reemplazar):
+  // Métricas: pendientes de dato real (rating/reseñas de Google).
   rating: "X.X",
   reviewCount: "XXX",
   projectsRestored: "XXX+",
