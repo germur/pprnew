@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { COMPANY , REGIONS } from "../../../data/company";
+
+const title = "Fire & Smoke Damage Restoration in South Florida | Paramount 24/7";
+const description = "Fire and smoke damage restoration in South Florida. Soot removal, odor neutralization, contents recovery and firefighting-water dry-out. IICRC-certified, insurance handled.";
+---
+
+<BaseLayout title={title} description={description} path="/restoration/fire-damage/">
+<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span><a href="/restoration/water-damage/">Restoration</a><span>/</span> Fire & Smoke Damage</nav></div>
+<section class="phero"><div class="wrap-wide"><div class="phero-grid">
+  <div class="reveal">
+    <span class="eyebrow">Transactional · BOFU · 135K + 49K near-me / mo</span>
+    <h1 class="h1 mt-s">Fire & Smoke Damage Restoration</h1>
+    <p class="empathy">The fire is out, but the soot and smell keep working, we move fast to stop them.</p>
+    <p class="lead maxw mt-m">Fire is only the first loss. <strong>Smoke, soot, and the water used to fight it keep damaging your home for days.</strong> We restore all three, and recover what can be saved.</p>
+    <div class="chips mt-m"><span class="chip">60-min response</span><span class="chip">IICRC certified</span><span class="chip">Insurance billed direct</span><span class="chip">24/7 · 365</span></div>
+    <div class="phero-img ph ph-ink" data-ph="Hero, soot & smoke cleanup after a structure fire"></div>
+  </div>
+  <aside class="reveal"><div class="emcard">
+    <div class="eyebrow nodash" style="color:#9db8ff;">Need help now?</div>
+    <h3 class="mt-s">Talk to a certified crew.</h3>
+    <a href={`tel:${COMPANY.phoneRaw}`} class="phone">{COMPANY.phone}</a>
+    <div class="ph-note">Answered live · 24 hours a day</div>
+    <hr>
+    <form data-emergency class="ef-mini"><div style="display:flex;flex-direction:column;gap:.9rem;">
+      <div class="field"><label>Your name</label><input type="text" required placeholder="Full name"><span class="msg">Enter your name</span></div>
+      <div class="field"><label>Phone</label><input type="tel" required placeholder="(000) 000-0000"><span class="msg">Enter a valid phone</span></div>
+      <div class="field"><label>What happened?</label><select required><option value="">Select…</option><option>Active fire damage</option><option>Smoke & soot cleanup</option><option>Smoke odor removal</option><option>Contents recovery</option><option>Water from firefighting</option></select><span class="msg">Choose one</span></div>
+    </div>
+    <button class="btn btn-alert btn-block mt-m" type="submit">Request callback</button>
+    <div data-success style="display:none;text-align:center;padding:1rem 0;"><svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="34" height="34" style="margin:0 auto .6rem;"><path d="M20 6L9 17l-5-5"/></svg><p style="color:#fff;font-weight:600;">Request received.</p><p style="color:#9db8ff;font-size:.9rem;">A dispatcher will call within minutes.</p></div>
+    </form>
+    <hr>
+    <ul class="ef-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> We work with all major insurers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> No-obligation on-site assessment</li></ul>
+  </div></aside>
+</div></div></section>
+<section class="trust"><div class="wrap-wide"><div class="trust-grid">
+  <div class="trust-item reveal"><div class="metric-sm">60min</div><span class="num-label" style="margin-top:.4rem;display:block;">Average on-site arrival</span></div>
+  <div class="trust-item reveal"><div class="metric-sm">XXX+</div><span class="num-label" style="margin-top:.4rem;display:block;">Fire losses restored</span></div>
+  <div class="trust-item reveal"><div class="metric-sm">X.X★</div><span class="num-label" style="margin-top:.4rem;display:block;">XXX Google reviews</span></div>
+  <div class="trust-item reveal"><div class="metric-sm">100%</div><span class="num-label" style="margin-top:.4rem;display:block;">Insurance claims supported</span></div>
+</div></div></section>
+<section class="pt pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">01, What we handle</span><h2 class="h2 mt-s" style="max-width:20ch;">Fire, smoke, soot, and the water that follows.</h2></div><p class="body-l" style="max-width:32ch;">A fire leaves layered damage. We treat every layer, in the right order.</p></div>
+  <div class="types mt-l"><div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c1.5 3.5 5 4.5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-5 .5 2.5 3 2.5 3 0z"/></svg><h3>Smoke & soot residue</h3><p>Acidic soot etches surfaces fast, we clean it before it sets.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12c4-4 12-4 16 0M7 15c3-3 7-3 10 0M10 18c1.5-1.5 2.5-1.5 4 0"/></svg><h3>Smoke odor removal</h3><p>Deep deodorization that removes smell, not just masks it.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M9 9h6v6H9z"/></svg><h3>Contents & textiles</h3><p>Cleaning and recovery of furniture, clothing and belongings.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-7h6v7"/></svg><h3>Structural char & cleanup</h3><p>Removal of charred materials and debris, safely handled.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 16c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/></svg><h3>Water from firefighting</h3><p>The water used to put it out causes its own damage, we dry it.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><h3>Electronics & documents</h3><p>Specialized recovery for sensitive items and paperwork.</p></div></div>
+</div></section>
+<section class="pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">02, The process</span><h2 class="h2 mt-s" style="max-width:18ch;">From securing the scene to a home restored.</h2></div></div>
+  <div class="steps mt-l"><div class="step reveal"><div class="n">01 / Assess</div><div><h3 class="h3">Assess & secure</h3><div class="sd"><p>We evaluate structural safety and identify every type of damage present.</p><p>Safety first, then a clear plan and scope.</p></div></div></div>
+      <div class="step reveal"><div class="n">02 / Secure</div><div><h3 class="h3">Board-up & tarp</h3><div class="sd"><p>We secure openings and tarp the roof to protect against weather and intrusion.</p><p>Stops a bad day from getting worse overnight.</p></div></div></div>
+      <div class="step reveal"><div class="n">03 / Clean</div><div><h3 class="h3">Soot & smoke removal</h3><div class="sd"><p>We clean soot from surfaces and contents before acidic residue sets in.</p><p>The faster this happens, the more we save.</p></div></div></div>
+      <div class="step reveal"><div class="n">04 / Deodorize</div><div><h3 class="h3">Odor neutralization</h3><div class="sd"><p>Thermal fogging and air treatment remove smoke odor at the source.</p><p>Not a cover-up, actual removal.</p></div></div></div>
+      <div class="step reveal"><div class="n">05 / Restore</div><div><h3 class="h3">Restore & dry out</h3><div class="sd"><p>We dry firefighting water, then restore finishes to pre-loss condition.</p><p>One team for the whole recovery.</p></div></div></div></div>
+</div></section>
+<section class="insight"><div class="wrap-wide"><div class="insight-in reveal">
+  <span class="eyebrow nodash" style="color:#9db8ff;">Don't forget</span>
+  <p class="h2" style="color:#fff;max-width:24ch;">The fire's out. The <em>water isn't done.</em></p>
+  <p class="lead" style="color:#aac3ff;max-width:46ch;">The water used to fight a fire soaks into structure and contents, and in Florida humidity, that becomes mold within days. We dry it properly as part of the job.</p>
+  <a href="/restoration/water-damage/" class="link-arrow" style="color:#fff;">See water damage restoration <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+</div></div></section>
+<section class="pt pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">03, Recent projects</span><h2 class="h2 mt-s" style="max-width:18ch;">Drag to see before &amp; after.</h2></div></div>
+  <div class="proj-grid mt-l"><figure class="proj reveal"><div class="ba" data-ba><div class="ph ba-before" data-ph="AFTER, restored kitchen, Miami"></div><div class="ph ph-ink ba-after" data-ph="BEFORE, fire & soot damage"></div><div class="ba-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div></div><figcaption><span class="num-label">Miami · kitchen fire</span><p>Soot removed, odor neutralized, fully restored.</p></figcaption></figure>
+      <figure class="proj reveal"><div class="ba" data-ba><div class="ph ba-before" data-ph="AFTER, clean living room, Fort Lauderdale"></div><div class="ph ph-ink ba-after" data-ph="BEFORE, smoke staining"></div><div class="ba-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div></div><figcaption><span class="num-label">Fort Lauderdale · smoke</span><p>Whole-home smoke deodorization after a contained fire.</p></figcaption></figure>
+      <figure class="proj reveal"><div class="ba" data-ba><div class="ph ba-before" data-ph="AFTER, recovered contents, Naples"></div><div class="ph ph-ink ba-after" data-ph="BEFORE, smoke-damaged items"></div><div class="ba-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div></div><figcaption><span class="num-label">Naples · contents</span><p>Furniture and belongings cleaned and recovered.</p></figcaption></figure></div>
+</div></section>
+<section class="insure pb"><div class="wrap-wide"><div class="insure-in reveal">
+  <div><span class="eyebrow">Insurance, handled</span><h2 class="h2 mt-s" style="max-width:18ch;">We document the loss and bill your carrier directly.</h2><p class="lead maxw mt-m">Fire claims are complex, multiple types of damage, contents, and structure. We document all of it so nothing gets left off your claim.</p><a href="/insurance-claims/" class="btn btn-blue btn-lg mt-m">How claims work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  <ul class="insure-list"><li><span class="num-label">01</span> Photo &amp; damage documentation</li><li><span class="num-label">02</span> Direct carrier billing</li><li><span class="num-label">03</span> Line-item scope &amp; estimate</li><li><span class="num-label">04</span> Adjuster coordination</li></ul>
+</div></div></section>
+<section class="pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">04, Common questions</span><h2 class="h2 mt-s">Fire & Smoke Damage, answered.</h2></div></div>
+  <div class="faq mt-l reveal"><details open><summary>Can you really remove the smoke smell? <span class="pm"></span></summary><div class="ans">Yes. We use thermal fogging and air treatment to neutralize odor at the molecular level, it's removal, not masking. Lingering smell usually means a missed source, which we find.</div></details>
+      <details><summary>Are my belongings salvageable? <span class="pm"></span></summary><div class="ans">Often more than you'd expect. We assess contents individually and recover textiles, furniture and even documents and electronics with specialized cleaning.</div></details>
+      <details><summary>What about the water damage from firefighting? <span class="pm"></span></summary><div class="ans">We handle it as part of the job. Left wet, it causes mold within days in Florida, so drying is built into our fire restoration. See <a href="/restoration/water-damage/">water damage</a>.</div></details>
+      <details><summary>Does insurance cover fire damage? <span class="pm"></span></summary><div class="ans">Fire loss is typically covered. We document the structure, contents and smoke damage in detail. See <a href="/insurance-claims/">how claims work</a>.</div></details>
+      <details><summary>How long does fire restoration take? <span class="pm"></span></summary><div class="ans">It varies widely with severity, from days for smoke cleanup to weeks for structural restoration. We give you a clear, staged timeline.</div></details></div>
+</div></section>
+<section class="areas pt pb"><div class="wrap-wide reveal">
+  <span class="eyebrow">Where we serve</span><h2 class="h2 mt-s" style="max-width:24ch;">Fire & Smoke Damage across South Florida.</h2>
+  <div class="citylinks mt-m">{REGIONS.flatMap((r) => r.cities).map((c) => (<a href={`/service-areas/${c.slug}/`}>{c.name}</a>))}</div>
+</div></section>
+<section class="pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">Related services</span><h2 class="h2 mt-s">Keep exploring</h2></div></div>
+  <div class="rel-grid mt-l"><a href="/restoration/water-damage/" class="rel reveal"><div><span class="num-label">Cross-link · 135K/mo</span><h3 style="margin-top:.3rem;">Water Damage Restoration</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+      <a href="/restoration/mold-remediation/" class="rel reveal"><div><span class="num-label">Cross-link · 165K/mo</span><h3 style="margin-top:.3rem;">Mold Remediation</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></div>
+</div></section>
+<section class="emcta"><div class="wrap-wide emcta-in reveal">
+  <div><span class="eyebrow nodash" style="color:#ffd2c4;">Act fast</span><h2 class="display" style="color:#fff;max-width:16ch;">Soot sets in by the hour.</h2></div>
+  <div class="emcta-actions"><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a><a href="/emergency/" class="btn btn-lg btn-block" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5);">Request help online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div></section>
+</BaseLayout>

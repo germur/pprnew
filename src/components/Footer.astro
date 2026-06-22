@@ -1,0 +1,52 @@
+---
+import { COMPANY, SERVICES } from "../data/company";
+const footerCities = [
+  { name: "Miami", url: "/service-areas/miami/" },
+  { name: "Fort Lauderdale", url: "/service-areas/fort-lauderdale/" },
+  { name: "Naples", url: "/service-areas/naples/" },
+  { name: "West Palm Beach", url: "/service-areas/west-palm-beach/" },
+  { name: "Boca Raton", url: "/service-areas/boca-raton/" },
+];
+const year = new Date().getFullYear();
+---
+<footer class="foot">
+  <div class="wrap-wide">
+    <div class="foot-top">
+      <div>
+        <a href="/" class="brand"><span class="brand-mark">Para<b>mount</b></span><span class="brand-sub" style="margin-left:.4rem;">Property<br>Restoration</span></a>
+        <p style="margin-top:1.2rem;max-width:30ch;font-size:.95rem;">{COMPANY.region}'s 24/7 restoration response for water, fire, mold and storm damage. IICRC-certified, fully insured &amp; bonded.</p>
+        <div class="foot-badges" style="margin-top:1.4rem;">
+          {COMPANY.credentials.map((c) => <span class="fbadge">{c}</span>)}
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          {SERVICES.map((s) => <li><a href={s.url}>{s.short}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h4>Service Areas</h4>
+        <ul>
+          {footerCities.map((c) => <li><a href={c.url}>{c.name}</a></li>)}
+          <li><a href="/service-areas/">All cities →</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/our-process/">Our Process</a></li>
+          <li><a href="/insurance-claims/">Insurance Claims</a></li>
+          <li><a href="/resources/">Resources</a></li>
+          <li><a href="/emergency/">Emergency 24/7</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href={`tel:${COMPANY.phoneRaw}`}>{COMPANY.phone}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© {year} {COMPANY.name}. Fully insured &amp; bonded.</span>
+      <span>Restoration only · water · fire · mold · storm. Not a general contractor.</span>
+    </div>
+  </div>
+</footer>

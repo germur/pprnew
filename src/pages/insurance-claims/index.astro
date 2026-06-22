@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { COMPANY , REGIONS } from "../../data/company";
+
+const title = "Insurance Claims Help | Paramount Restoration, We Bill Your Carrier";
+const description = "We document your restoration loss and bill your insurance carrier directly. Photos, moisture logs and detailed scopes that adjusters approve. South Florida, 24/7.";
+---
+
+<BaseLayout title={title} description={description} path="/insurance-claims/">
+<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span> Insurance Claims</nav></div>
+<section class="phero"><div class="wrap-wide"><div class="phero-grid">
+  <div class="reveal">
+    <span class="eyebrow">Insurance · We handle it</span>
+    <h1 class="display mt-s" style="font-size:clamp(2.6rem,6vw,5rem);">We speak your insurer's language <em>so you don't have to.</em></h1>
+    <p class="lead maxw mt-m">A restoration claim lives or dies on documentation. From the first photo to the final invoice, we build the file your carrier needs, and bill them directly.</p>
+    <div class="cta-row mt-l"><a href="/emergency/" class="btn btn-primary btn-lg">Start a claim <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-ghost btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a></div>
+  </div>
+  <aside class="reveal"><div class="emcard">
+    <div class="eyebrow nodash" style="color:#9db8ff;">What you'll need</div>
+    <h3 class="mt-s">Have these handy.</h3>
+    <p class="sub">It helps us open your claim faster, but don't wait on us to start mitigation.</p>
+    <hr>
+    <ul class="ef-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Your insurance carrier &amp; policy number</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> When the damage happened</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Photos, if you took any</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> A claim number, if you've filed</li>
+    </ul>
+    <a href="/emergency/" class="btn btn-blue btn-block mt-m">Begin now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div></aside>
+</div></div></section>
+<section class="pt pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">01, How a claim works</span><h2 class="h2 mt-s" style="max-width:18ch;">Four steps, and we lead each one.</h2></div></div>
+  <div class="proc-grid mt-l" style="border-top:1px solid var(--line);">
+    <div class="proc reveal"><div class="proc-no">01</div><h3 class="h3">Document the loss</h3><p>Photos, moisture readings and a written scope captured the moment we arrive.</p></div>
+    <div class="proc reveal"><div class="proc-no">02</div><h3 class="h3">File &amp; coordinate</h3><p>We help you open the claim and coordinate directly with your adjuster.</p></div>
+    <div class="proc reveal"><div class="proc-no">03</div><h3 class="h3">Mitigate &amp; restore</h3><p>We do the work to standard while keeping the carrier updated with evidence.</p></div>
+    <div class="proc reveal"><div class="proc-no">04</div><h3 class="h3">Bill the carrier</h3><p>We invoice your insurer directly, you handle your deductible, not the paperwork.</p></div>
+  </div>
+</div></section>
+<section class="insure pb"><div class="wrap-wide"><div class="insure-in reveal">
+  <div>
+    <span class="eyebrow">02, What we document</span>
+    <h2 class="h2 mt-s" style="max-width:18ch;">The evidence adjusters approve.</h2>
+    <p class="lead maxw mt-m">Underpaid and denied claims usually come down to thin documentation. We over-document on purpose.</p>
+    <a href="/resources/" class="btn btn-blue btn-lg mt-m">Read: does insurance cover mold? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <ul class="insure-list">
+    <li><span class="num-label">→</span> Time-stamped photos of all damage</li>
+    <li><span class="num-label">→</span> Moisture &amp; thermal readings, logged daily</li>
+    <li><span class="num-label">→</span> Line-item scope &amp; estimate</li>
+    <li><span class="num-label">→</span> Drying logs to verified dry standard</li>
+    <li><span class="num-label">→</span> Before / after records of every area</li>
+  </ul>
+</div></div></section>
+<section class="pt pb areas"><div class="wrap-wide reveal">
+  <span class="eyebrow">03, Carriers</span>
+  <h2 class="h2 mt-s" style="max-width:24ch;">We work with all major insurers.</h2>
+  <p class="body-l mt-s" style="max-width:50ch;">Whoever holds your policy, we've likely worked with them. We're independent, we work for you, the policyholder, not the insurance company.</p>
+  <div class="citylinks mt-m">{REGIONS.flatMap((r) => r.cities).map((c) => (<a href={`/service-areas/${c.slug}/`}>{c.name}</a>))}</div>
+</div></section>
+<section class="pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">04, Common questions</span><h2 class="h2 mt-s">Claims, answered.</h2></div></div>
+  <div class="faq mt-l reveal">
+    <details open><summary>Should I file the claim before I call you? <span class="pm"></span></summary><div class="ans">Either order works. Many homeowners call us first, we document the loss, then help you file with stronger evidence. The one thing not to do is wait: mitigation needs to start fast.</div></details>
+    <details><summary>Will you bill my insurance directly? <span class="pm"></span></summary><div class="ans">Yes. In most cases we invoice your carrier directly, so you're responsible only for your deductible. We'll confirm the details once your claim is open.</div></details>
+    <details><summary>What if my claim is denied or underpaid? <span class="pm"></span></summary><div class="ans">Strong documentation is the best defense, and it's where we focus. If a dispute arises, our photos, moisture logs and detailed scope give you the evidence to push back.</div></details>
+    <details><summary>Do you work for me or the insurance company? <span class="pm"></span></summary><div class="ans">For you. We're an independent restoration contractor hired by the policyholder. Our job is to restore your property and document it honestly, not to minimize the carrier's payout.</div></details>
+  </div>
+</div></section>
+<section class="emcta"><div class="wrap-wide emcta-in reveal">
+  <div><span class="eyebrow nodash" style="color:#ffd2c4;">Damage now?</span><h2 class="display" style="color:#fff;max-width:16ch;">Start your claim while we're on the way.</h2></div>
+  <div class="emcta-actions"><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a><a href="/emergency/" class="btn btn-lg btn-block" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5);">Request help online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div></section>
+</BaseLayout>

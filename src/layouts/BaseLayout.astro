@@ -1,0 +1,59 @@
+---
+import { COMPANY } from "../data/company";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  description: string;
+  /** ruta canónica del silo, ej "/restoration/water-damage/" */
+  path?: string;
+  /** clase extra en <body> (ej "epage" para Emergency) */
+  bodyClass?: string;
+}
+const { title, description, path = "/", bodyClass = "" } = Astro.props;
+const canonical = new URL(path, Astro.site).href;
+
+// Schema JSON-LD LocalBusiness, crítico para local pack y rich results.
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": new URL("/", Astro.site).href + "#business",
+  name: COMPANY.name,
+  description: description,
+  url: new URL("/", Astro.site).href,
+  telephone: COMPANY.phoneRaw,
+  email: COMPANY.email,
+  areaServed: { "@type": "State", name: "Florida" },
+  knowsAbout: ["Water Damage Restoration", "Mold Remediation", "Fire Damage Restoration", "Storm Damage Restoration", "Mold Testing"],
+  availableLanguage: ["en", "es"],
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    opens: "00:00", closes: "23:59",
+  },
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</head>
+<body class={bodyClass}>
+  <Header />
+  <slot />
+  <Footer />
+  <script is:inline src="/app.js"></script>
+</body>
+</html>

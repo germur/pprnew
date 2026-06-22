@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { COMPANY, SERVICES } from "../../data/company";
+import Icon from "../../components/Icon.astro";
+
+const pillars = SERVICES.filter((s) => s.slug !== "commercial");
+const title = "Property Restoration in South Florida | Paramount";
+const description = "Full-service property restoration across South Florida: water damage, mold remediation, fire & smoke, storm & hurricane, and mold testing. IICRC-certified, 24/7, insurance handled.";
+---
+
+<BaseLayout title={title} description={description} path="/restoration/">
+  <div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span> Restoration</nav></div>
+
+  <section class="phero">
+    <div class="wrap-wide">
+      <div class="reveal" style="max-width:60ch;">
+        <span class="eyebrow">Property Restoration · South Florida</span>
+        <h1 class="h1 mt-s">Restoration done right, from the first hour.</h1>
+        <p class="lead maxw mt-m">When water, fire, mold or a storm hits your property, the response in the first hour decides the repair bill. <strong>We answer 24/7, arrive in 60 minutes, and handle the insurance.</strong></p>
+        <div class="cta-row mt-l">
+          <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-primary btn-lg">Call {COMPANY.phone}</a>
+          <a href="/emergency/" class="btn btn-ghost btn-lg">Request help <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt pb">
+    <div class="wrap-wide">
+      <div class="sec-head reveal">
+        <div><span class="eyebrow">What we restore</span><h2 class="h2 mt-s" style="max-width:20ch;">Five core restoration services.</h2></div>
+        <p class="body-l" style="max-width:32ch;">Each one is a real service we perform, with its own certified process. No filler.</p>
+      </div>
+      <div class="types mt-l">
+        {pillars.map((s) => (
+          <a class="type reveal" href={s.url}>
+            <Icon name={s.icon} class="ico" size={30} />
+            <span class="num-label" style="color:var(--blue)">{s.vol === "B2B" ? "B2B" : s.vol + "/mo"}</span>
+            <h3>{s.name}</h3>
+            <p>{s.desc}.</p>
+            <span class="link-arrow" style="margin-top:auto;">Explore {s.short} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
+          </a>
+        ))}
+        <a class="type reveal" href="/commercial/">
+          <span class="num-label" style="color:var(--blue)">B2B</span>
+          <h3>Commercial Restoration</h3>
+          <p>Large-loss response for property managers, HOAs and businesses.</p>
+          <span class="link-arrow" style="margin-top:auto;">Explore Commercial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

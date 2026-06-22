@@ -1,0 +1,15 @@
+# dependencias
+node_modules/
+
+# build
+dist/
+.astro/
+
+# secretos: NUNCA subir el token de CompanyCam ni ningún .env
+.env
+.env.local
+.env.*.local
+
+# sistema
+.DS_Store
+Thumbs.db

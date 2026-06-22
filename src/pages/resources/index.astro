@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { COMPANY } from "../../data/company";
+
+const title = "Restoration Resources & Guides | Paramount South Florida";
+const description = "Honest guides to water, fire, mold and storm damage. Learn the facts, compare options and find the right next step.";
+---
+
+<BaseLayout title={title} description={description} path="/resources/">
+<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span> Resources</nav></div>
+<section class="phero"><div class="wrap-wide"><div class="reveal" style="max-width:60ch;">
+  <span class="eyebrow">Resources · Editorial hub</span>
+  <h1 class="display mt-s" style="font-size:clamp(2.6rem,6vw,5rem);">Answers before the <em>emergency.</em></h1>
+  <p class="lead maxw mt-m">Honest guides to water, fire, mold and storm damage, written to help you decide, not to scare you into calling. Every article points you to the next right step.</p>
+</div></div></section>
+<section class="pt pb"><div class="wrap-wide">
+  <a href="/resources/is-black-mold-dangerous/" class="reveal" style="display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.5rem,3vw,3rem);align-items:center;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--white);">
+    <div style="padding:clamp(1.8rem,3vw,3rem);">
+      <span class="eyebrow">Featured · 6.6K/mo</span>
+      <h2 class="h2 mt-s" style="max-width:18ch;">Is black mold actually dangerous?</h2>
+      <p class="body-l mt-s" style="max-width:46ch;">Somewhere between "it's harmless" and "burn the house down" is the truth. Here's what the evidence says.</p>
+      <span class="link-arrow mt-m">Read the guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
+    </div>
+    <div class="ph ph-ink" data-ph="Featured article image" style="aspect-ratio:4/3;align-self:stretch;"></div>
+  </a>
+</div></section>
+<section class="pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">Learn, TOFU</span><h2 class="h2 mt-s">Understand the problem</h2></div></div>
+  <div class="res-grid mt-l">
+    <a href="/resources/is-black-mold-dangerous/" class="res reveal"><span class="num-label">Mold · 8.1K/mo</span><h3 class="h3">Mold vs. mildew: what's the difference?</h3><p>How to tell them apart, and why it changes what you do next.</p></a>
+    <a href="/restoration/water-damage/" class="res reveal"><span class="num-label">Water · TOFU</span><h3 class="h3">What to do after water damage</h3><p>The first 24 hours that decide your repair bill.</p></a>
+    <a href="/restoration/water-damage/" class="res reveal"><span class="num-label">Storm · seasonal</span><h3 class="h3">What to do after a hurricane</h3><p>A homeowner's step-by-step recovery checklist.</p></a>
+  </div>
+  <div class="sec-head reveal" style="margin-top:clamp(3rem,5vw,4rem);"><div><span class="eyebrow">Decide, MOFU</span><h2 class="h2 mt-s">Compare &amp; plan</h2></div></div>
+  <div class="res-grid mt-l">
+    <a href="/insurance-claims/" class="res reveal"><span class="num-label">Insurance · MOFU</span><h3 class="h3">Does insurance cover mold in Florida?</h3><p>When you're covered, when you're not, and how to document it.</p></a>
+    <a href="/restoration/water-damage/" class="res reveal"><span class="num-label">Cost · MOFU</span><h3 class="h3">What does water damage restoration cost?</h3><p>The real factors behind the estimate, and how to read one.</p></a>
+    <a href="/restoration/water-damage/" class="res reveal"><span class="num-label">Mold · 66K/mo</span><h3 class="h3">When do you actually need mold testing?</h3><p>An honest guide to inspection, and when it's a waste of money.</p></a>
+  </div>
+</div></section>
+<section class="insure pb"><div class="wrap-wide"><div class="insure-in reveal">
+  <div>
+    <span class="eyebrow">The funnel, done right</span>
+    <h2 class="h2 mt-s" style="max-width:20ch;">Every guide leads to a real answer.</h2>
+    <p class="lead maxw mt-m">We write to inform first. When you're ready, each article connects to the service that solves it, water, mold, fire or storm, and to the team that handles your claim.</p>
+    <a href="/restoration/water-damage/" class="btn btn-blue btn-lg mt-m">Explore our services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <ul class="insure-list"><li><span class="num-label">01</span> Learn, what's actually happening</li><li><span class="num-label">02</span> Compare, cost, coverage, options</li><li><span class="num-label">03</span> Act, the right service, fast</li></ul>
+</div></div></section>
+
+<section class="emcta">
+  <div class="wrap-wide emcta-in reveal">
+    <div>
+      <span class="eyebrow nodash" style="color:#ffd2c4;">24/7 Emergency Response</span>
+      <h2 class="display" style="color:#fff;max-width:16ch;">A certified crew is one call away.</h2>
+    </div>
+    <div class="emcta-actions">
+      <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a>
+      <a href="/emergency/" class="btn btn-lg btn-block" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5);">Request help online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+</BaseLayout>

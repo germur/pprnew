@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { COMPANY } from "../../data/company";
+
+const title = "Commercial Restoration in South Florida | Large-Loss & Property Management, Paramount";
+const description = "Commercial restoration for South Florida property managers, HOAs, and businesses. Large-loss water, fire, mold and storm response with minimal downtime. 24/7, insurance handled.";
+---
+
+<BaseLayout title={title} description={description} path="/commercial/">
+<div class="wrap-wide">
+  <nav class="crumb"><a href="/">Home</a><span>/</span> Commercial Restoration</nav>
+</div>
+
+<!-- HERO -->
+<section class="phero">
+  <div class="wrap-wide">
+    <div class="phero-grid">
+      <div class="reveal">
+        <span class="eyebrow">B2B Segment · Large-loss · Transactional</span>
+        <h1 class="display mt-s" style="font-size:clamp(2.6rem,6vw,5rem);">Commercial restoration that <em>protects the asset.</em></h1>
+        <p class="lead maxw mt-m">For property managers, HOAs and businesses across South Florida. When water, fire, mold or storm hits your building, <strong>every hour of downtime is revenue and risk.</strong> We mobilize fast, document for the board and the carrier, and get you operational.</p>
+        <div class="cta-row mt-l">
+          <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-primary btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a>
+          <a href="/emergency/" class="btn btn-ghost btn-lg">Set up priority response <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="phero-img ph ph-ink" data-ph="Commercial loss, crew working a flooded office / condo lobby"></div>
+      </div>
+      <aside class="reveal">
+        <div class="emcard">
+          <div class="eyebrow nodash" style="color:#9db8ff;">Property managers</div>
+          <h3 class="mt-s">One number for every property.</h3>
+          <p class="sub">Pre-loss agreements, priority dispatch and a single point of contact across your whole portfolio.</p>
+          <a href={`tel:${COMPANY.phoneRaw}`} class="phone">{COMPANY.phone}</a>
+          <div class="ph-note">Priority B2B line · 24/7</div>
+          <hr>
+          <ul class="ef-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Board- &amp; carrier-ready documentation</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Minimal-downtime scheduling</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Fully insured &amp; bonded crews</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Coverage across 15 cities</li>
+          </ul>
+          <a href="/emergency/" class="btn btn-blue btn-block mt-m">Request a partnership <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="pt pb">
+  <div class="wrap-wide">
+    <div class="sec-head reveal"><div><span class="eyebrow">01, Who we serve</span><h2 class="h2 mt-s" style="max-width:20ch;">Built for the people responsible for the building.</h2></div></div>
+    <div class="types mt-l">
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M9 3v18M3 9h6"/></svg><h3>Property managers</h3><p>Single point of contact and priority dispatch across your portfolio.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><h3>HOAs &amp; condos</h3><p>Common-area losses handled with documentation your board can sign off on.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><h3>Offices &amp; retail</h3><p>Get back to business fast, after-hours work to keep doors open.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l9-6 9 6v12M3 21h18M9 21v-5h6v5"/><circle cx="12" cy="11" r="1.5"/></svg><h3>Hospitality</h3><p>Hotels and rentals restored discreetly, room by room, minimizing lost nights.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M12 8v8M8 12h8"/></svg><h3>Healthcare</h3><p>Sensitive environments handled with strict containment and air control.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V7l6-4v4l6-4v18M3 21h18M15 11v10"/></svg><h3>Industrial &amp; warehouse</h3><p>Large-footprint drying and content protection for facilities at scale.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="insure pb">
+  <div class="wrap-wide">
+    <div class="insure-in reveal">
+      <div>
+        <span class="eyebrow">02, Capabilities</span>
+        <h2 class="h2 mt-s" style="max-width:18ch;">All four disasters, at commercial scale.</h2>
+        <p class="lead maxw mt-m">The same IICRC-certified expertise behind our residential work, sized for buildings, with the crews, equipment and logistics to match.</p>
+        <a href="/emergency/" class="btn btn-blue btn-lg mt-m">Talk to our commercial team <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <ul class="insure-list">
+        <li><span class="num-label">→</span> Large-loss water extraction &amp; drying</li>
+        <li><span class="num-label">→</span> Fire, smoke &amp; odor remediation</li>
+        <li><span class="num-label">→</span> Commercial mold containment &amp; clearance</li>
+        <li><span class="num-label">→</span> Storm tarping, board-up &amp; water intrusion</li>
+        <li><span class="num-label">→</span> Contents pack-out &amp; document recovery</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="pt pb areas">
+  <div class="wrap-wide">
+    <div class="sec-head reveal"><div><span class="eyebrow">03, Why partner with us</span><h2 class="h2 mt-s" style="max-width:20ch;">Less downtime. Cleaner claims. One accountable team.</h2></div></div>
+    <div class="proc-grid mt-l" style="border-top:1px solid var(--line);">
+      <div class="proc reveal"><div class="proc-no">01</div><h3 class="h3">Priority response</h3><p>Partners get front-of-line dispatch, crews mobilized before the loss spreads.</p></div>
+      <div class="proc reveal"><div class="proc-no">02</div><h3 class="h3">Documentation that holds up</h3><p>Photos, moisture logs and line-item scopes built for boards, owners and carriers.</p></div>
+      <div class="proc reveal"><div class="proc-no">03</div><h3 class="h3">Minimal disruption</h3><p>After-hours and phased work that keeps tenants in place and doors open.</p></div>
+      <div class="proc reveal"><div class="proc-no">04</div><h3 class="h3">One point of contact</h3><p>A dedicated project lead across your whole portfolio, no chasing subs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIORITY PARTNERSHIP -->
+<section class="insight">
+  <div class="wrap-wide">
+    <div class="insight-in reveal">
+      <span class="eyebrow nodash" style="color:#9db8ff;">Before the next storm season</span>
+      <p class="h2" style="color:#fff;max-width:24ch;">Set up a <em>Priority Response Partnership</em>, no cost until you need us.</p>
+      <p class="lead" style="color:#aac3ff;max-width:46ch;">We pre-document your properties and put you at the front of the line. When a loss happens, there's no paperwork and no waiting, just a crew already on the way.</p>
+      <a href="/emergency/" class="link-arrow" style="color:#fff;">Request a partnership <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY CTA -->
+<section class="emcta">
+  <div class="wrap-wide emcta-in reveal">
+    <div>
+      <span class="eyebrow nodash" style="color:#ffd2c4;">Commercial emergency?</span>
+      <h2 class="display" style="color:#fff;max-width:16ch;">Your building can't wait. Neither do we.</h2>
+    </div>
+    <div class="emcta-actions">
+      <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a>
+      <a href="/emergency/" class="btn btn-lg btn-block" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5);">Request priority response <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+</BaseLayout>

@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { COMPANY } from "../../data/company";
+
+const title = "Emergency Restoration 24/7, Get Help Now | Paramount South Florida";
+const description = "24/7 emergency restoration in South Florida. Call now or request immediate help for water, fire, mold or storm damage. Crews on-site in 60 minutes.";
+---
+
+<BaseLayout title={title} description={description} path="/emergency/" bodyClass="epage">
+<div class="n">{COMPANY.phone}</div></div>
+      <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-alert">Call Now</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mnav">
+  <div class="grp">Services</div>
+  <a href="/restoration/water-damage/">Water Damage</a>
+  <a href="/restoration/water-damage/">Mold Remediation</a>
+  <a href="/restoration/water-damage/">Fire & Smoke</a>
+  <a href="/restoration/water-damage/">Storm & Hurricane</a>
+  <div class="grp">Explore</div>
+  <a href="/service-areas/">Service Areas</a>
+  <a href="/resources/">Resources</a>
+  <a href="/">Home</a>
+</div>
+
+<!-- EMERGENCY HERO -->
+<section class="ehero">
+  <div class="wrap-wide">
+    <div class="ehero-grid">
+      <div class="reveal">
+        <span class="ebadge"><span class="pulse"></span> Live dispatch · 24 / 7 / 365</span>
+        <h1 class="display mt-m" style="font-size:clamp(2.6rem,6vw,5rem);">If it's an emergency, <em>we're already moving.</em></h1>
+        <p class="lead" style="color:#aac3ff;max-width:42ch;margin-top:2rem;">Don't wait for the damage to spread. Call the line below, it's answered by a real dispatcher, or send the form and we'll call you back in minutes.</p>
+        <div class="ephone-big mt-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {COMPANY.phone}</div>
+        <div class="chips mt-m" style="--line-strong:rgba(255,255,255,.25);">
+          <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">60-min response</span>
+          <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">Insurance handled</span>
+          <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">IICRC certified</span>
+        </div>
+      </div>
+
+      <div class="eform reveal">
+        <div class="eyebrow nodash" style="color:#9db8ff;">Request immediate help</div>
+        <h2 class="h3" style="color:#fff;margin:.4rem 0 1.4rem;">We'll call you back in minutes.</h2>
+        <form data-emergency>
+          <div class="ef-grid">
+            <div class="field"><label>First name</label><input type="text" required placeholder="First"><span class="msg">Required</span></div>
+            <div class="field"><label>Last name</label><input type="text" required placeholder="Last"><span class="msg">Required</span></div>
+            <div class="field"><label>Phone</label><input type="tel" required placeholder="(000) 000-0000"><span class="msg">Valid phone required</span></div>
+            <div class="field"><label>City</label><input type="text" required placeholder="e.g. Miami"><span class="msg">Required</span></div>
+            <div class="field full"><label>Type of damage</label><select required><option value="">Select the emergency…</option><option>Water damage / flooding</option><option>Mold</option><option>Fire / smoke</option><option>Storm / hurricane</option><option>Sewage backup</option><option>Not sure, need help</option></select><span class="msg">Choose one</span></div>
+            <div class="field full"><label>Briefly, what's happening?</label><textarea rows="3" placeholder="Optional, a sentence helps us send the right crew"></textarea></div>
+          </div>
+          <div class="ef-actions">
+            <button class="btn btn-alert btn-lg btn-block" type="submit">Send emergency request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p style="text-align:center;color:#6f8195;font-size:.8rem;margin-top:.9rem;font-family:var(--mono);letter-spacing:.04em;">Or call {COMPANY.phone}, answered live</p>
+          </div>
+          <div data-success style="display:none;text-align:center;padding:1.5rem 0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="46" height="46" style="margin:0 auto 1rem;"><circle cx="12" cy="12" r="10"/><path d="M16 9l-5 5-3-3"/></svg>
+            <h3 style="color:#fff;font-family:var(--serif);font-weight:300;font-size:1.8rem;">Request received.</h3>
+            <p style="color:#9db8ff;margin-top:.5rem;">A dispatcher is calling you now. For the fastest response, call <strong style="color:#fff;">{COMPANY.phone}</strong>.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS NEXT -->
+<section class="ehow">
+  <div class="wrap-wide">
+    <div class="reveal"><span class="eyebrow nodash" style="color:#9db8ff;">What happens next</span><h2 class="h2 mt-s" style="color:#fff;max-width:18ch;">From your call to a crew at your door.</h2></div>
+    <div class="ehow-grid mt-l">
+      <div class="ehow-step reveal"><div class="n">01 / Now</div><h3>We dispatch</h3><p>A dispatcher logs your emergency and sends the nearest certified crew, most arrive within 60 minutes.</p></div>
+      <div class="ehow-step reveal"><div class="n">02 / On arrival</div><h3>We stop the damage</h3><p>The crew assesses, documents for your insurer, and begins mitigation immediately, extraction, containment, tarping.</p></div>
+      <div class="ehow-step reveal"><div class="n">03 / From there</div><h3>We restore</h3><p>We dry, repair and restore to pre-loss condition, coordinating your claim from first photo to final invoice.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHILE YOU WAIT -->
+<section class="pb" style="padding-top:clamp(1rem,2vw,2rem);">
+  <div class="wrap-wide">
+    <div class="reveal"><span class="eyebrow nodash" style="color:#9db8ff;">While you wait</span><h2 class="h2 mt-s" style="color:#fff;max-width:18ch;">Stay safe until we arrive.</h2></div>
+    <div class="edo-grid mt-l">
+      <div class="edo do reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><path d="M16 9l-5 5-3-3"/></svg> Do</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Shut off the water source if you safely can.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Turn off electricity to affected areas at the breaker.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Move valuables and electronics to dry ground.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Photograph the damage for your insurance claim.</li>
+        </ul>
+      </div>
+      <div class="edo dont reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="#ff7a52" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg> Don't</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 9l-6 6M9 9l6 6"/></svg> Enter rooms with standing water and live electricity.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 9l-6 6M9 9l6 6"/></svg> Use a household vacuum to remove water.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 9l-6 6M9 9l6 6"/></svg> Touch sewage or flood water without protection.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 9l-6 6M9 9l6 6"/></svg> Wait it out, humidity grows mold within 24–48 hours.</li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:clamp(3rem,6vw,5rem);color:#8da3b8;font-family:var(--mono);font-size:.8rem;letter-spacing:.06em;" class="reveal">Fully insured &amp; bonded · IICRC certified · We work with your insurance · Restoration only</p>
+  </div>
+</section>
+
+<footer class="foot" style="border-top:1px solid rgba(255,255,255,.12);">
+  <div class="wrap-wide">
+    <div class="foot-top">
+      <div>
+        <a href="/" class="brand"><span class="brand-mark">Para<b>mount</b></span><span class="brand-sub" style="margin-left:.4rem;">Property<br>Restoration</span></a>
+        <p style="margin-top:1.2rem;max-width:30ch;font-size:.95rem;">South Florida's 24/7 restoration response for water, fire, mold and storm damage. IICRC-certified, fully insured &amp; bonded.</p>
+        <div class="foot-badges" style="margin-top:1.4rem;"><span class="fbadge">IICRC Certified</span><span class="fbadge">Insured &amp; Bonded</span><span class="fbadge">24/7 Response</span></div>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="/restoration/water-damage/">Water Damage</a></li><li><a href="/restoration/mold-remediation/">Mold Remediation</a></li><li><a href="/restoration/fire-damage/">Fire &amp; Smoke</a></li><li><a href="/restoration/storm-damage/">Storm &amp; Hurricane</a></li><li><a href="/restoration/mold-testing/">Mold Testing</a></li><li><a href="/commercial/">Commercial</a></li></ul></div>
+      <div><h4>Service Areas</h4><ul><li><a href="/service-areas/miami/">Miami</a></li><li><a href="/service-areas/miami/">Fort Lauderdale</a></li><li><a href="/service-areas/miami/">Naples</a></li><li><a href="/service-areas/miami/">West Palm Beach</a></li><li><a href="/service-areas/miami/">Boca Raton</a></li><li><a href="/service-areas/">All 15 cities →</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="/our-process/">Our Process</a></li><li><a href="/insurance-claims/">Insurance Claims</a></li><li><a href="/resources/">Resources</a></li><li><a href="/emergency/">Emergency 24/7</a></li><li><a href="/contact/">Contact</a></li><li><a href={`tel:${COMPANY.phoneRaw}`}>{COMPANY.phone}</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Paramount Property Restoration. Fully insured &amp; bonded.</span><span>Restoration only, water · fire · mold · storm. Not a general contractor.</span></div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<style id="__om-edit-overrides"></style>
+</body>
+</html>
+</BaseLayout>

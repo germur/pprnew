@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { COMPANY , REGIONS } from "../../../data/company";
+
+const title = "Mold Remediation in South Florida | Paramount";
+const description = "Professional mold remediation across South Florida. Containment, HEPA filtration, safe removal and verified clearance. IICRC-certified, insurance handled, 24/7.";
+---
+
+<BaseLayout title={title} description={description} path="/restoration/mold-remediation/">
+<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span><a href="/restoration/water-damage/">Restoration</a><span>/</span> Mold Remediation</nav></div>
+<section class="phero"><div class="wrap-wide"><div class="phero-grid">
+  <div class="reveal">
+    <span class="eyebrow">Transactional · BOFU · 165K + 60K near-me / mo</span>
+    <h1 class="h1 mt-s">Mold Remediation in South Florida</h1>
+    <p class="empathy">If you can see it or smell it, it's already spreading, let's contain it today.</p>
+    <p class="lead maxw mt-m">Florida's heat and humidity make mold relentless. <strong>We contain it, remove it safely, and verify clearance to lab standard</strong>, so it doesn't quietly come back.</p>
+    <div class="chips mt-m"><span class="chip">60-min response</span><span class="chip">IICRC certified</span><span class="chip">Insurance billed direct</span><span class="chip">24/7 · 365</span></div>
+    <div class="phero-img ph " data-ph="Hero, mold containment with negative-air & HEPA filtration"></div>
+  </div>
+  <aside class="reveal"><div class="emcard">
+    <div class="eyebrow nodash" style="color:#9db8ff;">Need help now?</div>
+    <h3 class="mt-s">Talk to a certified crew.</h3>
+    <a href={`tel:${COMPANY.phoneRaw}`} class="phone">{COMPANY.phone}</a>
+    <div class="ph-note">Answered live · 24 hours a day</div>
+    <hr>
+    <form data-emergency class="ef-mini"><div style="display:flex;flex-direction:column;gap:.9rem;">
+      <div class="field"><label>Your name</label><input type="text" required placeholder="Full name"><span class="msg">Enter your name</span></div>
+      <div class="field"><label>Phone</label><input type="tel" required placeholder="(000) 000-0000"><span class="msg">Enter a valid phone</span></div>
+      <div class="field"><label>What happened?</label><select required><option value="">Select…</option><option>Visible mold growth</option><option>Musty smell, can't see it</option><option>Mold after a leak/flood</option><option>Bathroom / shower mold</option><option>Attic or HVAC mold</option></select><span class="msg">Choose one</span></div>
+    </div>
+    <button class="btn btn-alert btn-block mt-m" type="submit">Request callback</button>
+    <div data-success style="display:none;text-align:center;padding:1rem 0;"><svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="34" height="34" style="margin:0 auto .6rem;"><path d="M20 6L9 17l-5-5"/></svg><p style="color:#fff;font-weight:600;">Request received.</p><p style="color:#9db8ff;font-size:.9rem;">A dispatcher will call within minutes.</p></div>
+    </form>
+    <hr>
+    <ul class="ef-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> We work with all major insurers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> No-obligation on-site assessment</li></ul>
+  </div></aside>
+</div></div></section>
+<section class="trust"><div class="wrap-wide"><div class="trust-grid">
+  <div class="trust-item reveal"><div class="metric-sm">60min</div><span class="num-label" style="margin-top:.4rem;display:block;">Average on-site arrival</span></div>
+  <div class="trust-item reveal"><div class="metric-sm">XXX+</div><span class="num-label" style="margin-top:.4rem;display:block;">Mold jobs cleared to standard</span></div>
+  <div class="trust-item reveal"><div class="metric-sm">X.X★</div><span class="num-label" style="margin-top:.4rem;display:block;">XXX Google reviews</span></div>
+  <div class="trust-item reveal"><div class="metric-sm">100%</div><span class="num-label" style="margin-top:.4rem;display:block;">Insurance claims supported</span></div>
+</div></div></section>
+<section class="pt pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">01, What we handle</span><h2 class="h2 mt-s" style="max-width:20ch;">Every kind of mold, contained and cleared.</h2></div><p class="body-l" style="max-width:32ch;">From a bathroom corner to a whole air-handler, the principle is the same: contain, remove, verify.</p></div>
+  <div class="types mt-l"><div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="15" r="4"/></svg><h3>Black & toxic mold</h3><p>Stachybotrys and other heavy growth, removed under full containment.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h5"/></svg><h3>Bathroom & shower mold</h3><p>Recurring tile, grout and drywall mold from chronic moisture.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg><h3>Attic & roof-leak mold</h3><p>Growth on sheathing and insulation after slow roof leaks.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="18" height="9" rx="1.5"/><path d="M7 8V5h10v3M9 21h6"/></svg><h3>HVAC & air-handler mold</h3><p>Mold spread through ducts and coils, cleaned and treated.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V8l8-5 8 5v12M4 20h16"/><path d="M9 20v-5h6v5"/></svg><h3>Crawlspace & wall cavities</h3><p>Hidden growth inside walls and under floors, found and removed.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2.5C8 7 6 10 6 13a6 6 0 0 0 12 0c0-3-2-6-6-10.5z"/></svg><h3>Post-water-damage mold</h3><p>The mold that follows an untreated leak or flood, weeks later.</p></div></div>
+</div></section>
+<section class="pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">02, The process</span><h2 class="h2 mt-s" style="max-width:18ch;">Contain, remove, and prove it's gone.</h2></div></div>
+  <div class="steps mt-l"><div class="step reveal"><div class="n">01 / Inspect</div><div><h3 class="h3">Inspect & test</h3><div class="sd"><p>We locate the growth and its moisture source, and test where it matters.</p><p>You get an honest assessment, not a scare tactic.</p></div></div></div>
+      <div class="step reveal"><div class="n">02 / Contain</div><div><h3 class="h3">Containment</h3><div class="sd"><p>We seal the affected area with barriers to stop spores from spreading.</p><p>Critical in occupied homes and for sensitive family members.</p></div></div></div>
+      <div class="step reveal"><div class="n">03 / Filter</div><div><h3 class="h3">HEPA & negative air</h3><div class="sd"><p>Air scrubbers and negative-air machines capture airborne spores.</p><p>The air gets cleaner as the work proceeds, not dirtier.</p></div></div></div>
+      <div class="step reveal"><div class="n">04 / Remove</div><div><h3 class="h3">Remove & treat</h3><div class="sd"><p>Affected materials are removed and surfaces treated to industry standard.</p><p>We fix the moisture source so it can't simply regrow.</p></div></div></div>
+      <div class="step reveal"><div class="n">05 / Verify</div><div><h3 class="h3">Clear & verify</h3><div class="sd"><p>We verify the area is clean, and recommend third-party clearance testing.</p><p>You get proof, not just a promise.</p></div></div></div></div>
+</div></section>
+<section class="insight"><div class="wrap-wide"><div class="insight-in reveal">
+  <span class="eyebrow nodash" style="color:#9db8ff;">The thing people get wrong</span>
+  <p class="h2" style="color:#fff;max-width:24ch;">Mold is a <em>symptom</em>. Fix the water or it returns.</p>
+  <p class="lead" style="color:#aac3ff;max-width:46ch;">Killing the visible mold without finding and stopping the moisture source just resets the clock. We trace it to the leak, and dry it for good.</p>
+  <a href="/restoration/water-damage/" class="link-arrow" style="color:#fff;">Find and fix the water source <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+</div></div></section>
+<section class="pt pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">03, Recent projects</span><h2 class="h2 mt-s" style="max-width:18ch;">Drag to see before &amp; after.</h2></div></div>
+  <div class="proj-grid mt-l"><figure class="proj reveal"><div class="ba" data-ba><div class="ph ba-before" data-ph="AFTER, clean attic, Naples"></div><div class="ph ph-ink ba-after" data-ph="BEFORE, heavy mold growth"></div><div class="ba-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div></div><figcaption><span class="num-label">Naples · attic</span><p>Roof-leak mold removed and cleared to lab standard.</p></figcaption></figure>
+      <figure class="proj reveal"><div class="ba" data-ba><div class="ph ba-before" data-ph="AFTER, restored bathroom, Coral Gables"></div><div class="ph ph-ink ba-after" data-ph="BEFORE, shower mold"></div><div class="ba-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div></div><figcaption><span class="num-label">Coral Gables · bath</span><p>Chronic moisture fixed; recurring mold gone for good.</p></figcaption></figure>
+      <figure class="proj reveal"><div class="ba" data-ba><div class="ph ba-before" data-ph="AFTER, clean wall cavity, Miami"></div><div class="ph ph-ink ba-after" data-ph="BEFORE, hidden wall mold"></div><div class="ba-handle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div></div><figcaption><span class="num-label">Miami · wall cavity</span><p>Hidden growth found behind drywall, contained & removed.</p></figcaption></figure></div>
+</div></section>
+<section class="insure pb"><div class="wrap-wide"><div class="insure-in reveal">
+  <div><span class="eyebrow">Insurance, handled</span><h2 class="h2 mt-s" style="max-width:18ch;">We document the loss and bill your carrier directly.</h2><p class="lead maxw mt-m">Mold claims hinge on proving cause and scope. We document both, and tell you honestly when coverage is likely.</p><a href="/insurance-claims/" class="btn btn-blue btn-lg mt-m">How claims work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  <ul class="insure-list"><li><span class="num-label">01</span> Photo &amp; damage documentation</li><li><span class="num-label">02</span> Direct carrier billing</li><li><span class="num-label">03</span> Line-item scope &amp; estimate</li><li><span class="num-label">04</span> Adjuster coordination</li></ul>
+</div></div></section>
+<section class="pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">04, Common questions</span><h2 class="h2 mt-s">Mold Remediation, answered.</h2></div></div>
+  <div class="faq mt-l reveal"><details open><summary>Is black mold actually dangerous? <span class="pm"></span></summary><div class="ans">For most people it's a moderate irritant, but it matters more for kids, the elderly and anyone with asthma or allergies. We've written an honest guide: <a href="/resources/is-black-mold-dangerous/">is black mold dangerous?</a></div></details>
+      <details><summary>Do I need testing before remediation? <span class="pm"></span></summary><div class="ans">Not always. When the cause and scope are obvious, we can remediate directly. When they're not, an independent <a href="/restoration/mold-testing/">mold inspection</a> tells us exactly what we're dealing with.</div></details>
+      <details><summary>Will the mold come back? <span class="pm"></span></summary><div class="ans">Only if the moisture does. That's why we always find and fix the water source, remediation without that is just a temporary reset.</div></details>
+      <details><summary>Does insurance cover mold? <span class="pm"></span></summary><div class="ans">Sometimes, it usually depends on the cause. We document everything to support your claim. See <a href="/insurance-claims/">how claims work</a>.</div></details>
+      <details><summary>How long does remediation take? <span class="pm"></span></summary><div class="ans">Most residential jobs run 1–5 days depending on size and how much material must be removed. We'll give you a clear timeline up front.</div></details></div>
+</div></section>
+<section class="areas pt pb"><div class="wrap-wide reveal">
+  <span class="eyebrow">Where we serve</span><h2 class="h2 mt-s" style="max-width:24ch;">Mold Remediation across South Florida.</h2>
+  <div class="citylinks mt-m">{REGIONS.flatMap((r) => r.cities).map((c) => (<a href={`/service-areas/${c.slug}/`}>{c.name}</a>))}</div>
+</div></section>
+<section class="pb"><div class="wrap-wide">
+  <div class="sec-head reveal"><div><span class="eyebrow">Related services</span><h2 class="h2 mt-s">Keep exploring</h2></div></div>
+  <div class="rel-grid mt-l"><a href="/restoration/mold-testing/" class="rel reveal"><div><span class="num-label">Sister page · 66K/mo</span><h3 style="margin-top:.3rem;">Mold Testing & Inspection</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+      <a href="/restoration/water-damage/" class="rel reveal"><div><span class="num-label">Cross-link · 135K/mo</span><h3 style="margin-top:.3rem;">Water Damage Restoration</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></div>
+</div></section>
+<section class="emcta"><div class="wrap-wide emcta-in reveal">
+  <div><span class="eyebrow nodash" style="color:#ffd2c4;">Don't let it spread</span><h2 class="display" style="color:#fff;max-width:16ch;">Mold grows every day you wait.</h2></div>
+  <div class="emcta-actions"><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a><a href="/emergency/" class="btn btn-lg btn-block" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5);">Request help online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div></section>
+</BaseLayout>
