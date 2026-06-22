@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { COMPANY } from "../../data/company";
+const title = "Terms of Service | Paramount Property Restoration";
+const description = "The terms governing use of the Paramount Property Restoration website and services.";
+---
+
+<BaseLayout title={title} description={description} path="/terms-of-service/">
+<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span> Terms of Service</nav></div>
+<section class="pt pb"><div class="wrap" style="max-width:760px;">
+  <span class="eyebrow">Legal</span>
+  <h1 class="h1 mt-s">Terms of Service</h1>
+  <p class="num-label mt-s">Last updated: June 2026</p>
+  <div class="prose mt-l">
+    <p>By accessing this website, engaging our services, or requesting an estimate from {COMPANY.name}, you agree to the following terms. Please review them carefully.</p>
+    <h2 class="h3 mt-l">Acceptance of terms</h2>
+    <p>By using this website and our services you accept and agree to be bound by these terms. If you do not agree, please do not use the site or request our services.</p>
+    <h2 class="h3 mt-l">Services</h2>
+    <p>We provide water, fire, mold and storm damage restoration services across South Florida. Estimates are based on the information available at the time and may be adjusted once the full scope of a loss is assessed on site.</p>
+    <h2 class="h3 mt-l">Insurance</h2>
+    <p>We can assist with insurance documentation, but coverage decisions are made solely by your insurer. We do not guarantee that any specific cost will be covered.</p>
+    <h2 class="h3 mt-l">Limitation of liability</h2>
+    <p>Our liability is limited to the services performed under an agreed scope of work. We are not responsible for pre-existing conditions or damage outside the agreed scope.</p>
+    <h2 class="h3 mt-l">Changes</h2>
+    <p>We may update these terms at any time. Continued use of the site after changes constitutes acceptance of the revised terms.</p>
+    <h2 class="h3 mt-l">Contact</h2>
+    <p>Questions about these terms? Call {COMPANY.phone} or use our <a href="/contact/">contact page</a>.</p>
+  </div>
+</div></section>
+</BaseLayout>

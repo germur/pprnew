@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { COMPANY } from "../../data/company";
+const title = "Privacy Policy | Paramount Property Restoration";
+const description = "How Paramount Property Restoration collects, uses and protects your information.";
+---
+
+<BaseLayout title={title} description={description} path="/privacy-policy/">
+<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span> Privacy Policy</nav></div>
+<section class="pt pb"><div class="wrap" style="max-width:760px;">
+  <span class="eyebrow">Legal</span>
+  <h1 class="h1 mt-s">Privacy Policy</h1>
+  <p class="num-label mt-s">Last updated: June 2026</p>
+  <div class="prose mt-l">
+    <p>At {COMPANY.name}, we are committed to protecting your privacy and the security of your personal information. This policy explains what we collect, how we use it, and the choices you have.</p>
+    <h2 class="h3 mt-l">Information we collect</h2>
+    <p>We collect information you provide directly, such as your name, phone number, email and property address when you request service, submit a form, or call us. We may also collect basic technical data such as your IP address and browser type through standard web analytics.</p>
+    <h2 class="h3 mt-l">How we use your information</h2>
+    <p>We use your information to respond to service requests, schedule and perform restoration work, communicate with you about your project, handle insurance documentation, and improve our services. We do not sell your personal information.</p>
+    <h2 class="h3 mt-l">Cookies and tracking</h2>
+    <p>Our site may use cookies and similar technologies to understand how visitors use the site and to improve performance. You can control cookies through your browser settings.</p>
+    <h2 class="h3 mt-l">Third parties</h2>
+    <p>We may share information with service providers who help us operate (for example, analytics or scheduling tools) and with insurers when handling a claim on your behalf. We require these parties to protect your information.</p>
+    <h2 class="h3 mt-l">Contact</h2>
+    <p>If you have questions about this policy, call us at {COMPANY.phone} or reach us through our <a href="/contact/">contact page</a>.</p>
+  </div>
+</div></section>
+</BaseLayout>
