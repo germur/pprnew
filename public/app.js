@@ -84,7 +84,7 @@
     if(!a) return;
     try{
       if(typeof gtag==='function'){
-        gtag('event','phone_call',{link_url:a.getAttribute('href'),page_path:location.pathname});
+        gtag('event','click_to_call',{link_url:a.getAttribute('href'),page_path:location.pathname});
       }
     }catch(err){}
   });
