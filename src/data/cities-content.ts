@@ -29,7 +29,7 @@ export const CITY_CONTENT: Record<string, CityContent> = {
     intro: [
       "Miami does not get water damage like the rest of the country. Year-round humidity above 70 percent, an active Atlantic hurricane season, and king tides that push saltwater into Brickell and Edgewater garages all combine against your property. The building stock ranges from 1920s Coral Gables homes to glass towers downtown, and each one fails differently when water gets in.",
       "That mix is exactly why drying in place and fast clearance matter more here. In Miami's heat, untreated moisture turns to mold in a day or two, not a week. Our crews know which neighborhoods flood first, which buildings hide moisture behind stucco and CBS walls, and how to document a coastal loss so a Florida insurer approves it.",
-      "We respond across single-family, condo and commercial properties throughout Miami-Dade. That local volume is what lets us promise a real 60-minute response instead of a dispatch sent from two counties away.",
+      "We respond across single-family, condo and commercial properties throughout Miami-Dade. That local volume is what lets us promise a fast, truly local response instead of a dispatch sent from two counties away.",
     ],
     neighborhoods: [
       "Brickell", "Coral Gables", "Coconut Grove", "Little Havana",
