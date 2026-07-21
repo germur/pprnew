@@ -505,3 +505,7 @@ section{position:relative;}
 .field select option,
 .emcard .ef-mini select option,
 .eform .field select option{color:var(--ink);background:#fff;}
+
+/* El logo tiene texto azul marino: sobre el header oscuro de /emergency/ no se leia.
+   Lo pasamos a blanco solido manteniendo la silueta. */
+.epage .head .brand img{filter:brightness(0) invert(1);}
