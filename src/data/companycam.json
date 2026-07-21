@@ -1,191 +1,79 @@
 {
-  "kissimmee": [
+  "port-st-lucie": [
     {
-      "src": "/companycam/kissimmee/3251062472.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Tanaris Vazquez ",
+      "src": "/companycam/port-st-lucie/3373330986.webp",
+      "alt": "Restoration project in Port St. Lucie",
+      "projectName": "Wood full pro",
       "service": null
     },
     {
-      "src": "/companycam/kissimmee/3249792336.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Tanaris Vazquez ",
+      "src": "/companycam/port-st-lucie/3373330789.webp",
+      "alt": "Restoration project in Port St. Lucie",
+      "projectName": "Wood full pro",
       "service": null
     },
     {
-      "src": "/companycam/kissimmee/3249791641.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Tanaris Vazquez ",
+      "src": "/companycam/port-st-lucie/3373329638.webp",
+      "alt": "Restoration project in Port St. Lucie",
+      "projectName": "Wood full pro",
       "service": null
     },
     {
-      "src": "/companycam/kissimmee/3249790052.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Tanaris Vazquez ",
+      "src": "/companycam/port-st-lucie/3373299585.webp",
+      "alt": "Restoration project in Port St. Lucie",
+      "projectName": "Wood full pro",
       "service": null
     },
     {
-      "src": "/companycam/kissimmee/3249789444.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Tanaris Vazquez ",
+      "src": "/companycam/port-st-lucie/3373296477.webp",
+      "alt": "Restoration project in Port St. Lucie",
+      "projectName": "Wood full pro",
       "service": null
     },
     {
-      "src": "/companycam/kissimmee/3249789253.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Tanaris Vazquez ",
-      "service": null
-    },
-    {
-      "src": "/companycam/kissimmee/3244555819.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Lucy Lei",
-      "service": null
-    },
-    {
-      "src": "/companycam/kissimmee/3244552877.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Lucy Lei",
-      "service": null
-    },
-    {
-      "src": "/companycam/kissimmee/3244550457.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Lucy Lei",
-      "service": null
-    },
-    {
-      "src": "/companycam/kissimmee/3244550233.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Lucy Lei",
-      "service": null
-    },
-    {
-      "src": "/companycam/kissimmee/3244325635.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Lucy Lei",
-      "service": null
-    },
-    {
-      "src": "/companycam/kissimmee/3244325364.webp",
-      "alt": "Restoration project in Kissimmee",
-      "projectName": "Lucy Lei",
-      "service": null
-    }
-  ],
-  "hollywood": [
-    {
-      "src": "/companycam/hollywood/3241799562.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "Diana Correa",
-      "service": null
-    },
-    {
-      "src": "/companycam/hollywood/3241799450.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "Diana Correa",
-      "service": null
-    },
-    {
-      "src": "/companycam/hollywood/3241799353.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "Diana Correa",
-      "service": null
-    },
-    {
-      "src": "/companycam/hollywood/3241799258.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "Diana Correa",
-      "service": null
-    },
-    {
-      "src": "/companycam/hollywood/3241799139.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "Diana Correa",
-      "service": null
-    },
-    {
-      "src": "/companycam/hollywood/3241799048.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "Diana Correa",
-      "service": null
-    },
-    {
-      "src": "/companycam/hollywood/2977061510.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "David & Lois Harris",
-      "service": null
-    },
-    {
-      "src": "/companycam/hollywood/2977060550.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "David & Lois Harris",
-      "service": null
-    },
-    {
-      "src": "/companycam/hollywood/2977058485.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "David & Lois Harris",
-      "service": null
-    },
-    {
-      "src": "/companycam/hollywood/2977054987.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "David & Lois Harris",
-      "service": null
-    },
-    {
-      "src": "/companycam/hollywood/2977022083.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "David & Lois Harris",
-      "service": null
-    },
-    {
-      "src": "/companycam/hollywood/2977021659.webp",
-      "alt": "Restoration project in Hollywood",
-      "projectName": "David & Lois Harris",
-      "service": null
-    }
-  ],
-  "homestead": [
-    {
-      "src": "/companycam/homestead/3232893128.webp",
-      "alt": "Restoration project in Homestead",
-      "projectName": "Luis Montiel",
-      "service": null
-    },
-    {
-      "src": "/companycam/homestead/3232891924.webp",
-      "alt": "Restoration project in Homestead",
-      "projectName": "Luis Montiel",
-      "service": null
-    },
-    {
-      "src": "/companycam/homestead/3232891569.webp",
-      "alt": "Restoration project in Homestead",
-      "projectName": "Luis Montiel",
-      "service": null
-    },
-    {
-      "src": "/companycam/homestead/3232890709.webp",
-      "alt": "Restoration project in Homestead",
-      "projectName": "Luis Montiel",
-      "service": null
-    },
-    {
-      "src": "/companycam/homestead/3232879021.webp",
-      "alt": "Restoration project in Homestead",
-      "projectName": "Luis Montiel",
-      "service": null
-    },
-    {
-      "src": "/companycam/homestead/3232878824.webp",
-      "alt": "Restoration project in Homestead",
-      "projectName": "Luis Montiel",
+      "src": "/companycam/port-st-lucie/3373295174.webp",
+      "alt": "Restoration project in Port St. Lucie",
+      "projectName": "Wood full pro",
       "service": null
     }
   ],
   "miami": [
+    {
+      "src": "/companycam/miami/3355408247.webp",
+      "alt": "Restoration project in Miami",
+      "projectName": "Dwane Torres (Ivan)",
+      "service": null
+    },
+    {
+      "src": "/companycam/miami/3355407123.webp",
+      "alt": "Restoration project in Miami",
+      "projectName": "Dwane Torres (Ivan)",
+      "service": null
+    },
+    {
+      "src": "/companycam/miami/3355376372.webp",
+      "alt": "Restoration project in Miami",
+      "projectName": "Dwane Torres (Ivan)",
+      "service": null
+    },
+    {
+      "src": "/companycam/miami/3355369076.webp",
+      "alt": "Restoration project in Miami",
+      "projectName": "Dwane Torres (Ivan)",
+      "service": null
+    },
+    {
+      "src": "/companycam/miami/3355364681.webp",
+      "alt": "Restoration project in Miami",
+      "projectName": "Dwane Torres (Ivan)",
+      "service": null
+    },
+    {
+      "src": "/companycam/miami/3355356032.webp",
+      "alt": "Restoration project in Miami",
+      "projectName": "Dwane Torres (Ivan)",
+      "service": null
+    },
     {
       "src": "/companycam/miami/3231729254.webp",
       "alt": "Restoration project in Miami",
@@ -361,7 +249,7 @@
       "service": null
     },
     {
-      "src": "/companycam/miami/3177958134.webp",
+      "src": "/companycam/miami/3177958290.webp",
       "alt": "Restoration project in Miami",
       "projectName": "",
       "service": null
@@ -473,149 +361,267 @@
       "alt": "Restoration project in Miami",
       "projectName": "Maria & Sergio Vietez",
       "service": null
-    },
+    }
+  ],
+  "naples": [
     {
-      "src": "/companycam/miami/3003657662.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Cesar Mejia ",
+      "src": "/companycam/naples/3295060526.webp",
+      "alt": "Restoration project in Naples",
+      "projectName": "Fabiola Padron",
       "service": null
     },
     {
-      "src": "/companycam/miami/3003654031.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Cesar Mejia ",
+      "src": "/companycam/naples/3295058272.webp",
+      "alt": "Restoration project in Naples",
+      "projectName": "Fabiola Padron",
       "service": null
     },
     {
-      "src": "/companycam/miami/3003653819.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Cesar Mejia ",
+      "src": "/companycam/naples/3295056051.webp",
+      "alt": "Restoration project in Naples",
+      "projectName": "Fabiola Padron",
       "service": null
     },
     {
-      "src": "/companycam/miami/3003653774.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Cesar Mejia ",
+      "src": "/companycam/naples/3295053063.webp",
+      "alt": "Restoration project in Naples",
+      "projectName": "Fabiola Padron",
       "service": null
     },
     {
-      "src": "/companycam/miami/3003653722.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Cesar Mejia ",
+      "src": "/companycam/naples/3295047479.webp",
+      "alt": "Restoration project in Naples",
+      "projectName": "Fabiola Padron",
       "service": null
     },
     {
-      "src": "/companycam/miami/3003653682.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Cesar Mejia ",
+      "src": "/companycam/naples/3295045398.webp",
+      "alt": "Restoration project in Naples",
+      "projectName": "Fabiola Padron",
+      "service": null
+    }
+  ],
+  "orlando": [
+    {
+      "src": "/companycam/orlando/3262196406.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Jesus Rojas",
       "service": null
     },
     {
-      "src": "/companycam/miami/2996729356.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Maria Manjarres",
+      "src": "/companycam/orlando/3262196138.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Jesus Rojas",
       "service": null
     },
     {
-      "src": "/companycam/miami/2996728296.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Maria Manjarres",
+      "src": "/companycam/orlando/3181683461.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Jesus Rojas",
       "service": null
     },
     {
-      "src": "/companycam/miami/2996718079.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Maria Manjarres",
+      "src": "/companycam/orlando/3181683352.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Jesus Rojas",
       "service": null
     },
     {
-      "src": "/companycam/miami/2996717509.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Maria Manjarres",
+      "src": "/companycam/orlando/3181683252.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Jesus Rojas",
       "service": null
     },
     {
-      "src": "/companycam/miami/2996716193.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Maria Manjarres",
+      "src": "/companycam/orlando/3181683057.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Jesus Rojas",
       "service": null
     },
     {
-      "src": "/companycam/miami/2996711665.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Maria Manjarres",
+      "src": "/companycam/orlando/3077009011.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Gigliola Castrochaves",
       "service": null
     },
     {
-      "src": "/companycam/miami/2995127762.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Janet Cordoneda",
+      "src": "/companycam/orlando/3077008872.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Gigliola Castrochaves",
       "service": null
     },
     {
-      "src": "/companycam/miami/2995127591.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Janet Cordoneda",
+      "src": "/companycam/orlando/3077008334.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Gigliola Castrochaves",
       "service": null
     },
     {
-      "src": "/companycam/miami/2995126278.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Janet Cordoneda",
+      "src": "/companycam/orlando/3077008140.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Gigliola Castrochaves",
       "service": null
     },
     {
-      "src": "/companycam/miami/2995125933.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Janet Cordoneda",
+      "src": "/companycam/orlando/3077007496.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Gigliola Castrochaves",
       "service": null
     },
     {
-      "src": "/companycam/miami/2995125810.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Janet Cordoneda",
+      "src": "/companycam/orlando/3077007356.webp",
+      "alt": "Restoration project in Orlando",
+      "projectName": "Gigliola Castrochaves",
+      "service": null
+    }
+  ],
+  "kissimmee": [
+    {
+      "src": "/companycam/kissimmee/3251062472.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Tanaris Vazquez ",
       "service": null
     },
     {
-      "src": "/companycam/miami/2995125331.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Janet Cordoneda",
+      "src": "/companycam/kissimmee/3249792336.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Tanaris Vazquez ",
       "service": null
     },
     {
-      "src": "/companycam/miami/2992191809.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Kristy Campo",
+      "src": "/companycam/kissimmee/3249791641.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Tanaris Vazquez ",
       "service": null
     },
     {
-      "src": "/companycam/miami/2992189572.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Kristy Campo",
+      "src": "/companycam/kissimmee/3249790052.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Tanaris Vazquez ",
       "service": null
     },
     {
-      "src": "/companycam/miami/2992188752.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Kristy Campo",
+      "src": "/companycam/kissimmee/3249789444.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Tanaris Vazquez ",
       "service": null
     },
     {
-      "src": "/companycam/miami/2992186928.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Kristy Campo",
+      "src": "/companycam/kissimmee/3249789253.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Tanaris Vazquez ",
       "service": null
     },
     {
-      "src": "/companycam/miami/2992186325.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Kristy Campo",
+      "src": "/companycam/kissimmee/3244555819.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Lucy Lei",
       "service": null
     },
     {
-      "src": "/companycam/miami/2992184257.webp",
-      "alt": "Restoration project in Miami",
-      "projectName": "Kristy Campo",
+      "src": "/companycam/kissimmee/3244552877.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Lucy Lei",
+      "service": null
+    },
+    {
+      "src": "/companycam/kissimmee/3244550457.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Lucy Lei",
+      "service": null
+    },
+    {
+      "src": "/companycam/kissimmee/3244550233.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Lucy Lei",
+      "service": null
+    },
+    {
+      "src": "/companycam/kissimmee/3244325635.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Lucy Lei",
+      "service": null
+    },
+    {
+      "src": "/companycam/kissimmee/3244325364.webp",
+      "alt": "Restoration project in Kissimmee",
+      "projectName": "Lucy Lei",
+      "service": null
+    }
+  ],
+  "hollywood": [
+    {
+      "src": "/companycam/hollywood/3241799562.webp",
+      "alt": "Restoration project in Hollywood",
+      "projectName": "Diana Correa",
+      "service": null
+    },
+    {
+      "src": "/companycam/hollywood/3241799450.webp",
+      "alt": "Restoration project in Hollywood",
+      "projectName": "Diana Correa",
+      "service": null
+    },
+    {
+      "src": "/companycam/hollywood/3241799353.webp",
+      "alt": "Restoration project in Hollywood",
+      "projectName": "Diana Correa",
+      "service": null
+    },
+    {
+      "src": "/companycam/hollywood/3241799258.webp",
+      "alt": "Restoration project in Hollywood",
+      "projectName": "Diana Correa",
+      "service": null
+    },
+    {
+      "src": "/companycam/hollywood/3241799139.webp",
+      "alt": "Restoration project in Hollywood",
+      "projectName": "Diana Correa",
+      "service": null
+    },
+    {
+      "src": "/companycam/hollywood/3241799048.webp",
+      "alt": "Restoration project in Hollywood",
+      "projectName": "Diana Correa",
+      "service": null
+    }
+  ],
+  "homestead": [
+    {
+      "src": "/companycam/homestead/3232893128.webp",
+      "alt": "Restoration project in Homestead",
+      "projectName": "Luis Montiel",
+      "service": null
+    },
+    {
+      "src": "/companycam/homestead/3232891924.webp",
+      "alt": "Restoration project in Homestead",
+      "projectName": "Luis Montiel",
+      "service": null
+    },
+    {
+      "src": "/companycam/homestead/3232891569.webp",
+      "alt": "Restoration project in Homestead",
+      "projectName": "Luis Montiel",
+      "service": null
+    },
+    {
+      "src": "/companycam/homestead/3232890709.webp",
+      "alt": "Restoration project in Homestead",
+      "projectName": "Luis Montiel",
+      "service": null
+    },
+    {
+      "src": "/companycam/homestead/3232879021.webp",
+      "alt": "Restoration project in Homestead",
+      "projectName": "Luis Montiel",
+      "service": null
+    },
+    {
+      "src": "/companycam/homestead/3232878824.webp",
+      "alt": "Restoration project in Homestead",
+      "projectName": "Luis Montiel",
       "service": null
     }
   ],
@@ -883,80 +889,6 @@
       "service": null
     }
   ],
-  "orlando": [
-    {
-      "src": "/companycam/orlando/3181683461.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Jesus Rojas",
-      "service": null
-    },
-    {
-      "src": "/companycam/orlando/3181683352.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Jesus Rojas",
-      "service": null
-    },
-    {
-      "src": "/companycam/orlando/3181683252.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Jesus Rojas",
-      "service": null
-    },
-    {
-      "src": "/companycam/orlando/3181683057.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Jesus Rojas",
-      "service": null
-    },
-    {
-      "src": "/companycam/orlando/3181682945.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Jesus Rojas",
-      "service": null
-    },
-    {
-      "src": "/companycam/orlando/3181682655.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Jesus Rojas",
-      "service": null
-    },
-    {
-      "src": "/companycam/orlando/3077009011.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Gigliola Castrochaves",
-      "service": null
-    },
-    {
-      "src": "/companycam/orlando/3077008872.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Gigliola Castrochaves",
-      "service": null
-    },
-    {
-      "src": "/companycam/orlando/3077008334.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Gigliola Castrochaves",
-      "service": null
-    },
-    {
-      "src": "/companycam/orlando/3077008140.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Gigliola Castrochaves",
-      "service": null
-    },
-    {
-      "src": "/companycam/orlando/3077007496.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Gigliola Castrochaves",
-      "service": null
-    },
-    {
-      "src": "/companycam/orlando/3077007356.webp",
-      "alt": "Restoration project in Orlando",
-      "projectName": "Gigliola Castrochaves",
-      "service": null
-    }
-  ],
   "coral-springs": [
     {
       "src": "/companycam/coral-springs/3129101555.webp",
@@ -1219,13 +1151,13 @@
   ],
   "st-cloud": [
     {
-      "src": "/companycam/st-cloud/3076217102.webp",
+      "src": "/companycam/st-cloud/3076217152.webp",
       "alt": "Restoration project in St Cloud",
       "projectName": "Yohana Ltriago",
       "service": null
     },
     {
-      "src": "/companycam/st-cloud/3076217152.webp",
+      "src": "/companycam/st-cloud/3076217102.webp",
       "alt": "Restoration project in St Cloud",
       "projectName": "Yohana Ltriago",
       "service": null
@@ -1437,42 +1369,6 @@
       "alt": "Restoration project in Boynton Beach",
       "projectName": "Cindy Kanterman Full Pro",
       "service": null
-    },
-    {
-      "src": "/companycam/boynton-beach/2996569410.webp",
-      "alt": "Restoration project in Boynton Beach",
-      "projectName": "Jerrold Zafrani Full pro rebuild",
-      "service": null
-    },
-    {
-      "src": "/companycam/boynton-beach/2996569287.webp",
-      "alt": "Restoration project in Boynton Beach",
-      "projectName": "Jerrold Zafrani Full pro rebuild",
-      "service": null
-    },
-    {
-      "src": "/companycam/boynton-beach/2996569190.webp",
-      "alt": "Restoration project in Boynton Beach",
-      "projectName": "Jerrold Zafrani Full pro rebuild",
-      "service": null
-    },
-    {
-      "src": "/companycam/boynton-beach/2996569092.webp",
-      "alt": "Restoration project in Boynton Beach",
-      "projectName": "Jerrold Zafrani Full pro rebuild",
-      "service": null
-    },
-    {
-      "src": "/companycam/boynton-beach/2996568879.webp",
-      "alt": "Restoration project in Boynton Beach",
-      "projectName": "Jerrold Zafrani Full pro rebuild",
-      "service": null
-    },
-    {
-      "src": "/companycam/boynton-beach/2996568653.webp",
-      "alt": "Restoration project in Boynton Beach",
-      "projectName": "Jerrold Zafrani Full pro rebuild",
-      "service": null
     }
   ],
   "sunrise": [
@@ -1527,13 +1423,13 @@
       "service": null
     },
     {
-      "src": "/companycam/alva/3022679224.webp",
+      "src": "/companycam/alva/3022679238.webp",
       "alt": "Restoration project in Alva",
       "projectName": "Patrick Newman",
       "service": null
     },
     {
-      "src": "/companycam/alva/3022679238.webp",
+      "src": "/companycam/alva/3022679224.webp",
       "alt": "Restoration project in Alva",
       "projectName": "Patrick Newman",
       "service": null
@@ -1586,120 +1482,6 @@
       "src": "/companycam/stuart/3021968275.webp",
       "alt": "Restoration project in Stuart",
       "projectName": "O’neil Full Pro",
-      "service": null
-    }
-  ],
-  "davie": [
-    {
-      "src": "/companycam/davie/2998086573.webp",
-      "alt": "Restoration project in Davie",
-      "projectName": "Sharon Manjarres",
-      "service": null
-    },
-    {
-      "src": "/companycam/davie/2998038074.webp",
-      "alt": "Restoration project in Davie",
-      "projectName": "Sharon Manjarres",
-      "service": null
-    },
-    {
-      "src": "/companycam/davie/2998037585.webp",
-      "alt": "Restoration project in Davie",
-      "projectName": "Sharon Manjarres",
-      "service": null
-    },
-    {
-      "src": "/companycam/davie/2997969192.webp",
-      "alt": "Restoration project in Davie",
-      "projectName": "Sharon Manjarres",
-      "service": null
-    },
-    {
-      "src": "/companycam/davie/2997968664.webp",
-      "alt": "Restoration project in Davie",
-      "projectName": "Sharon Manjarres",
-      "service": null
-    },
-    {
-      "src": "/companycam/davie/2997967009.webp",
-      "alt": "Restoration project in Davie",
-      "projectName": "Sharon Manjarres",
-      "service": null
-    }
-  ],
-  "cooper-city": [
-    {
-      "src": "/companycam/cooper-city/2992721815.webp",
-      "alt": "Restoration project in Cooper City",
-      "projectName": "Lauren Capote",
-      "service": null
-    },
-    {
-      "src": "/companycam/cooper-city/2992718469.webp",
-      "alt": "Restoration project in Cooper City",
-      "projectName": "Lauren Capote",
-      "service": null
-    },
-    {
-      "src": "/companycam/cooper-city/2992717698.webp",
-      "alt": "Restoration project in Cooper City",
-      "projectName": "Lauren Capote",
-      "service": null
-    },
-    {
-      "src": "/companycam/cooper-city/2992717220.webp",
-      "alt": "Restoration project in Cooper City",
-      "projectName": "Lauren Capote",
-      "service": null
-    },
-    {
-      "src": "/companycam/cooper-city/2992679594.webp",
-      "alt": "Restoration project in Cooper City",
-      "projectName": "Lauren Capote",
-      "service": null
-    },
-    {
-      "src": "/companycam/cooper-city/2992678195.webp",
-      "alt": "Restoration project in Cooper City",
-      "projectName": "Lauren Capote",
-      "service": null
-    }
-  ],
-  "miami-gardens": [
-    {
-      "src": "/companycam/miami-gardens/2980460751.webp",
-      "alt": "Restoration project in Miami Gardens",
-      "projectName": "Miriam Medina",
-      "service": null
-    },
-    {
-      "src": "/companycam/miami-gardens/2980459885.webp",
-      "alt": "Restoration project in Miami Gardens",
-      "projectName": "Miriam Medina",
-      "service": null
-    },
-    {
-      "src": "/companycam/miami-gardens/2980455718.webp",
-      "alt": "Restoration project in Miami Gardens",
-      "projectName": "Miriam Medina",
-      "service": null
-    },
-    {
-      "src": "/companycam/miami-gardens/2980443662.webp",
-      "alt": "Restoration project in Miami Gardens",
-      "projectName": "Miriam Medina",
-      "service": null
-    },
-    {
-      "src": "/companycam/miami-gardens/2980443418.webp",
-      "alt": "Restoration project in Miami Gardens",
-      "projectName": "Miriam Medina",
-      "service": null
-    },
-    {
-      "src": "/companycam/miami-gardens/2980440871.webp",
-      "alt": "Restoration project in Miami Gardens",
-      "projectName": "Miriam Medina",
       "service": null
     }
   ]
