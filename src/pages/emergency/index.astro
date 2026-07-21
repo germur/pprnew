@@ -2,8 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { COMPANY } from "../../data/company";
 
-const title = "Emergency Restoration 24/7, Get Help Now | Paramount South Florida";
-const description = "24/7 emergency restoration in South Florida. Call now or request immediate help for water, fire, mold or storm damage. Crews on-site in 60 minutes.";
+const title = "Emergency Restoration 24/7, Get Help Now | Paramount";
+const description = "24/7 emergency restoration in South Florida. Call now or request immediate help for water, fire, mold or storm damage. Crews dispatched immediately.";
 ---
 
 <BaseLayout title={title} description={description} path="/emergency/" bodyClass="epage">
@@ -36,7 +36,7 @@ const description = "24/7 emergency restoration in South Florida. Call now or re
         <p class="lead" style="color:#aac3ff;max-width:42ch;margin-top:2rem;">Don't wait for the damage to spread. Call the line below, it's answered by a real dispatcher, or send the form and we'll call you back in minutes.</p>
         <div class="ephone-big mt-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {COMPANY.phone}</div>
         <div class="chips mt-m" style="--line-strong:rgba(255,255,255,.25);">
-          <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">60-min response</span>
+          <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">24/7 response</span>
           <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">Insurance handled</span>
           <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">IICRC certified</span>
         </div>
@@ -74,7 +74,7 @@ const description = "24/7 emergency restoration in South Florida. Call now or re
   <div class="wrap-wide">
     <div class="reveal"><span class="eyebrow nodash" style="color:#9db8ff;">What happens next</span><h2 class="h2 mt-s" style="color:#fff;max-width:18ch;">From your call to a crew at your door.</h2></div>
     <div class="ehow-grid mt-l">
-      <div class="ehow-step reveal"><div class="n">01 / Now</div><h3>We dispatch</h3><p>A dispatcher logs your emergency and sends the nearest certified crew, most arrive within 60 minutes.</p></div>
+      <div class="ehow-step reveal"><div class="n">01 / Now</div><h3>We dispatch</h3><p>A dispatcher logs your emergency and sends the nearest certified crew right away.</p></div>
       <div class="ehow-step reveal"><div class="n">02 / On arrival</div><h3>We stop the damage</h3><p>The crew assesses, documents for your insurer, and begins mitigation immediately, extraction, containment, tarping.</p></div>
       <div class="ehow-step reveal"><div class="n">03 / From there</div><h3>We restore</h3><p>We dry, repair and restore to pre-loss condition, coordinating your claim from first photo to final invoice.</p></div>
     </div>
@@ -118,7 +118,7 @@ const description = "24/7 emergency restoration in South Florida. Call now or re
         <div class="foot-badges" style="margin-top:1.4rem;"><span class="fbadge">IICRC Certified</span><span class="fbadge">Insured &amp; Bonded</span><span class="fbadge">24/7 Response</span></div>
       </div>
       <div><h4>Services</h4><ul><li><a href="/restoration/water-damage/">Water Damage</a></li><li><a href="/restoration/mold-remediation/">Mold Remediation</a></li><li><a href="/restoration/fire-damage/">Fire &amp; Smoke</a></li><li><a href="/restoration/storm-damage/">Storm &amp; Hurricane</a></li><li><a href="/restoration/mold-testing/">Mold Testing</a></li><li><a href="/commercial/">Commercial</a></li></ul></div>
-      <div><h4>Service Areas</h4><ul><li><a href="/service-areas/miami/">Miami</a></li><li><a href="/service-areas/miami/">Fort Lauderdale</a></li><li><a href="/service-areas/miami/">Naples</a></li><li><a href="/service-areas/miami/">West Palm Beach</a></li><li><a href="/service-areas/miami/">Boca Raton</a></li><li><a href="/service-areas/">All 15 cities →</a></li></ul></div>
+      <div><h4>Service Areas</h4><ul><li><a href="/service-areas/miami/">Miami</a></li><li><a href="/service-areas/fort-lauderdale/">Fort Lauderdale</a></li><li><a href="/service-areas/naples/">Naples</a></li><li><a href="/service-areas/west-palm-beach/">West Palm Beach</a></li><li><a href="/service-areas/boca-raton/">Boca Raton</a></li><li><a href="/service-areas/">All 35 cities →</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/our-process/">Our Process</a></li><li><a href="/insurance-claims/">Insurance Claims</a></li><li><a href="/resources/">Resources</a></li><li><a href="/emergency/">Emergency 24/7</a></li><li><a href="/contact/">Contact</a></li><li><a href={`tel:${COMPANY.phoneRaw}`}>{COMPANY.phone}</a></li></ul></div>
     </div>
     <div class="foot-bottom"><span>© 2026 Paramount Property Restoration. Fully insured &amp; bonded.</span><span>Restoration only, water · fire · mold · storm. Not a general contractor.</span></div>

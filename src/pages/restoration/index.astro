@@ -5,7 +5,7 @@ import Icon from "../../components/Icon.astro";
 
 const pillars = SERVICES.filter((s) => s.slug !== "commercial");
 const title = "Property Restoration in South Florida | Paramount";
-const description = "Full-service property restoration across South Florida: water damage, mold remediation, fire & smoke, storm & hurricane, and mold testing. IICRC-certified, 24/7, insurance handled.";
+const description = "Full-service property restoration across South Florida: water damage, mold, fire and smoke, storm and hurricane, mold testing. IICRC-certified, 24/7.";
 ---
 
 <BaseLayout title={title} description={description} path="/restoration/">
@@ -16,7 +16,7 @@ const description = "Full-service property restoration across South Florida: wat
       <div class="reveal" style="max-width:60ch;">
         <span class="eyebrow">Property Restoration · South Florida</span>
         <h1 class="h1 mt-s">Restoration done right, from the first hour.</h1>
-        <p class="lead maxw mt-m">When water, fire, mold or a storm hits your property, the response in the first hour decides the repair bill. <strong>We answer 24/7, arrive in 60 minutes, and handle the insurance.</strong></p>
+        <p class="lead maxw mt-m">When water, fire, mold or a storm hits your property, the response in the first hour decides the repair bill. <strong>We answer 24/7, dispatch immediately, and handle the insurance.</strong></p>
         <div class="cta-row mt-l">
           <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-primary btn-lg">Call {COMPANY.phone}</a>
           <a href="/emergency/" class="btn btn-ghost btn-lg">Request help <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>

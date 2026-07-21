@@ -25,7 +25,7 @@ const serviceCards = SERVICES.filter((s) => s.slug !== "commercial");
 const local = CITY_CONTENT[city.slug];
 // Fotos reales de proyectos en esta ciudad (CompanyCam). Máximo 6 en la galería.
 const cityPhotos = ((companycam as Record<string, { src: string; alt: string; projectName: string }[]>)[city.slug] || []).slice(0, 6);
-const title = `${city.name} Restoration | Water, Fire, Mold & Storm | Paramount`;
+const title = `${city.name} Restoration | Water, Fire, Mold & Storm`;
 const description = `24/7 property restoration in ${city.name}, FL. Water damage, mold, fire and storm recovery by local IICRC-certified crews. 24/7 dispatch, insurance handled.`;
 ---
 

@@ -23,8 +23,11 @@ const schema = {
   name: COMPANY.name,
   description: description,
   url: new URL("/", Astro.site).href,
-  telephone: COMPANY.phoneRaw,
+  telephone: "+1" + COMPANY.phoneRaw,
   email: COMPANY.email,
+  image: new URL("/ppr-logo.png", Astro.site).href,
+  logo: new URL("/ppr-logo.png", Astro.site).href,
+  sameAs: [COMPANY.social.linkedin, COMPANY.social.facebook, COMPANY.social.instagram],
   address: {
     "@type": "PostalAddress",
     streetAddress: COMPANY.address,
