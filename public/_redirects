@@ -88,3 +88,19 @@
 /resources/water-damage/emergency-water-extraction-guide/  /410-gone  410
 /resources/water-damage/water-damage-signs/  /410-gone  410
 /sitemap/  /410-gone  410
+
+# --- 301 hubs regionales viejos -> hub de areas ---
+/service-areas/south-florida/  /service-areas/  301
+/service-areas/central-florida/  /service-areas/  301
+/service-areas/tampa-bay/  /service-areas/  301
+
+# --- SPLATS de seguridad (matriz programatica vieja, ~900 URLs) ---
+# Sin force: si el archivo real existe, Netlify lo sirve; el splat solo captura lo inexistente.
+/blog/*  /resources/  301
+/services/*  /410-gone  410
+/cleaning-services/*  /410-gone  410
+/remodeling/*  /410-gone  410
+/landing/*  /410-gone  410
+/restoration/*  /410-gone  410
+/service-areas/*  /410-gone  410
+/resources/*  /410-gone  410

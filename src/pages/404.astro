@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const title = "Page not found | Paramount Property Restoration";
+const description = "That page does not exist. Find water, fire, mold and storm damage restoration services across South Florida.";
+---
+
+<BaseLayout title={title} description={description} path="/404/">
+<section class="phero"><div class="wrap-wide"><div class="reveal" style="max-width:640px;">
+  <span class="eyebrow">404 · Not found</span>
+  <h1 class="h1 mt-s">That page doesn't exist.</h1>
+  <p class="lead mt-m">The address may be mistyped or the page may have moved. If you have an active emergency, call us now. Otherwise, these will get you where you need to go.</p>
+  <div class="cta-row mt-l">
+    <a href="/restoration/" class="btn btn-primary btn-lg">View our services</a>
+    <a href="/service-areas/" class="btn btn-ghost btn-lg">Service areas</a>
+    <a href="/" class="btn btn-ghost btn-lg">Home</a>
+  </div>
+</div></div></section>
+</BaseLayout>
