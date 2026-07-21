@@ -28,7 +28,7 @@ const dropdownServices = SERVICES;
         <button>Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
         <div class="dropdown">
           {dropdownServices.map((s) => (
-            <a class="dd-item" href={s.url}><span class="t">{s.short} <span class="v">{s.vol === "B2B" ? "B2B" : s.vol + "/mo"}</span></span><span class="d">{s.desc}</span></a>
+            <a class="dd-item" href={s.url}><span class="t">{s.short}</span><span class="d">{s.desc}</span></a>
           ))}
           <div class="dd-foot">
             <span class="num-label">Restoration · water · fire · mold · storm</span>
@@ -56,7 +56,7 @@ const dropdownServices = SERVICES;
 <div class="mnav">
   <div class="grp">Services</div>
   {SERVICES.filter(s => s.slug !== "commercial").map((s) => (
-    <a href={s.url}>{s.short} {s.vol !== "B2B" && <span class="v">{s.vol}</span>}</a>
+    <a href={s.url}>{s.short}</a>
   ))}
   <div class="grp">Explore</div>
   <a href="/service-areas/">Service Areas</a>
