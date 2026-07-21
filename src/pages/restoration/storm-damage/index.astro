@@ -24,10 +24,10 @@ const description = "Storm and hurricane damage restoration in South Florida. Em
     <a href={`tel:${COMPANY.phoneRaw}`} class="phone">{COMPANY.phone}</a>
     <div class="ph-note">Answered live · 24 hours a day</div>
     <hr>
-    <form data-emergency class="ef-mini"><div style="display:flex;flex-direction:column;gap:.9rem;">
-      <div class="field"><label>Your name</label><input type="text" required placeholder="Full name"><span class="msg">Enter your name</span></div>
-      <div class="field"><label>Phone</label><input type="tel" required placeholder="(000) 000-0000"><span class="msg">Enter a valid phone</span></div>
-      <div class="field"><label>What's going on?</label><select required><option value="">Select…</option><option>Roof damage / need tarping</option><option>Flooding / water intrusion</option><option>Wind & debris damage</option><option>Fallen tree</option><option>Storm-surge flooding</option></select><span class="msg">Choose one</span></div>
+    <form data-emergency class="ef-mini" name="storm-damage" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="storm-damage" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p><div style="display:flex;flex-direction:column;gap:.9rem;">
+      <div class="field"><label>Your name</label><input type="text" name="name" required placeholder="Full name"><span class="msg">Enter your name</span></div>
+      <div class="field"><label>Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000"><span class="msg">Enter a valid phone</span></div>
+      <div class="field"><label>What's going on?</label><select name="service" required><option value="">Select…</option><option>Roof damage / need tarping</option><option>Flooding / water intrusion</option><option>Wind & debris damage</option><option>Fallen tree</option><option>Storm-surge flooding</option></select><span class="msg">Choose one</span></div>
     </div>
     <button class="btn btn-alert btn-block mt-m" type="submit">Request callback</button>
     <div data-success style="display:none;text-align:center;padding:1rem 0;"><svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="34" height="34" style="margin:0 auto .6rem;"><path d="M20 6L9 17l-5-5"/></svg><p style="color:#fff;font-weight:600;">Request received.</p><p style="color:#9db8ff;font-size:.9rem;">We'll call you shortly.</p></div>

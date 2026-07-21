@@ -26,12 +26,12 @@ const description = "Contact Paramount Property Restoration. Call 24/7 for emerg
     <h3 class="mt-s">We'll get back to you.</h3>
     <p class="sub">For emergencies, please call, it's faster.</p>
     <hr>
-    <form data-emergency class="ef-mini">
+    <form data-emergency class="ef-mini" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="contact" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p>
       <div style="display:flex;flex-direction:column;gap:.9rem;">
-        <div class="field"><label>Your name</label><input type="text" required placeholder="Full name"><span class="msg">Enter your name</span></div>
-        <div class="field"><label>Phone</label><input type="tel" required placeholder="(000) 000-0000"><span class="msg">Enter a valid phone</span></div>
-        <div class="field"><label>City</label><input type="text" placeholder="e.g. Miami"></div>
-        <div class="field"><label>How can we help?</label><select required><option value="">Select…</option><option>Water damage</option><option>Mold</option><option>Fire / smoke</option><option>Storm / hurricane</option><option>Commercial / property management</option><option>Insurance question</option><option>Something else</option></select><span class="msg">Choose one</span></div>
+        <div class="field"><label>Your name</label><input type="text" name="name" required placeholder="Full name"><span class="msg">Enter your name</span></div>
+        <div class="field"><label>Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000"><span class="msg">Enter a valid phone</span></div>
+        <div class="field"><label>City</label><input type="text" name="city" placeholder="e.g. Miami"></div>
+        <div class="field"><label>How can we help?</label><select name="service" required><option value="">Select…</option><option>Water damage</option><option>Mold</option><option>Fire / smoke</option><option>Storm / hurricane</option><option>Commercial / property management</option><option>Insurance question</option><option>Something else</option></select><span class="msg">Choose one</span></div>
       </div>
       <button class="btn btn-blue btn-block mt-m" type="submit">Send message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       <div data-success style="display:none;text-align:center;padding:1rem 0;">

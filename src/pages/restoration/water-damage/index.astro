@@ -38,11 +38,11 @@ const description = "Emergency water damage restoration across South Florida. Ex
           <a href={`tel:${COMPANY.phoneRaw}`} class="phone">{COMPANY.phone}</a>
           <div class="ph-note">Answered live · 24 hours a day</div>
           <hr>
-          <form data-emergency class="ef-mini">
+          <form data-emergency class="ef-mini" name="water-damage" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="water-damage" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p>
             <div style="display:flex;flex-direction:column;gap:.9rem;">
-              <div class="field"><label>Your name</label><input type="text" required placeholder="Full name"><span class="msg">Enter your name</span></div>
-              <div class="field"><label>Phone</label><input type="tel" required placeholder="(000) 000-0000"><span class="msg">Enter a valid phone</span></div>
-              <div class="field"><label>What happened?</label><select required><option value="">Select…</option><option>Burst / leaking pipe</option><option>Roof or ceiling leak</option><option>Flooding / storm water</option><option>Appliance overflow</option><option>Sewage backup</option></select><span class="msg">Choose one</span></div>
+              <div class="field"><label>Your name</label><input type="text" name="name" required placeholder="Full name"><span class="msg">Enter your name</span></div>
+              <div class="field"><label>Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000"><span class="msg">Enter a valid phone</span></div>
+              <div class="field"><label>What happened?</label><select name="service" required><option value="">Select…</option><option>Burst / leaking pipe</option><option>Roof or ceiling leak</option><option>Flooding / storm water</option><option>Appliance overflow</option><option>Sewage backup</option></select><span class="msg">Choose one</span></div>
             </div>
             <button class="btn btn-alert btn-block mt-m" type="submit">Request callback</button>
             <div data-success style="display:none;text-align:center;padding:1rem 0;">

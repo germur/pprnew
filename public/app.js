@@ -58,6 +58,10 @@
         if(!valid)ok=false;
       });
       if(ok){
+        try{
+          const data=new FormData(form);
+          fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()});
+        }catch(err){}
         const done=form.querySelector('[data-success]');
         form.querySelectorAll('.field,.ef-actions,.ef-grid').forEach(el=>el.style.display='none');
         if(done){done.style.display='block';}

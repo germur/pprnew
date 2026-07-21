@@ -45,14 +45,14 @@ const description = "24/7 emergency restoration in South Florida. Call now or re
       <div class="eform reveal">
         <div class="eyebrow nodash" style="color:#9db8ff;">Request immediate help</div>
         <h2 class="h3" style="color:#fff;margin:.4rem 0 1.4rem;">We'll call you back in minutes.</h2>
-        <form data-emergency>
+        <form data-emergency name="emergency" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="emergency" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p>
           <div class="ef-grid">
-            <div class="field"><label>First name</label><input type="text" required placeholder="First"><span class="msg">Required</span></div>
-            <div class="field"><label>Last name</label><input type="text" required placeholder="Last"><span class="msg">Required</span></div>
-            <div class="field"><label>Phone</label><input type="tel" required placeholder="(000) 000-0000"><span class="msg">Valid phone required</span></div>
-            <div class="field"><label>City</label><input type="text" required placeholder="e.g. Miami"><span class="msg">Required</span></div>
-            <div class="field full"><label>Type of damage</label><select required><option value="">Select the emergency…</option><option>Water damage / flooding</option><option>Mold</option><option>Fire / smoke</option><option>Storm / hurricane</option><option>Sewage backup</option><option>Not sure, need help</option></select><span class="msg">Choose one</span></div>
-            <div class="field full"><label>Briefly, what's happening?</label><textarea rows="3" placeholder="Optional, a sentence helps us send the right crew"></textarea></div>
+            <div class="field"><label>First name</label><input type="text" name="first-name" required placeholder="First"><span class="msg">Required</span></div>
+            <div class="field"><label>Last name</label><input type="text" name="last-name" required placeholder="Last"><span class="msg">Required</span></div>
+            <div class="field"><label>Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000"><span class="msg">Valid phone required</span></div>
+            <div class="field"><label>City</label><input type="text" name="city" required placeholder="e.g. Miami"><span class="msg">Required</span></div>
+            <div class="field full"><label>Type of damage</label><select name="service" required><option value="">Select the emergency…</option><option>Water damage / flooding</option><option>Mold</option><option>Fire / smoke</option><option>Storm / hurricane</option><option>Sewage backup</option><option>Not sure, need help</option></select><span class="msg">Choose one</span></div>
+            <div class="field full"><label>Briefly, what's happening?</label><textarea name="message" rows="3" placeholder="Optional, a sentence helps us send the right crew"></textarea></div>
           </div>
           <div class="ef-actions">
             <button class="btn btn-alert btn-lg btn-block" type="submit">Send emergency request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>

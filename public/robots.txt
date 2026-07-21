@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /410-gone/
+
+Sitemap: https://paramountpropertyrestoration.com/sitemap-index.xml
