@@ -62,6 +62,11 @@
           const data=new FormData(form);
           fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()});
         }catch(err){}
+        try{
+          if(typeof gtag==='function'){
+            gtag('event','generate_lead',{form_name:(form.getAttribute('name')||'unknown'),page_path:location.pathname});
+          }
+        }catch(err){}
         const done=form.querySelector('[data-success]');
         form.querySelectorAll('.field,.ef-actions,.ef-grid').forEach(el=>el.style.display='none');
         if(done){done.style.display='block';}
@@ -72,3 +77,14 @@
     });
   });
 })();
+
+  // GA4: clics en telefono como conversion
+  document.addEventListener('click', function(e){
+    const a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if(!a) return;
+    try{
+      if(typeof gtag==='function'){
+        gtag('event','phone_call',{link_url:a.getAttribute('href'),page_path:location.pathname});
+      }
+    }catch(err){}
+  });

@@ -45,6 +45,38 @@ const schema = {
     opens: "00:00", closes: "23:59",
   },
 };
+
+// BreadcrumbList derivado del path (rich result de migas en Google).
+const CRUMB_NAMES = {
+  restoration: "Restoration",
+  "service-areas": "Service Areas",
+  resources: "Resources",
+  commercial: "Commercial",
+  contact: "Contact",
+  emergency: "Emergency",
+  "insurance-claims": "Insurance Claims",
+  "our-process": "Our Process",
+  "water-damage": "Water Damage Restoration",
+  "fire-damage": "Fire & Smoke Damage",
+  "mold-remediation": "Mold Remediation",
+  "mold-testing": "Mold Testing",
+  "storm-damage": "Storm & Hurricane Damage",
+  "privacy-policy": "Privacy Policy",
+  "terms-of-service": "Terms of Service",
+};
+const segs = path.split("/").filter(Boolean);
+const crumbItems = [{ "@type": "ListItem", position: 1, name: "Home", item: new URL("/", Astro.site).href }];
+let acc = "";
+segs.forEach((seg, i) => {
+  acc += "/" + seg;
+  crumbItems.push({
+    "@type": "ListItem",
+    position: i + 2,
+    name: CRUMB_NAMES[seg] || seg.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" "),
+    item: new URL(acc + "/", Astro.site).href,
+  });
+});
+const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: crumbItems };
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -71,6 +103,7 @@ const schema = {
   <meta property="og:url" content={canonical} />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  {segs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 </head>
 <body class={bodyClass}>
   <Header />
