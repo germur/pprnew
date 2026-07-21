@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { COMPANY } from "../../data/company";
+import { COMPANY, REGIONS } from "../../data/company";
 
 const title = "Service Areas | 35 South Florida Cities | Paramount";
 const description = "Paramount serves 35 South Florida cities across Southwest, Treasure Coast and Southeast Florida with local crews and 24/7 response.";
@@ -18,12 +18,27 @@ const description = "Paramount serves 35 South Florida cities across Southwest, 
   <aside class="reveal"><div class="area-map" style="aspect-ratio:4/5;border-radius:var(--radius);"><img src="/heroes/map-coverage.webp" alt="Map of Paramount Property Restoration coverage across Southwest, Treasure Coast and Southeast Florida" width="1254" height="1254" loading="lazy" decoding="async" /></div></aside>
 </div></div></section>
 <section class="pt pb"><div class="wrap-wide">
-  <div class="sec-head reveal"><div><span class="eyebrow">Southwest Florida</span><h2 class="h2 mt-s">Gulf coast &amp; the islands</h2></div></div>
-  <div class="rel-grid mt-l"><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Naples</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Fort Myers</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Bonita Springs</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Estero</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Cape Coral</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Marco Island</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></div>
-  <div class="sec-head reveal" style="margin-top:clamp(3rem,5vw,4rem);"><div><span class="eyebrow">Treasure Coast</span><h2 class="h2 mt-s">Atlantic, north of the metro</h2></div></div>
-  <div class="rel-grid mt-l"><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Port St. Lucie</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Hobe Sound</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></div>
-  <div class="sec-head reveal" style="margin-top:clamp(3rem,5vw,4rem);"><div><span class="eyebrow">Southeast Florida</span><h2 class="h2 mt-s">The metro &amp; the Gold Coast</h2></div></div>
-  <div class="rel-grid mt-l"><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Miami</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Coral Gables</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Fort Lauderdale</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Deerfield Beach</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Boca Raton</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">Delray Beach</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a><a href="/service-areas/miami/" class="rel reveal"><div><span class="num-label">Restoration · 24/7</span><h3 style="margin-top:.3rem;">West Palm Beach</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></div>
+  {REGIONS.map((region, i) => (
+    <Fragment>
+      <div class="sec-head reveal" style={i > 0 ? "margin-top:clamp(3rem,5vw,4rem);" : ""}>
+        <div>
+          <span class="eyebrow">{region.name}</span>
+          <h2 class="h2 mt-s">Cities we serve in {region.name}</h2>
+        </div>
+      </div>
+      <div class="rel-grid mt-l">
+        {region.cities.map((c) => (
+          <a href={`/service-areas/${c.slug}/`} class="rel reveal">
+            <div>
+              <span class="num-label">Restoration · 24/7</span>
+              <h3 style="margin-top:.3rem;">{c.name}</h3>
+            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </a>
+        ))}
+      </div>
+    </Fragment>
+  ))}
 </div></section>
 <section class="insure pb"><div class="wrap-wide"><div class="insure-in reveal">
   <div>
