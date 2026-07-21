@@ -83,7 +83,7 @@ async function listProjectPhotos(projectId, tagId){
 
 function pickUri(photo){
   const uris = photo.uris || [];
-  const u = uris.find(x=>x.type==="web") || uris.find(x=>x.type==="original") || uris[0];
+  const u = uris.find(x=>x.type==="original") || uris.find(x=>x.type==="web") || uris[0];
   return u ? u.url : null;
 }
 
