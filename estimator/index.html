@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Restoration Estimator | Paramount Property Restoration</title>
+<style>
+:root{--navy:#0b1f3a;--navy2:#13294a;--blue:#2f6bff;--bsoft:#e8efff;--ink:#10243b;--ink2:#4a5a6e;--ink3:#8494a6;
+--line:#e2e8f0;--line2:#cbd5e1;--paper:#f4f6fb;--white:#fff;--alert:#e5561f;--green:#0f9d58;--r:12px;
+--sans:'Segoe UI',system-ui,-apple-system,sans-serif;--mono:'SF Mono',ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.5;font-size:14px}
+/* login */
+.auth{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--navy);padding:1.5rem}
+.auth-box{background:var(--white);border-radius:var(--r);padding:2.2rem;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.auth-box img{height:44px;margin-bottom:.4rem}
+.auth-box .tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.6rem}
+.auth-box h1{font-size:1.3rem;margin-bottom:.3rem}
+.auth-box p.s{color:var(--ink2);font-size:.88rem;margin-bottom:1.4rem}
+.msg{padding:.7rem .9rem;border-radius:8px;font-size:.85rem;margin-bottom:1rem;display:none}
+.msg.err{background:#fee2e2;color:#b91c1c;display:block}
+.msg.ok{background:#dcfce7;color:#15803d;display:block}
+.msg.info{background:var(--bsoft);color:#1d4ed8;display:block}
+.tabs{display:flex;gap:.4rem;margin-bottom:1.2rem}
+.tab{flex:1;padding:.5rem;text-align:center;border-radius:8px;cursor:pointer;font-size:.85rem;background:var(--paper);color:var(--ink2)}
+.tab.on{background:var(--navy);color:#fff}
+/* app */
+.app{display:none;grid-template-columns:232px 1fr;min-height:100vh}
+.app.on{display:grid}
+.side{background:var(--navy);color:#cdd9ea;padding:1.4rem 1rem;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
+.brand img{height:40px;filter:brightness(0) invert(1)}
+.brand small{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#7d93b0;margin-top:.4rem}
+.nav{margin-top:1.4rem;display:flex;flex-direction:column;gap:.25rem}
+.nav-item{display:flex;gap:.6rem;align-items:center;padding:.65rem .8rem;border-radius:8px;font-size:.88rem;cursor:pointer;color:#aebfd6}
+.nav-item .n{font-family:var(--mono);font-size:.7rem;color:#5f77a0}
+.nav-item:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav-item.on{background:var(--blue);color:#fff}.nav-item.on .n{color:#cfe0ff}
+.side h4{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#5f77a0;margin:1.4rem 0 .5rem}
+.btn-new{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;padding:.6rem;border-radius:8px;cursor:pointer;font-size:.82rem;width:100%}
+.btn-new:hover{background:rgba(255,255,255,.15)}
+.saved{display:flex;flex-direction:column;gap:.25rem;margin-top:.5rem}
+.saved-i{font-size:.78rem;padding:.45rem .55rem;border-radius:6px;background:rgba(255,255,255,.05);cursor:pointer;color:#aebfd6;display:flex;justify-content:space-between;gap:.4rem}
+.saved-i:hover{background:rgba(255,255,255,.12);color:#fff}
+.saved-i .x{color:#7d93b0}.saved-i .x:hover{color:var(--alert)}
+.side-f{margin-top:auto;font-size:.68rem;color:#5f77a0;padding-top:1.2rem;line-height:1.5}
+.who{background:rgba(255,255,255,.06);border-radius:8px;padding:.6rem;margin-top:1rem;font-size:.74rem}
+.who b{color:#fff;display:block}
+.who .role{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:#8fa8cc}
+.who a{color:#8fa8cc;cursor:pointer;text-decoration:underline;font-size:.72rem}
+.main{padding:1.8rem 2.2rem;overflow-y:auto;max-height:100vh}
+.page{display:none}.page.on{display:block}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1.4rem;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--alert);font-weight:600}
+h1{font-size:1.7rem;margin-top:.25rem}
+h2{font-size:1rem;margin-bottom:.9rem}
+.hint{font-weight:400;color:var(--ink3);font-size:.8rem}
+.sub{color:var(--ink2);font-size:.88rem;margin-top:.15rem}
+.acts{display:flex;gap:.45rem;flex-wrap:wrap}
+.btn{padding:.55rem .9rem;border-radius:8px;border:1px solid var(--line2);background:var(--white);cursor:pointer;font-size:.82rem;font-weight:500;color:var(--ink)}
+.btn:hover{border-color:var(--blue);color:var(--blue)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-p{background:var(--navy);color:#fff;border-color:var(--navy)}.btn-p:hover{background:var(--navy2);color:#fff}
+.btn-s{padding:.35rem .6rem;font-size:.75rem}
+.btn-block{width:100%;justify-content:center}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.9rem;margin-bottom:1.3rem}
+.stat{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:.9rem 1.1rem}
+.stat .l{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.stat .v{font-size:1.3rem;font-weight:600;margin-top:.15rem}
+.layout{display:grid;grid-template-columns:1fr 310px;gap:1.3rem;align-items:start}
+@media(max-width:1150px){.layout{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem;margin-bottom:1.3rem}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem}
+@media(max-width:700px){.g3{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:.3rem}
+.field label{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+input,select,textarea{font-family:var(--sans);font-size:.88rem;color:var(--ink);background:var(--white);border:1px solid var(--line2);border-radius:8px;padding:.55rem .65rem;width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--bsoft)}
+select option{color:var(--ink);background:#fff}
+table{width:100%;border-collapse:collapse;font-size:.84rem}
+th{text-align:left;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);padding:.5rem .45rem;border-bottom:1px solid var(--line);font-weight:600}
+td{padding:.4rem .45rem;border-bottom:1px solid var(--line);vertical-align:middle}
+td input,td select{border:1px solid transparent;background:transparent;padding:.35rem;font-size:.84rem}
+td input:focus,td select:focus{border-color:var(--blue);background:var(--white)}
+td input:disabled{color:var(--ink2)}
+.num,th.num{text-align:right}.num input{text-align:right}
+.tot{font-weight:600;white-space:nowrap}
+.x{color:var(--ink3);cursor:pointer;border:none;background:none;font-size:.95rem;padding:.15rem .35rem}
+.x:hover{color:var(--alert)}
+.code{font-family:var(--mono);font-size:.72rem;color:var(--ink2)}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem}
+.chip{padding:.4rem .8rem;border-radius:20px;border:1px solid var(--line2);background:var(--white);cursor:pointer;font-size:.78rem;color:var(--ink2)}
+.chip:hover{border-color:var(--blue);color:var(--blue)}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.badge{display:inline-block;font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .45rem;border-radius:20px;font-weight:600}
+.b-REMOVE{background:#fee2e2;color:#b91c1c}.b-INSTALL{background:#dcfce7;color:#15803d}
+.b-REPLACE{background:#dbeafe;color:#1d4ed8}.b-ALLOWANCE{background:#fef3c7;color:#a16207}
+.b-MATERIAL{background:#e0e7ff;color:#4338ca}.b-LABOR{background:#fce7f3;color:#be185d}
+.b-EQUIPMENT{background:#ccfbf1;color:#0f766e}.b-TRANSPORTATION{background:#ffedd5;color:#c2410c}
+.b-PERMITFEE{background:#f3e8ff;color:#7e22ce}
+.acards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1rem}
+.acard{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:1rem;display:flex;flex-direction:column}
+.acard .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+.acard .ttl{font-weight:600;font-size:.95rem;margin-top:.4rem}
+.acard .ds{color:var(--ink2);font-size:.8rem;margin-top:.2rem;flex:1}
+.acard .pr{font-size:1.4rem;font-weight:700;margin-top:.7rem}
+.acard .pr small{font-family:var(--mono);font-size:.6rem;color:var(--ink3);letter-spacing:.08em;display:block;text-transform:uppercase}
+.comps{margin-top:.7rem;border-top:1px solid var(--line);padding-top:.6rem;display:flex;flex-direction:column;gap:.35rem}
+.comp{display:flex;justify-content:space-between;gap:.5rem;font-size:.76rem;align-items:baseline}
+.comp .ci{color:var(--ink2);flex:1}
+.comp .cf{font-family:var(--mono);font-size:.68rem;color:var(--ink3)}
+.comp .ca{font-family:var(--mono);font-weight:600}
+.acard .ft{margin-top:.8rem;display:flex;gap:.4rem}
+.summary{position:sticky;top:1rem;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem}
+.srow{display:flex;justify-content:space-between;padding:.42rem 0;font-size:.88rem}
+.srow .l{color:var(--ink2)}
+.sl{margin:.9rem 0}
+.sl .t{display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.25rem}
+.sl .p{font-family:var(--mono);color:var(--blue);font-weight:600}
+input[type=range]{accent-color:var(--blue);padding:0}
+.grand{background:var(--navy);color:#fff;border-radius:var(--r);padding:1.1rem;margin-top:.9rem;text-align:center}
+.grand .l{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#8fa8cc}
+.grand .v{font-size:1.8rem;font-weight:700;margin-top:.2rem}
+.grand small{font-size:.68rem;color:#8fa8cc;display:block;margin-top:.25rem}
+.disc{font-size:.68rem;color:var(--ink3);margin-top:.9rem;line-height:1.45}
+.note{border:1.5px dashed var(--line2);border-radius:var(--r);padding:1rem;background:var(--paper);font-size:.82rem;color:var(--ink2)}
+.note b{color:var(--ink)}
+.empty{color:var(--ink3);text-align:center;padding:1.6rem;font-size:.85rem}
+.ok{color:var(--green);font-weight:600}
+.modal{position:fixed;inset:0;background:rgba(10,25,45,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:1.5rem}
+.modal.on{display:flex}
+.mbox{background:var(--white);border-radius:var(--r);max-width:900px;width:100%;max-height:88vh;overflow-y:auto;padding:1.5rem}
+.mbox h3{font-size:1.1rem;margin-bottom:.9rem}
+.mfoot{display:flex;gap:.5rem;justify-content:flex-end;margin-top:1.2rem}
+.toast{position:fixed;bottom:1.2rem;right:1.2rem;background:var(--navy);color:#fff;padding:.8rem 1.2rem;border-radius:8px;font-size:.85rem;z-index:99;display:none;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.toast.on{display:block}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--line2);border-top-color:var(--blue);border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media print{.side,.acts,.chips,.x,.btn,.note,.modal,.toast{display:none!important}.app{grid-template-columns:1fr}.main{max-height:none;padding:0}.summary{position:static}body{background:#fff}.page{display:none!important}.page.on{display:block!important}}
+</style>
+</head>
+<body>
+
+<!-- ===== LOGIN ===== -->
+<div class="auth" id="auth">
+  <div class="auth-box">
+    <img src="ppr-logo.png" alt="Paramount Property Restoration">
+    <div class="tag">Restoration Estimator</div>
+    <div class="tabs">
+      <div class="tab on" id="tabIn" onclick="AUTH.mode('in')">Sign in</div>
+      <div class="tab" id="tabUp" onclick="AUTH.mode('up')">Create account</div>
+    </div>
+    <h1 id="authTitle">Sign in</h1>
+    <p class="s" id="authSub">Use your work email.</p>
+    <div class="msg" id="authMsg"></div>
+    <div class="field" style="margin-bottom:.8rem"><label>Email</label><input id="aEmail" type="email" placeholder="you@paramountpropertyrestoration.com" autocomplete="email"></div>
+    <div class="field" id="nameWrap" style="margin-bottom:.8rem;display:none"><label>Full name</label><input id="aName" placeholder="Your name"></div>
+    <div class="field" style="margin-bottom:1.2rem"><label>Password</label><input id="aPass" type="password" placeholder="••••••••" autocomplete="current-password"></div>
+    <button class="btn btn-p btn-block" id="authBtn" onclick="AUTH.submit()">Sign in</button>
+  </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div class="app" id="app">
+<aside class="side">
+  <div class="brand"><img src="ppr-logo.png" alt="Paramount"><small>Restoration Estimator</small></div>
+  <div class="nav">
+    <div class="nav-item on" data-p="1"><span class="n">01</span> Current estimate</div>
+    <div class="nav-item" data-p="2"><span class="n">02</span> Unit price analysis</div>
+    <div class="nav-item" data-p="3"><span class="n">03</span> Cost resources</div>
+    <div class="nav-item" data-p="4"><span class="n">04</span> Project notes</div>
+  </div>
+  <h4>Team estimates <span id="savedN">0</span></h4>
+  <button class="btn-new" onclick="APP.newEst()">+ New estimate</button>
+  <div class="saved" id="savedList"></div>
+  <div class="who" id="who"></div>
+  <div class="side-f">Shared database · Miami-Dade baseline<br>Paramount Property Restoration</div>
+</aside>
+
+<main class="main">
+  <section class="page on" id="p1">
+    <div class="top">
+      <div><span class="eyebrow" id="stStatus">Unsaved estimate</span><h1 id="stTitle">Restoration Project</h1><div class="sub" id="stSub">New client</div></div>
+      <div class="acts">
+        <button class="btn btn-p" id="btnSave" onclick="APP.save()">Save to cloud</button>
+        <button class="btn" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="l">Line items</div><div class="v" id="kLines">0</div></div>
+      <div class="stat"><div class="l">Direct cost</div><div class="v" id="kDirect">$0.00</div></div>
+      <div class="stat"><div class="l">Proposed total</div><div class="v" id="kTotal">$0.00</div></div>
+      <div class="stat"><div class="l">Catalog</div><div class="v" id="kCat">—</div><div class="l" style="margin-top:.2rem">analyses · resources</div></div>
+    </div>
+    <div class="layout">
+      <div>
+        <div class="card">
+          <h2>Estimate information</h2>
+          <div class="g3">
+            <div class="field"><label>Client</label><input id="fClient" oninput="APP.meta()"></div>
+            <div class="field"><label>Project</label><input id="fProject" oninput="APP.meta()"></div>
+            <div class="field"><label>Date</label><input id="fDate" type="date"></div>
+          </div>
+          <div class="g3" style="margin-top:.9rem">
+            <div class="field"><label>Loss type</label><select id="fLoss" oninput="APP.meta()"><option value="">Select…</option><option>Water damage</option><option>Mold</option><option>Fire &amp; smoke</option><option>Storm &amp; hurricane</option><option>Commercial</option></select></div>
+            <div class="field"><label>Property address</label><input id="fAddr"></div>
+            <div class="field"><label>Client phone</label><input id="fPhone"></div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Line items <span class="hint">— pull from the shared catalog</span></h2>
+          <table>
+            <thead><tr><th style="width:11%">Code</th><th style="width:26%">Description</th><th style="width:15%">Measure</th><th class="num" style="width:9%">Qty</th><th class="num" style="width:8%">Waste%</th><th style="width:7%">Unit</th><th class="num" style="width:11%">Unit price</th><th class="num" style="width:11%">Total</th><th style="width:2%"></th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+          <div style="margin-top:.8rem;display:flex;gap:.45rem;flex-wrap:wrap">
+            <button class="btn btn-p" onclick="APP.openPicker()">+ Add from catalog</button>
+            <button class="btn" onclick="APP.addBlank()">+ Blank line</button>
+          </div>
+        </div>
+      </div>
+      <div><div class="summary">
+        <h2>Proposal summary</h2>
+        <div class="srow"><span class="l">Direct costs</span><span id="sDirect">$0.00</span></div>
+        <div class="sl"><div class="t"><span>Overhead &amp; profit</span><span class="p" id="pOP">18%</span></div><input type="range" id="rOP" min="0" max="40" value="18" oninput="APP.calc()"><div class="srow" style="padding:.15rem 0"><span class="l">Amount</span><span id="aOP">$0.00</span></div></div>
+        <div class="sl"><div class="t"><span>Contingency</span><span class="p" id="pCT">5%</span></div><input type="range" id="rCT" min="0" max="25" value="5" oninput="APP.calc()"><div class="srow" style="padding:.15rem 0"><span class="l">Amount</span><span id="aCT">$0.00</span></div></div>
+        <div class="sl"><div class="t"><span>Estimated tax</span><span class="p" id="pTX">7%</span></div><input type="range" id="rTX" min="0" max="12" step="0.5" value="7" oninput="APP.calc()"><div class="srow" style="padding:.15rem 0"><span class="l">Amount</span><span id="aTX">$0.00</span></div></div>
+        <div class="grand"><div class="l">Proposed total</div><div class="v" id="gTotal">$0.00</div><small>Includes O&amp;P, contingency and estimated tax</small></div>
+        <p class="disc">Estimate only. Final pricing, permits and tax vary by county and confirmed scope. Paramount Property Restoration — restoration only (water · fire · mold · storm). Not a general contractor.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="page" id="p2">
+    <div class="top">
+      <div><span class="eyebrow">Priced items built from your cost resources</span><h1>Unit price analysis</h1><div class="sub" id="upaSub">—</div></div>
+      <div class="acts"><button class="btn btn-p" id="btnNewAna" onclick="APP.editAnalysis(null)">+ New analysis</button></div>
+    </div>
+    <div class="card" style="padding:1rem 1.3rem">
+      <div style="display:flex;gap:.8rem;align-items:center;flex-wrap:wrap">
+        <input id="upaSearch" placeholder="Search code, name or component…" style="flex:1;min-width:220px" oninput="APP.renderUPA()">
+        <div class="chips" style="margin:0" id="upaChips"></div>
+      </div>
+    </div>
+    <div class="acards" id="upaGrid"></div>
+  </section>
+
+  <section class="page" id="p3">
+    <div class="top">
+      <div><span class="eyebrow">Shared price database — edits reprice every analysis</span><h1>Cost resources</h1><div class="sub" id="resSub">—</div></div>
+      <div class="acts"><button class="btn btn-p" id="btnNewRes" onclick="APP.editResource(null)">+ New resource</button></div>
+    </div>
+    <div class="stats" id="resStats"></div>
+    <div class="card" style="padding:1rem 1.3rem">
+      <div style="display:flex;gap:.8rem;align-items:center;flex-wrap:wrap">
+        <input id="resSearch" placeholder="Search code or item…" style="flex:1;min-width:220px" oninput="APP.renderRES()">
+        <div class="chips" style="margin:0" id="resChips"></div>
+      </div>
+    </div>
+    <div class="card">
+      <table><thead><tr><th style="width:16%">Code</th><th style="width:28%">Item</th><th style="width:7%">Unit</th><th class="num" style="width:11%">Unit cost</th><th style="width:12%">Used in</th><th style="width:22%">Source / market</th><th style="width:4%"></th></tr></thead>
+      <tbody id="resRows"></tbody></table>
+    </div>
+  </section>
+
+  <section class="page" id="p4">
+    <div class="top"><div><span class="eyebrow">Scope, plans and field notes</span><h1>Project notes</h1></div></div>
+    <div class="card"><div class="note"><b>Room scans:</b> LiDAR capture needs a native app (Apple RoomPlan, Polycam, CANVAS). A web page cannot read the sensor. Scan the room there, then enter the measured dimensions in the line items.</div></div>
+    <div class="card"><h2>Scope notes</h2><textarea id="fNotes" rows="10" placeholder="Damage description, affected rooms, moisture readings, adjuster notes…"></textarea></div>
+  </section>
+</main>
+</div>
+
+<div class="modal" id="picker"><div class="mbox">
+  <h3>Add from catalog</h3>
+  <input id="pkSearch" placeholder="Search…" oninput="APP.renderPicker()" style="margin-bottom:.8rem">
+  <div class="chips" id="pkChips"></div>
+  <table><thead><tr><th>Type</th><th>Code</th><th>Item</th><th class="num">Price</th><th>Unit</th><th></th></tr></thead><tbody id="pkRows"></tbody></table>
+  <div class="mfoot"><button class="btn" onclick="APP.closeModal('picker')">Close</button></div>
+</div></div>
+<div class="modal" id="editor"><div class="mbox" id="editorBody"></div></div>
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+const SUPABASE_URL = 'https://lcfaxalfkjxlnxtyfbov.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_Rl7Wwt0MsbXMV5Go5S86AQ_qPrHK-n6';
+const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const money = n => "$"+(Number(n)||0).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const MEAS={"Area LxW":d=>(d.a||0)*(d.b||0),"Linear L":d=>(d.a||0),"Count":d=>(d.a||0),
+"Volume LxWxD /27":d=>((d.a||0)*(d.b||0)*(d.c||0))/27,"Manual":d=>d.qty||0};
+const toast=(m,ms=2600)=>{const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),ms)};
+
+/* ================= AUTH ================= */
+const AUTH = {
+  _mode:'in',
+  mode(m){ this._mode=m;
+    document.getElementById('tabIn').classList.toggle('on',m==='in');
+    document.getElementById('tabUp').classList.toggle('on',m==='up');
+    document.getElementById('authTitle').textContent = m==='in'?'Sign in':'Create account';
+    document.getElementById('authSub').textContent = m==='in'?'Use your work email.':'New accounts start with estimator access.';
+    document.getElementById('nameWrap').style.display = m==='up'?'flex':'none';
+    document.getElementById('authBtn').textContent = m==='in'?'Sign in':'Create account';
+    this.msg('');
+  },
+  msg(text,kind='err'){ const el=document.getElementById('authMsg');
+    if(!text){el.className='msg';el.textContent='';return;}
+    el.className='msg '+kind; el.textContent=text; },
+  async submit(){
+    const email=document.getElementById('aEmail').value.trim();
+    const pass=document.getElementById('aPass').value;
+    const name=document.getElementById('aName').value.trim();
+    if(!email||!pass){ this.msg('Email and password are required.'); return; }
+    const btn=document.getElementById('authBtn'); btn.disabled=true; btn.textContent='Working…';
+    try{
+      if(this._mode==='in'){
+        const {error}=await sb.auth.signInWithPassword({email,password:pass});
+        if(error) throw error;
+      } else {
+        const {data,error}=await sb.auth.signUp({email,password:pass,options:{data:{full_name:name||email}}});
+        if(error) throw error;
+        if(!data.session){ this.msg('Account created. Check your email to confirm, then sign in.','ok'); this.mode('in'); return; }
+      }
+      await APP.boot();
+    }catch(e){ this.msg(e.message||'Could not sign in.'); }
+    finally{ btn.disabled=false; btn.textContent=this._mode==='in'?'Sign in':'Create account'; }
+  },
+  async signOut(){ await sb.auth.signOut(); location.reload(); }
+};
+
+/* ================= APP ================= */
+const APP = {
+  me:null, role:'viewer', resources:[], analyses:[], items:[], id:null, ests:[],
+  upaFilter:'ALL', resFilter:'ALL', pkFilter:'ALL',
+
+  isAdmin(){ return this.role==='admin'; },
+  canEstimate(){ return this.role==='admin'||this.role==='estimator'; },
+
+  async boot(){
+    const {data:{user}}=await sb.auth.getUser();
+    if(!user){ document.getElementById('auth').style.display='flex'; document.getElementById('app').classList.remove('on'); return; }
+    this.me=user;
+    const {data:prof}=await sb.from('profiles').select('role,full_name,email').eq('id',user.id).single();
+    this.role=prof?.role||'viewer';
+    document.getElementById('who').innerHTML=
+      `<b>${esc(prof?.full_name||user.email)}</b><span class="role">${esc(this.role)}</span><a onclick="AUTH.signOut()">Sign out</a>`;
+    document.getElementById('auth').style.display='none';
+    document.getElementById('app').classList.add('on');
+    // permisos en UI
+    document.getElementById('btnNewRes').style.display=this.isAdmin()?'':'none';
+    document.getElementById('btnNewAna').style.display=this.isAdmin()?'':'none';
+    document.getElementById('btnSave').disabled=!this.canEstimate();
+    document.getElementById('fDate').value=new Date().toISOString().slice(0,10);
+    await this.loadCatalog();
+    await this.loadEstimates();
+    this.renderRows(); this.calc(); this.meta();
+  },
+
+  async loadCatalog(){
+    const [r,a,c]=await Promise.all([
+      sb.from('resources').select('*').order('cat').order('item'),
+      sb.from('analyses').select('*').order('title'),
+      sb.from('components').select('*').order('sort')
+    ]);
+    if(r.error||a.error||c.error){ toast('Error loading catalog'); return; }
+    this.resources=r.data;
+    const byAna={}; c.data.forEach(x=>{(byAna[x.analysis_code]=byAna[x.analysis_code]||[]).push(x)});
+    const resByCode={}; this.resources.forEach(x=>resByCode[x.code]=x);
+    this.analyses=a.data.map(x=>({...x, desc:x.descr, components:(byAna[x.code]||[]).map(cm=>{
+      const rr=resByCode[cm.resource_code];
+      return {...cm, rate:rr?Number(rr.cost):0, amount:+((cm.factor*(rr?Number(rr.cost):0)).toFixed(2))};
+    })}));
+    document.getElementById('kCat').textContent=this.analyses.length+' · '+this.resources.length;
+  },
+
+  go(p){ document.querySelectorAll('.page').forEach(s=>s.classList.remove('on'));
+    document.getElementById('p'+p).classList.add('on');
+    document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('on',n.dataset.p===String(p)));
+    if(String(p)==='2') this.renderUPA(); if(String(p)==='3') this.renderRES(); },
+
+  /* ----- line items ----- */
+  addBlank(){ this.items.push({code:'',descr:'',meas:'Area LxW',a:0,b:0,c:0,qty:0,waste:0,unit:'SF',price:0,manual:false}); this.renderRows(); this.calc(); },
+  addFromCatalog(kind,code){
+    if(kind==='a'){ const a=this.analyses.find(x=>x.code===code); if(!a) return;
+      this.items.push({code:a.code,descr:a.title,meas:(a.unit==='SF'?'Area LxW':a.unit==='LF'?'Linear L':'Count'),a:0,b:0,c:0,qty:0,waste:0,unit:a.unit,price:Number(a.price),manual:false});
+    } else { const r=this.resources.find(x=>x.code===code); if(!r) return;
+      this.items.push({code:r.code,descr:r.item,meas:'Count',a:0,b:0,c:0,qty:0,waste:0,unit:r.unit,price:Number(r.cost),manual:false}); }
+    this.renderRows(); this.calc(); this.closeModal('picker'); this.go(1);
+  },
+  qtyOf(it){ return (MEAS[it.meas]||MEAS['Manual'])(it) },
+  lineTotal(it){ const q=it.manual?(it.qty||0):this.qtyOf(it); return q*(1+(it.waste||0)/100)*(it.price||0) },
+  upd(i,k,v){ const num=['a','b','c','qty','waste','price'].includes(k);
+    this.items[i][k]=num?(parseFloat(v)||0):v;
+    if(k==='qty') this.items[i].manual=true;
+    if(k==='meas'){ this.items[i].manual=false; this.renderRows(); }
+    this.calc(); },
+  del(i){ this.items.splice(i,1); this.renderRows(); this.calc(); },
+  renderRows(){
+    const tb=document.getElementById('rows');
+    if(!this.items.length){ tb.innerHTML='<tr><td colspan="9" class="empty">No line items. Add from the catalog to price a scope.</td></tr>'; return; }
+    const ro=!this.canEstimate()?'disabled':'';
+    tb.innerHTML=this.items.map((it,i)=>{
+      const needB=/Area|Volume/.test(it.meas), needC=/Volume/.test(it.meas), isM=it.meas==='Manual';
+      const mo=Object.keys(MEAS).map(k=>`<option ${k===it.meas?'selected':''}>${k}</option>`).join('');
+      const q=it.manual?(it.qty||0):this.qtyOf(it);
+      return `<tr>
+<td class="code">${esc(it.code)||'—'}</td>
+<td><input ${ro} value="${esc(it.descr)}" oninput="APP.upd(${i},'descr',this.value)"></td>
+<td><select ${ro} onchange="APP.upd(${i},'meas',this.value)">${mo}</select>
+${isM?'':`<div style="display:flex;gap:.15rem;margin-top:.15rem">
+<input ${ro} type="number" step="any" value="${it.a||''}" placeholder="${needB?'L':'Qty'}" style="border:1px solid var(--line)" oninput="APP.upd(${i},'a',this.value)">
+${needB?`<input ${ro} type="number" step="any" value="${it.b||''}" placeholder="W" style="border:1px solid var(--line)" oninput="APP.upd(${i},'b',this.value)">`:''}
+${needC?`<input ${ro} type="number" step="any" value="${it.c||''}" placeholder="D" style="border:1px solid var(--line)" oninput="APP.upd(${i},'c',this.value)">`:''}</div>`}</td>
+<td class="num"><input ${ro} type="number" step="any" value="${q.toFixed(2)}" oninput="APP.upd(${i},'qty',this.value)"></td>
+<td class="num"><input ${ro} type="number" step="any" value="${it.waste||0}" oninput="APP.upd(${i},'waste',this.value)"></td>
+<td><input ${ro} value="${esc(it.unit)}" oninput="APP.upd(${i},'unit',this.value)"></td>
+<td class="num"><input ${ro} type="number" step="any" value="${it.price||0}" oninput="APP.upd(${i},'price',this.value)"></td>
+<td class="num tot">${money(this.lineTotal(it))}</td>
+<td>${ro?'':`<button class="x" onclick="APP.del(${i})">✕</button>`}</td></tr>`;}).join('');
+  },
+  calc(){
+    const direct=this.items.reduce((s,it)=>s+this.lineTotal(it),0);
+    const op=+document.getElementById('rOP').value, ct=+document.getElementById('rCT').value, tx=+document.getElementById('rTX').value;
+    document.getElementById('pOP').textContent=op+'%'; document.getElementById('pCT').textContent=ct+'%'; document.getElementById('pTX').textContent=tx+'%';
+    const aOP=direct*op/100, aCT=direct*ct/100, taxable=direct+aOP+aCT, aTX=taxable*tx/100, g=taxable+aTX;
+    document.getElementById('sDirect').textContent=money(direct);
+    document.getElementById('aOP').textContent=money(aOP);
+    document.getElementById('aCT').textContent=money(aCT);
+    document.getElementById('aTX').textContent=money(aTX);
+    document.getElementById('gTotal').textContent=money(g);
+    document.getElementById('kLines').textContent=this.items.length;
+    document.getElementById('kDirect').textContent=money(direct);
+    document.getElementById('kTotal').textContent=money(g);
+    document.querySelectorAll('#rows tr').forEach((tr,i)=>{const c=tr.querySelector('.tot'); if(c&&this.items[i]) c.textContent=money(this.lineTotal(this.items[i]))});
+  },
+  meta(){ const c=document.getElementById('fClient').value||'New client', p=document.getElementById('fProject').value||'Restoration Project', l=document.getElementById('fLoss').value;
+    document.getElementById('stTitle').textContent=p; document.getElementById('stSub').textContent=c+(l?' · '+l:''); },
+
+  /* ----- UPA ----- */
+  renderUPA(){
+    const types=['ALL','REMOVE','INSTALL','REPLACE','ALLOWANCE'];
+    document.getElementById('upaChips').innerHTML=types.map(t=>`<div class="chip ${this.upaFilter===t?'on':''}" onclick="APP.upaFilter='${t}';APP.renderUPA()">${t==='ALL'?'All':t} ${t==='ALL'?this.analyses.length:this.analyses.filter(a=>a.type===t).length}</div>`).join('');
+    const q=(document.getElementById('upaSearch').value||'').toLowerCase();
+    const list=this.analyses.filter(a=>(this.upaFilter==='ALL'||a.type===this.upaFilter)&&(!q||[a.code,a.title,a.desc].join(' ').toLowerCase().includes(q)||a.components.some(c=>c.item.toLowerCase().includes(q))));
+    document.getElementById('upaSub').textContent=`${this.analyses.length} analyses · ${this.resources.length} cost resources · shared database`;
+    document.getElementById('upaGrid').innerHTML=list.length?list.map(a=>`<article class="acard">
+<div class="hd"><span class="badge b-${a.type}">${a.type}</span><span class="code">${esc(a.code)}</span></div>
+<div class="ttl">${esc(a.title)}</div><div class="ds">${esc(a.desc)}</div>
+<div class="pr">${money(a.price)}<small>per ${esc(a.unit)}</small></div>
+<div class="comps">${a.components.map(c=>`<div class="comp"><span class="ci">${esc(c.item)}</span><span class="cf">${c.factor} × ${money(c.rate)}</span><span class="ca">${money(c.amount)}</span></div>`).join('')}</div>
+<div class="ft"><button class="btn btn-p btn-s" onclick="APP.addFromCatalog('a','${esc(a.code)}')">Use in estimate</button>
+${this.isAdmin()?`<button class="btn btn-s" onclick="APP.editAnalysis('${esc(a.code)}')">Edit</button>`:''}</div></article>`).join(''):'<div class="empty">No analyses match.</div>';
+  },
+
+  /* ----- RESOURCES ----- */
+  usedIn(code){ return this.analyses.filter(a=>a.components.some(c=>c.resource_code===code)).length },
+  renderRES(){
+    const cats=['ALL','MATERIAL','LABOR','EQUIPMENT','TRANSPORTATION','PERMIT & FEE'];
+    document.getElementById('resStats').innerHTML=cats.slice(1).map(c=>{const l=this.resources.filter(r=>r.cat===c);
+      const avg=l.length?l.reduce((s,r)=>s+Number(r.cost),0)/l.length:0;
+      return `<div class="stat"><div class="l">${c}</div><div class="v">${l.length}</div><div class="l" style="margin-top:.2rem">avg ${money(avg)}</div></div>`}).join('');
+    document.getElementById('resChips').innerHTML=cats.map(c=>`<div class="chip ${this.resFilter===c?'on':''}" onclick="APP.resFilter='${c}';APP.renderRES()">${c==='ALL'?'All':c}</div>`).join('');
+    const q=(document.getElementById('resSearch').value||'').toLowerCase();
+    const list=this.resources.filter(r=>(this.resFilter==='ALL'||r.cat===this.resFilter)&&(!q||[r.code,r.item].join(' ').toLowerCase().includes(q)));
+    document.getElementById('resSub').textContent=this.isAdmin()
+      ? `${this.resources.length} resources · editing a cost reprices every analysis that uses it`
+      : `${this.resources.length} resources · read-only (admin access required to edit costs)`;
+    const ro=!this.isAdmin()?'disabled':'';
+    document.getElementById('resRows').innerHTML=list.length?list.map(r=>{const u=this.usedIn(r.code);
+      return `<tr><td><span class="badge b-${r.cat.replace(/[^A-Z]/g,'')}">${esc(r.cat)}</span><div class="code">${esc(r.code)}</div></td>
+<td>${esc(r.item)}</td><td>${esc(r.unit)}</td>
+<td class="num"><input ${ro} type="number" step="any" value="${r.cost}" onchange="APP.setCost('${esc(r.code)}',this.value)"></td>
+<td>${u?`<span class="ok">${u} analyses</span>`:'<span style="color:var(--ink3)">—</span>'}</td>
+<td style="font-size:.75rem;color:var(--ink2)">${esc(r.source)}<div style="color:var(--ink3)">${esc(r.market)}</div></td>
+<td>${ro?'':`<button class="x" onclick="APP.delResource('${esc(r.code)}')">✕</button>`}</td></tr>`}).join(''):'<tr><td colspan="7" class="empty">No resources match.</td></tr>';
+  },
+  async setCost(code,v){
+    const cost=parseFloat(v)||0;
+    const {error}=await sb.from('resources').update({cost,updated_at:new Date().toISOString(),updated_by:this.me.id}).eq('code',code);
+    if(error){ toast('Error: '+error.message); return; }
+    await this.loadCatalog();          // el trigger ya repricio en el servidor
+    this.renderRES(); this.calc();
+    toast(`Cost updated · ${this.usedIn(code)} analyses repriced`);
+  },
+  async delResource(code){
+    const u=this.usedIn(code);
+    if(u && !confirm(`This resource is used in ${u} analyses. Delete anyway?`)) return;
+    const {error}=await sb.from('resources').delete().eq('code',code);
+    if(error){ toast('Error: '+error.message); return; }
+    await this.loadCatalog(); this.renderRES(); toast('Resource deleted');
+  },
+  editResource(code){
+    const r=code?this.resources.find(x=>x.code===code):{code:'',cat:'MATERIAL',item:'',unit:'EA',cost:0,source:'Custom entry',market:'Miami-Dade, FL',note:''};
+    document.getElementById('editorBody').innerHTML=`<h3>${code?'Edit':'New'} cost resource</h3>
+<div class="g3"><div class="field"><label>Code</label><input id="eCode" value="${esc(r.code)}"></div>
+<div class="field"><label>Category</label><select id="eCat">${['MATERIAL','LABOR','EQUIPMENT','TRANSPORTATION','PERMIT & FEE'].map(c=>`<option ${c===r.cat?'selected':''}>${c}</option>`).join('')}</select></div>
+<div class="field"><label>Unit</label><input id="eUnit" value="${esc(r.unit)}"></div></div>
+<div class="g3" style="margin-top:.9rem"><div class="field" style="grid-column:span 2"><label>Item</label><input id="eItem" value="${esc(r.item)}"></div>
+<div class="field"><label>Unit cost</label><input id="eCost" type="number" step="any" value="${r.cost}"></div></div>
+<div class="g3" style="margin-top:.9rem"><div class="field"><label>Source</label><input id="eSrc" value="${esc(r.source)}"></div>
+<div class="field"><label>Market</label><input id="eMkt" value="${esc(r.market)}"></div>
+<div class="field"><label>Note</label><input id="eNote" value="${esc(r.note)}"></div></div>
+<div class="mfoot"><button class="btn" onclick="APP.closeModal('editor')">Cancel</button><button class="btn btn-p" onclick="APP.saveResource('${esc(code||'')}')">Save</button></div>`;
+    this.openModal('editor');
+  },
+  async saveResource(orig){
+    const g=id=>document.getElementById(id).value;
+    const obj={code:g('eCode').trim(),cat:g('eCat'),item:g('eItem').trim(),unit:g('eUnit').trim(),cost:parseFloat(g('eCost'))||0,source:g('eSrc'),market:g('eMkt'),note:g('eNote'),updated_by:this.me.id};
+    if(!obj.code||!obj.item){ alert('Code and item are required.'); return; }
+    const {error}= orig ? await sb.from('resources').update(obj).eq('code',orig)
+                        : await sb.from('resources').insert(obj);
+    if(error){ toast('Error: '+error.message); return; }
+    await this.loadCatalog(); this.renderRES(); this.closeModal('editor'); toast('Resource saved');
+  },
+  editAnalysis(code){
+    const a=code?this.analyses.find(x=>x.code===code):{type:'INSTALL',code:'',title:'',desc:'',unit:'SF',components:[]};
+    document.getElementById('editorBody').innerHTML=`<h3>${code?'Edit':'New'} unit price analysis</h3>
+<div class="g3"><div class="field"><label>Type</label><select id="aType">${['REMOVE','INSTALL','REPLACE','ALLOWANCE'].map(t=>`<option ${t===a.type?'selected':''}>${t}</option>`).join('')}</select></div>
+<div class="field"><label>Code</label><input id="aCode" value="${esc(a.code)}" ${code?'readonly':''}></div>
+<div class="field"><label>Unit</label><input id="aUnit" value="${esc(a.unit)}"></div></div>
+<div class="g3" style="margin-top:.9rem"><div class="field" style="grid-column:span 3"><label>Title</label><input id="aTitle" value="${esc(a.title)}"></div></div>
+<div class="g3" style="margin-top:.9rem"><div class="field" style="grid-column:span 3"><label>Description</label><input id="aDesc" value="${esc(a.desc)}"></div></div>
+<h2 style="margin-top:1.2rem">Cost components <span class="hint">— factor × current resource cost</span></h2>
+<table><thead><tr><th style="width:52%">Resource</th><th class="num" style="width:18%">Factor</th><th class="num" style="width:22%">Amount</th><th style="width:8%"></th></tr></thead><tbody id="aComps"></tbody></table>
+<button class="btn btn-s" style="margin-top:.6rem" onclick="APP.addComp()">+ Add component</button>
+<div class="srow" style="border-top:2px solid var(--ink);margin-top:.8rem;padding-top:.6rem"><b>Unit price</b><b id="aPrice">$0.00</b></div>
+<div class="mfoot"><button class="btn" onclick="APP.closeModal('editor')">Cancel</button><button class="btn btn-p" onclick="APP.saveAnalysis('${esc(code||'')}')">Save</button></div>`;
+    this._comps=JSON.parse(JSON.stringify(a.components||[])); this.renderComps(); this.openModal('editor');
+  },
+  resOpts(sel){ return this.resources.map(r=>`<option value="${esc(r.code)}" ${r.code===sel?'selected':''}>${esc(r.item)} — ${money(r.cost)}/${esc(r.unit)}</option>`).join('') },
+  renderComps(){
+    const tb=document.getElementById('aComps');
+    tb.innerHTML=this._comps.length?this._comps.map((c,i)=>{
+      const r=this.resources.find(x=>x.code===c.resource_code);
+      const amt=(c.factor||0)*(r?Number(r.cost):0);
+      return `<tr><td><select onchange="APP.updComp(${i},'resource_code',this.value)">${this.resOpts(c.resource_code)}</select></td>
+<td class="num"><input type="number" step="any" value="${c.factor||0}" oninput="APP.updComp(${i},'factor',this.value)"></td>
+<td class="num tot">${money(amt)}</td><td><button class="x" onclick="APP.delComp(${i})">✕</button></td></tr>`}).join(''):'<tr><td colspan="4" class="empty">No components yet.</td></tr>';
+    const total=this._comps.reduce((s,c)=>{const r=this.resources.find(x=>x.code===c.resource_code);return s+(c.factor||0)*(r?Number(r.cost):0)},0);
+    document.getElementById('aPrice').textContent=money(total);
+  },
+  addComp(){ const f=this.resources[0]; this._comps.push({resource_code:f.code,item:f.item,kind:f.cat,factor:1}); this.renderComps() },
+  updComp(i,k,v){ this._comps[i][k]= k==='factor'?(parseFloat(v)||0):v;
+    if(k==='resource_code'){ const r=this.resources.find(x=>x.code===v); if(r){this._comps[i].item=r.item;this._comps[i].kind=r.cat} }
+    this.renderComps() },
+  delComp(i){ this._comps.splice(i,1); this.renderComps() },
+  async saveAnalysis(orig){
+    const g=id=>document.getElementById(id).value;
+    const code=g('aCode').trim();
+    const obj={code,type:g('aType'),title:g('aTitle').trim(),descr:g('aDesc'),unit:g('aUnit').trim(),updated_by:this.me.id};
+    if(!code||!obj.title){ alert('Code and title are required.'); return; }
+    let error;
+    if(orig){ ({error}=await sb.from('analyses').update(obj).eq('code',orig)); }
+    else { ({error}=await sb.from('analyses').insert({...obj,price:0})); }
+    if(error){ toast('Error: '+error.message); return; }
+    // reemplazar componentes
+    await sb.from('components').delete().eq('analysis_code',code);
+    if(this._comps.length){
+      const rows=this._comps.map((c,i)=>({analysis_code:code,resource_code:c.resource_code,item:c.item,kind:c.kind,factor:c.factor,sort:i}));
+      const {error:e2}=await sb.from('components').insert(rows);
+      if(e2){ toast('Error saving components: '+e2.message); return; }
+    }
+    await this.loadCatalog(); this.renderUPA(); this.closeModal('editor'); toast('Analysis saved and repriced');
+  },
+
+  /* ----- picker ----- */
+  openPicker(){ this.pkFilter='ALL'; document.getElementById('pkSearch').value=''; this.renderPicker(); this.openModal('picker') },
+  renderPicker(){
+    const f=['ALL','REMOVE','INSTALL','REPLACE','ALLOWANCE','RESOURCES'];
+    document.getElementById('pkChips').innerHTML=f.map(t=>`<div class="chip ${this.pkFilter===t?'on':''}" onclick="APP.pkFilter='${t}';APP.renderPicker()">${t==='ALL'?'All':t}</div>`).join('');
+    const q=(document.getElementById('pkSearch').value||'').toLowerCase();
+    let rows=[];
+    if(this.pkFilter!=='RESOURCES') rows=rows.concat(this.analyses.filter(a=>(this.pkFilter==='ALL'||a.type===this.pkFilter)&&(!q||[a.code,a.title].join(' ').toLowerCase().includes(q)))
+      .map(a=>({k:'a',type:a.type,code:a.code,name:a.title,price:a.price,unit:a.unit})));
+    if(this.pkFilter==='ALL'||this.pkFilter==='RESOURCES') rows=rows.concat(this.resources.filter(r=>!q||[r.code,r.item].join(' ').toLowerCase().includes(q))
+      .map(r=>({k:'r',type:r.cat,code:r.code,name:r.item,price:r.cost,unit:r.unit})));
+    document.getElementById('pkRows').innerHTML=rows.slice(0,200).map(r=>`<tr><td><span class="badge b-${r.type.replace(/[^A-Z]/g,'')}">${esc(r.type)}</span></td>
+<td class="code">${esc(r.code)}</td><td>${esc(r.name)}</td><td class="num">${money(r.price)}</td><td>${esc(r.unit)}</td>
+<td><button class="btn btn-s btn-p" onclick="APP.addFromCatalog('${r.k}','${esc(r.code)}')">Add</button></td></tr>`).join('')||'<tr><td colspan="6" class="empty">Nothing matches.</td></tr>';
+  },
+  openModal(id){ document.getElementById(id).classList.add('on') },
+  closeModal(id){ document.getElementById(id).classList.remove('on') },
+
+  /* ----- estimates (cloud) ----- */
+  async loadEstimates(){
+    const {data,error}=await sb.from('estimates').select('id,project,client,created_at').order('created_at',{ascending:false}).limit(50);
+    if(error) return;
+    this.ests=data;
+    document.getElementById('savedN').textContent=data.length;
+    document.getElementById('savedList').innerHTML=data.map(d=>
+      `<div class="saved-i"><span onclick="APP.loadEst('${d.id}')" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(d.project||'Untitled')}</span>${this.canEstimate()?`<span class="x" onclick="APP.delEst('${d.id}')">✕</span>`:''}</div>`).join('');
+  },
+  async save(){
+    if(!this.canEstimate()){ toast('Your role cannot create estimates'); return; }
+    const g=id=>document.getElementById(id).value;
+    const head={project:g('fProject')||'Restoration Project',client:g('fClient'),client_phone:g('fPhone'),address:g('fAddr'),
+      loss_type:g('fLoss')||null,est_date:g('fDate')||null,notes:g('fNotes'),
+      op_pct:+g('rOP'),ct_pct:+g('rCT'),tx_pct:+g('rTX'),updated_at:new Date().toISOString()};
+    let id=this.id, error;
+    if(id){ ({error}=await sb.from('estimates').update(head).eq('id',id)); }
+    else { const {data,error:e1}=await sb.from('estimates').insert({...head,created_by:this.me.id}).select('id').single();
+      error=e1; if(data) id=data.id; }
+    if(error){ toast('Error: '+error.message); return; }
+    await sb.from('line_items').delete().eq('estimate_id',id);
+    if(this.items.length){
+      const rows=this.items.map((it,i)=>({estimate_id:id,code:it.code,descr:it.descr,meas:it.meas,a:it.a,b:it.b,c:it.c,
+        qty:it.manual?it.qty:this.qtyOf(it),manual:it.manual,waste:it.waste,unit:it.unit,price:it.price,sort:i}));
+      const {error:e2}=await sb.from('line_items').insert(rows);
+      if(e2){ toast('Error saving items: '+e2.message); return; }
+    }
+    this.id=id;
+    document.getElementById('stStatus').textContent='Saved to cloud · '+new Date().toLocaleTimeString();
+    await this.loadEstimates(); toast('Estimate saved for the team');
+  },
+  async loadEst(id){
+    const [{data:e},{data:li}]=await Promise.all([
+      sb.from('estimates').select('*').eq('id',id).single(),
+      sb.from('line_items').select('*').eq('estimate_id',id).order('sort')
+    ]);
+    if(!e) return;
+    this.id=e.id;
+    const s=(k,v)=>document.getElementById(k).value=v||'';
+    s('fClient',e.client);s('fProject',e.project);s('fDate',e.est_date);s('fLoss',e.loss_type);
+    s('fAddr',e.address);s('fPhone',e.client_phone);s('fNotes',e.notes);
+    document.getElementById('rOP').value=e.op_pct;document.getElementById('rCT').value=e.ct_pct;document.getElementById('rTX').value=e.tx_pct;
+    this.items=(li||[]).map(x=>({code:x.code,descr:x.descr,meas:x.meas,a:+x.a,b:+x.b,c:+x.c,qty:+x.qty,manual:x.manual,waste:+x.waste,unit:x.unit,price:+x.price}));
+    document.getElementById('stStatus').textContent='Saved estimate';
+    this.meta(); this.renderRows(); this.calc(); this.go(1);
+  },
+  async delEst(id){
+    if(!confirm('Delete this estimate for the whole team?')) return;
+    const {error}=await sb.from('estimates').delete().eq('id',id);
+    if(error){ toast('Error: '+error.message); return; }
+    if(this.id===id) this.newEst();
+    await this.loadEstimates(); toast('Estimate deleted');
+  },
+  newEst(){ this.id=null; this.items=[];
+    ['fClient','fProject','fLoss','fAddr','fPhone','fNotes'].forEach(i=>document.getElementById(i).value='');
+    document.getElementById('fDate').value=new Date().toISOString().slice(0,10);
+    document.getElementById('rOP').value=18;document.getElementById('rCT').value=5;document.getElementById('rTX').value=7;
+    document.getElementById('stStatus').textContent='Unsaved estimate';
+    this.meta(); this.renderRows(); this.calc(); this.go(1);
+  }
+};
+
+window.AUTH=AUTH; window.APP=APP;
+document.querySelectorAll('.nav-item').forEach(n=>n.onclick=()=>APP.go(n.dataset.p));
+document.querySelectorAll('.modal').forEach(m=>m.onclick=e=>{if(e.target===m)m.classList.remove('on')});
+document.getElementById('aPass').addEventListener('keydown',e=>{if(e.key==='Enter')AUTH.submit()});
+APP.boot();
+</script>
+</body>
+</html>

@@ -13,3 +13,7 @@ dist/
 # sistema
 .DS_Store
 Thumbs.db
+
+# datos internos de coste y utilidades de build: NUNCA publicar (repo publico)
+_dev/
+nuevas-imagenes/
