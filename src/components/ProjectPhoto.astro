@@ -1,0 +1,15 @@
+---
+import ProjectImage from './ProjectImage.astro';
+import type { ProjectSelection } from '../data/project-imagery';
+interface Props { selection: ProjectSelection; eager?: boolean; variant?: 'hero' | 'banner'; }
+const { selection, eager = false, variant = 'hero' } = Astro.props;
+const { project, photo, position } = selection;
+---
+<figure class:list={['real-project-photo', variant]} data-project-photo={project.id}>
+  <ProjectImage image={photo} eager={eager} position={position} sizes={variant === 'banner' ? '(max-width: 900px) 100vw, 900px' : '(max-width: 880px) 100vw, 55vw'} />
+  <figcaption><span><strong>{project.title}</strong>Project photo · {project.city}, FL</span><a href={`/projects/#${project.id}`}>View project <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+<style>
+.real-project-photo{margin-top:2rem;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 32px -24px #11284050}.real-project-photo :global(img){display:block;width:100%;aspect-ratio:16/10;object-fit:cover;height:auto}.real-project-photo figcaption{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;color:var(--ink-2);font-size:.75rem;line-height:1.5}.real-project-photo strong{display:block;color:var(--ink);font-weight:600;font-size:.88rem;margin-bottom:.2rem}.real-project-photo a{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--blue);font-weight:600;white-space:nowrap}.real-project-photo a:hover{text-decoration:underline;text-underline-offset:4px}.real-project-photo.banner :global(img){aspect-ratio:21/9}
+@media(max-width:540px){.real-project-photo figcaption{padding:.8rem;gap:.7rem;font-size:.7rem}.real-project-photo strong{font-size:.8rem}.real-project-photo.banner :global(img){aspect-ratio:4/3}}
+</style>

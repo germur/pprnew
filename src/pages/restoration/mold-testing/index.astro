@@ -1,4 +1,6 @@
 ---
+import ProjectPhoto from "../../../components/ProjectPhoto.astro";
+import { SERVICE_IMAGERY } from "../../../data/project-imagery";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { COMPANY , REGIONS } from "../../../data/company";
 import Icon from "../../../components/Icon.astro";
@@ -16,7 +18,7 @@ const description = "Independent mold testing and inspection in South Florida. A
     <p class="empathy">Not sure you really have mold? Let's find out before you spend a cent on removal.</p>
     <p class="lead maxw mt-m">Independent inspection and lab analysis, so you know <strong>exactly what you're dealing with, and whether remediation is even warranted.</strong> No fear, no upsell.</p>
     <div class="chips mt-m"><span class="chip">24/7 response</span><span class="chip">IICRC certified</span><span class="chip">Insurance billed direct</span><span class="chip">24/7 · 365</span></div>
-    <img class="phero-img" src="/heroes/mold-testing.webp" alt="Mold testing technician taking an indoor air-quality sample during a mold inspection" width="1400" height="1050" loading="eager" fetchpriority="high" decoding="async" />
+    <ProjectPhoto selection={SERVICE_IMAGERY["mold-testing"]} eager />
   </div>
   <aside class="reveal"><div class="emcard">
     <div class="eyebrow nodash" style="color:#9db8ff;">Want answers?</div>

@@ -1,4 +1,6 @@
 ---
+import ProjectPhoto from "../../../components/ProjectPhoto.astro";
+import { RESOURCE_IMAGERY } from "../../../data/project-imagery";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { COMPANY } from "../../../data/company";
 
@@ -26,7 +28,7 @@ const description = "A clear, honest guide to black mold: the real health risks,
     </div>
   </div>
   <div class="wrap">
-    <div class="area-map reveal" style="aspect-ratio:24/9;margin-top:2.5rem;"><img src="/heroes/article-mold.webp" alt="Close-up of black mold growth on an interior wall in a South Florida home" width="1800" height="675" loading="eager" fetchpriority="high" decoding="async" /></div>
+    <ProjectPhoto selection={RESOURCE_IMAGERY} variant="banner" eager /><p class="photo-context">This project photo documents a ceiling inspection. It does not identify a mold species.</p>
   </div>
 </section>
 
@@ -119,3 +121,5 @@ const description = "A clear, honest guide to black mold: the real health risks,
   </div>
 </section>
 </BaseLayout>
+
+<style>.photo-context{font-size:.78rem;line-height:1.6;color:var(--ink-2);margin-top:.8rem;max-width:70ch}</style>
