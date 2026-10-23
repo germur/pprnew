@@ -1,32 +1,20 @@
 /* Paramount — shared interactions */
 import { submitLead } from './submit-lead.js';
+import { initNavigation } from './navigation.js';
+initNavigation();
 (function(){
   // sticky header shadow
   const head=document.querySelector('.head');
   const onScroll=()=>{ if(head) head.classList.toggle('scrolled', window.scrollY>8); };
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
 
-  // mobile menu
-  const burger=document.querySelector('.burger');
-  const mnav=document.querySelector('.mnav');
-  if(burger&&mnav){
-    burger.addEventListener('click',()=>{
-      const open=mnav.classList.toggle('open');
-      burger.classList.toggle('open',open);
-      document.body.style.overflow=open?'hidden':'';
-    });
-    mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-      mnav.classList.remove('open');burger.classList.remove('open');document.body.style.overflow='';
-    }));
-  }
-
   // reveal on scroll
-  const io=new IntersectionObserver((es)=>{
+  const io=typeof IntersectionObserver==='function' ? new IntersectionObserver((es)=>{
     es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'}) : null;
   document.querySelectorAll('.reveal').forEach((el,i)=>{
     el.style.transitionDelay=(Math.min(i%4,3)*70)+'ms';
-    io.observe(el);
+    if(io){io.observe(el);el.classList.add('reveal-ready');}
   });
 
   // before / after sliders

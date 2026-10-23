@@ -1,46 +1,43 @@
-# Integración CompanyCam (fotos de proyectos)
+# Fotos de CompanyCam
 
-Trae las fotos reales de tus proyectos de CompanyCam al sitio, en build time
-(se descargan y quedan locales, rápidas y buenas para SEO).
+La web sirve fotografías locales preparadas en build time. No consulta CompanyCam en cada visita ni expone el token al navegador.
 
-## Primera vez: configurar el token
+## Configuración
 
-1. En CompanyCam: **Settings → Integrations → API** (o Developer Settings).
-   Requiere plan **Pro/Premium/Elite** y rol **Admin**. Genera un token.
-2. En la raíz del proyecto, copia la plantilla y pega tu token:
-   ```
-   copy .env.example .env
-   ```
-   Abre `.env` y reemplaza `pega_aqui_tu_token` por el token real.
-   (El archivo `.env` está en `.gitignore`: nunca se sube a git.)
+Guarda COMPANYCAM_TOKEN en un .env local siguiendo .env.example. El token y .companycam-review/ están excluidos de Git. No copies credenciales al frontend o al JSON público.
 
-## Traer las fotos
+## Revisar material sin etiqueta
+
+```
+npm run review:photos
+```
+
+Consulta todas las páginas de proyectos y descarga hasta 32 candidatas recientes en .companycam-review/. La muestra usa proyectos activos no archivados de ciudades reconocidas, hasta dos fotos por proyecto y dos proyectos por ciudad. Omite fotos internas, no procesadas y las ya conocidas. No es una revisión exhaustiva y no cambia CompanyCam ni publica archivos.
+
+Los candidatos pueden contener datos de clientes y coordenadas EXIF. Revisar claridad, contexto, caras, direcciones, placas y documentos. No copiarlos directamente a public/. No inferir un antes/después solo por pertenecer al mismo proyecto.
+
+## Selección editorial
+
+src/data/selected-projects.json contiene los proyectos revisados para portada y /projects/. Los archivos preparados en public/projects/ tienen orientación corregida, formato WebP, tamaños de tarjeta y ningún EXIF/GPS. No incluyen nombres privados de proyectos ni enlaces firmados.
+
+La selección del 23 de octubre de 2026 contiene ocho proyectos y trece fotos. Los criterios están en docs/ui-projects-2026-10-23.md. Editar ese JSON no descarga ni aprueba automáticamente material adicional; las futuras selecciones requieren revisión y preparación.
+
+## Sincronizar material marcado para publicación
 
 ```
 npm run sync:photos
 ```
 
-Esto:
-- Lista tus proyectos de CompanyCam.
-- Saca la **ciudad** de la dirección de cada proyecto y la mapea a las 15 ciudades del sitio.
-- Descarga las fotos (omite las marcadas como `internal` en CompanyCam).
-- Las guarda en `public/companycam/<ciudad>/`.
-- Genera `src/data/companycam.json` con el mapeo ciudad → fotos.
+Requiere la etiqueta web. Si no existe o no hay fotos aprobadas, termina sin sustituir el catálogo. No publica fotos arbitrarias como fallback. La revisión sin etiqueta sigue disponible con review:photos.
 
-Vuelve a correrlo cuando agregues proyectos nuevos en CompanyCam.
+La sincronización omite fotos internas y sin procesar; prepara WebP de hasta 1600 px sin EXIF/GPS y evita exportar nombres privados o descripciones libres. Si falla la preparación, no reemplaza el JSON por un catálogo incompleto. Pueden quedar archivos locales sin referenciar de una ejecución fallida.
 
-## Cuando el CEO añada los tags de servicio
+La paginación termina en una página vacía, deduplica por ID y detecta repeticiones. Se corrigió el corte anterior: la cuenta devuelve páginas de 50 incluso al solicitar per_page=100.
 
-Hoy las fotos se mapean por **ciudad** (desde la dirección). Para mapearlas también
-por **servicio** (water/mold/fire/storm), cuando existan tags en CompanyCam:
+No se crean etiquetas, no se escribe en CompanyCam y no se sincroniza automáticamente en cada deploy.
 
-1. Abre `scripts/fetch-companycam.mjs`.
-2. En `SERVICE_TAGS` ya están los nombres de tag esperados (water, mold, fire, storm…).
-3. Avísame y conecto la lectura de tags por foto (`GET /projects/{id}/photos?tag_ids=...`),
-   para que cada foto sepa a qué pillar pertenece.
+## Mantenimiento
 
-## Qué NO hace (a propósito)
+[Proyectos](https://docs.companycam.com/reference/listprojects) y [fotos por proyecto](https://docs.companycam.com/reference/listprojectphotos): endpoints utilizados.
 
-- No publica fotos marcadas `internal` en CompanyCam.
-- No sube nada a CompanyCam: solo lee.
-- No corre en cada build automático (lo corres tú cuando quieres refrescar).
+[CompanyCam anuncia la retirada de la API heredada a principios de 2027](https://docs.companycam.com/docs/welcome). Planificar la migración antes de esa fecha; esta propuesta conserva la conexión existente.

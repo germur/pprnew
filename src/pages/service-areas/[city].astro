@@ -4,6 +4,7 @@ import { COMPANY, REGIONS, SERVICES } from "../../data/company";
 import { CITY_CONTENT } from "../../data/cities-content";
 import Icon from "../../components/Icon.astro";
 import companycam from "../../data/companycam.json";
+import selectedProjects from "../../data/selected-projects.json";
 
 // Genera una página por cada ciudad del sheet (15 en total).
 export function getStaticPaths() {
@@ -24,7 +25,7 @@ const serviceCards = SERVICES.filter((s) => s.slug !== "commercial");
 // Contenido local único si existe; si no, la sección muestra un placeholder.
 const local = CITY_CONTENT[city.slug];
 // Fotos reales de proyectos en esta ciudad (CompanyCam). Máximo 6 en la galería.
-const cityPhotos = ((companycam as Record<string, { src: string; alt: string; projectName: string }[]>)[city.slug] || []).slice(0, 6);
+const cityPhotos = [...selectedProjects.filter(project => project.citySlug === city.slug).flatMap(project => project.photos), ...((companycam as Record<string, { src: string; alt: string; projectName: string }[]>)[city.slug] || [])].slice(0, 6);
 const title = `${city.name} Restoration | Water, Fire, Mold & Storm`;
 const description = `24/7 property restoration in ${city.name}, FL. Water damage, mold, fire and storm recovery by local IICRC-certified crews. 24/7 dispatch, insurance handled.`;
 ---
@@ -111,7 +112,7 @@ const description = `24/7 property restoration in ${city.name}, FL. Water damage
       <div class="wrap-wide">
         <div class="sec-head reveal">
           <div><span class="eyebrow">03 · Recent work</span><h2 class="h2 mt-s" style="max-width:20ch;">Real {city.name} projects, documented.</h2></div>
-          <p class="body-l" style="max-width:32ch;">Actual restoration work our crews completed in {city.name}. The proof that ranks, and the proof that converts.</p>
+          <p class="body-l" style="max-width:32ch;">Photos from our project documentation in {city.name}, including site conditions and the work area.</p>
         </div>
         <div class="cc-grid mt-l">
           {cityPhotos.map((photo) => (

@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { COMPANY, REGIONS, CITY_COUNT } from "../data/company";
 import Icon from "../components/Icon.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import projects from "../data/selected-projects.json";
 
 const title = "Paramount Restoration | Water, Fire, Mold & Storm, South Florida";
 const description = "South Florida's 24/7 restoration company. Water damage, mold remediation, fire and storm restoration. IICRC-certified, fully insured, insurance handled.";
@@ -9,38 +11,22 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
 
 <BaseLayout title={title} description={description} path="/">
 <!-- ============ HERO ============ -->
-<section class="hero pt">
-  <div class="wrap-wide">
-    <div class="hero-grid">
-      <div class="hero-copy reveal">
-        <span class="eyebrow">Property Restoration · South Florida</span>
-        <h1 class="display">When water, fire or&nbsp;mold strikes, <em>every hour</em> decides the outcome.</h1>
-        <p class="lead maxw mt-m">Paramount is South Florida's around-the-clock restoration response. <strong>IICRC-certified crews, insurance handled end to end, dispatched 24/7.</strong></p>
-        <div class="cta-row mt-l">
-          <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-primary btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a>
-          <a href="/emergency/" class="btn btn-ghost btn-lg">Request emergency help <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
+<section class="hero home-hero">
+  <div class="wrap-wide home-hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Property restoration · 24/7 response</span>
+      <h1 class="display">Water, fire &amp; mold damage.<br /><em>Help starts here.</em></h1>
+      <p class="lead mt-m">Get help with water, fire, mold and storm damage. Our IICRC-certified team assesses the loss, documents the work and helps you take the next step.</p>
+      <div class="cta-row mt-m">
+        <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-primary btn-lg">Call {COMPANY.phone} <span aria-hidden="true">↗</span></a>
+        <a href="/emergency/" class="btn btn-ghost btn-lg">Request help online</a>
       </div>
-      <aside class="hero-side reveal">
-        <div class="hero-stat">
-          <div class="metric">24<span style="font-size:.4em;font-family:var(--sans);font-weight:600;">/7</span></div>
-          <div class="num-label">Emergency response, 365 days</div>
-        </div>
-        <hr class="rule">
-        <div class="hero-stat">
-          <div class="metric">24/7</div>
-          <div class="num-label">Emergency dispatch, 365 days</div>
-        </div>
-        <hr class="rule">
-        <div class="hero-stat">
-          <div class="metric">IICRC</div>
-          <div class="num-label">Certified restoration crews</div>
-        </div>
-      </aside>
+      <div class="home-trust"><span>24/7 emergency response</span><span>IICRC certified</span><span>Insurance documentation</span></div>
     </div>
-  </div>
-  <div class="wrap-wide">
-    <div class="hero-img" style="aspect-ratio:24/9;margin-top:clamp(2.5rem,5vw,4.5rem);"><img src="/heroes/home-hero.webp" alt="Paramount Property Restoration crew with drying equipment in a flooded South Florida home" width="1800" height="675" loading="eager" fetchpriority="high" decoding="async" /></div>
+    <figure class="home-hero-photo">
+      <img src={projects[0].photos[0].thumbnail} srcset={projects[0].photos[0].thumbnail !== projects[0].photos[0].src ? `${projects[0].photos[0].thumbnail} ${projects[0].photos[0].thumbnailWidth}w, ${projects[0].photos[0].src} ${projects[0].photos[0].width}w` : undefined} sizes="(max-width:820px) 100vw, 45vw" alt={projects[0].photos[0].alt} width={projects[0].photos[0].width} height={projects[0].photos[0].height} loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption><span>On site · {projects[0].city}, FL</span><a href={`/projects/#${projects[0].id}`}>See this project <span aria-hidden="true">↗</span></a></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -50,7 +36,7 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
     <div class="trust-grid">
       <div class="trust-item reveal"><span class="trust-ico"><Icon name="doc" size={22} /></span><span class="num-label">Insurance</span><p>We bill your carrier directly and document every step for the claim.</p></div>
       <div class="trust-item reveal"><span class="trust-ico"><Icon name="badge" size={22} /></span><span class="num-label">Certification</span><p>IICRC-certified technicians in water, fire, mold &amp; applied structural drying.</p></div>
-      <div class="trust-item reveal"><span class="trust-ico"><Icon name="shield" size={22} /></span><span class="num-label">Coverage</span><p>Fully insured &amp; bonded, with verifiable credentials and no contractor overreach.</p></div>
+      <div class="trust-item reveal"><span class="trust-ico"><Icon name="shield" size={22} /></span><span class="num-label">Coverage</span><p>Fully insured &amp; bonded. Ask our team about credentials and the scope of your project.</p></div>
       <div class="trust-item reveal"><span class="trust-ico"><Icon name="check" size={22} /></span><span class="num-label">Local</span><p>Real crews based in South Florida, documenting every loss for your insurer.</p></div>
     </div>
   </div>
@@ -64,14 +50,14 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
         <span class="eyebrow">01 · What we restore</span>
         <h2 class="h2 mt-s" style="max-width:18ch;">Four disasters. One certified response across South Florida.</h2>
       </div>
-      <p class="body-l" style="max-width:34ch;">Every page below is a real service we perform. No doorway pages, no city-by-service filler. Demand figures are monthly U.S. search volume from the validated SEO blueprint.</p>
+      <p class="body-l" style="max-width:34ch;">Start with the damage you see. Each service explains what we assess, how the work proceeds and how to request help.</p>
     </div>
 
     <div class="svc-grid mt-l">
       <a href="/restoration/water-damage/" class="svc reveal">
         <div class="svc-media"><img class="svc-bg" src="/heroes/water-damage.webp" alt="Water damage restoration in South Florida" width="1400" height="1050" loading="lazy" decoding="async" /><span class="svc-icon"><Icon name="water" size={26} /></span></div>
         <div class="svc-body">
-          <div class="svc-top"><span class="num-label">/restoration/water-damage</span></div>
+          <div class="svc-top"><span class="num-label">Water &amp; moisture</span></div>
           <h3 class="h3">Water Damage Restoration</h3>
           <p>Burst pipes, roof leaks, flooding. We extract, dry and restore, then stop the mold that follows.</p>
           <span class="link-arrow">Explore water damage <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
@@ -80,7 +66,7 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
       <a href="/restoration/mold-remediation/" class="svc reveal">
         <div class="svc-media"><img class="svc-bg" src="/heroes/mold-remediation.webp" alt="Mold remediation in South Florida" width="1400" height="1050" loading="lazy" decoding="async" /><span class="svc-icon"><Icon name="mold" size={26} /></span></div>
         <div class="svc-body">
-          <div class="svc-top"><span class="num-label">/restoration/mold-remediation</span></div>
+          <div class="svc-top"><span class="num-label">Mold &amp; containment</span></div>
           <h3 class="h3">Mold Remediation</h3>
           <p>Containment, HEPA filtration, removal and third-party clearance. Built for Florida humidity.</p>
           <span class="link-arrow">Explore mold remediation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
@@ -89,7 +75,7 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
       <a href="/restoration/fire-damage/" class="svc reveal">
         <div class="svc-media"><img class="svc-bg" src="/heroes/fire-damage.webp" alt="Fire and smoke damage restoration in South Florida" width="1400" height="1050" loading="lazy" decoding="async" /><span class="svc-icon"><Icon name="fire" size={26} /></span></div>
         <div class="svc-body">
-          <div class="svc-top"><span class="num-label">/restoration/fire-damage</span></div>
+          <div class="svc-top"><span class="num-label">Fire &amp; smoke</span></div>
           <h3 class="h3">Fire &amp; Smoke Damage</h3>
           <p>Soot and smoke removal, odor neutralization and contents recovery, plus the water from firefighting.</p>
           <span class="link-arrow">Explore fire damage <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
@@ -98,7 +84,7 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
       <a href="/restoration/storm-damage/" class="svc reveal">
         <div class="svc-media"><img class="svc-bg" src="/heroes/storm-damage.webp" alt="Storm and hurricane damage restoration in South Florida" width="1400" height="1050" loading="lazy" decoding="async" /><span class="svc-icon"><Icon name="storm" size={26} /></span></div>
         <div class="svc-body">
-          <div class="svc-top"><span class="num-label">/restoration/storm-damage</span></div>
+          <div class="svc-top"><span class="num-label">Storm &amp; hurricane</span></div>
           <h3 class="h3">Storm &amp; Hurricane Damage</h3>
           <p>Emergency tarping, water intrusion, debris and full structural restoration after the season's worst.</p>
           <span class="link-arrow">Explore storm damage <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
@@ -109,13 +95,13 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
     <div class="svc-row mt-m">
       <a href="/restoration/mold-testing/" class="svc-mini reveal">
         <span class="svc-mini-ico"><Icon name="testing" size={24} /></span>
-        <div><span class="num-label">/restoration/mold-testing</span><h3 class="h3" style="margin-top:.3rem;">Mold Testing &amp; Inspection</h3></div>
+        <div><span class="num-label">Inspection &amp; testing</span><h3 class="h3" style="margin-top:.3rem;">Mold Testing &amp; Inspection</h3></div>
         <p>Independent inspection and lab analysis, before you commit to remediation.</p>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </a>
       <a href="/commercial/" class="svc-mini reveal">
         <span class="svc-mini-ico"><Icon name="commercial" size={24} /></span>
-        <div><span class="num-label">/commercial · B2B</span><h3 class="h3" style="margin-top:.3rem;">Commercial Restoration</h3></div>
+        <div><span class="num-label">Commercial properties</span><h3 class="h3" style="margin-top:.3rem;">Commercial Restoration</h3></div>
         <p>Large-loss response for property managers, HOAs and businesses.</p>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </a>
@@ -128,7 +114,7 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
   <div class="wrap-wide">
     <div class="insight-in reveal">
       <span class="eyebrow nodash" style="color:#9db8ff;">The connection most companies miss</span>
-      <p class="h2" style="color:#fff;max-width:24ch;">Water damage today becomes a <em>mold problem</em> in two to three weeks.</p>
+      <p class="h2" style="color:#fff;max-width:24ch;">Wet materials need attention. <em>Don't wait</em> for visible mold.</p>
       <p class="lead" style="color:#aac3ff;max-width:46ch;">That's why we don't just dry your property. We monitor moisture to clearance standards and tell you, honestly, whether testing is warranted. One emergency, handled to the end.</p>
       <a href="/restoration/mold-remediation/" class="link-arrow" style="color:#fff;">See how water leads to mold <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
     </div>
@@ -150,18 +136,12 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
   </div>
 </section>
 
-<!-- ============ PRODUCT-LED PROJECTS ============ -->
-<section class="pb">
+<!-- ============ PROJECTS ============ -->
+<section class="pt pb work-home">
   <div class="wrap-wide">
-    <div class="sec-head reveal">
-      <div><span class="eyebrow">03 · Recent work</span><h2 class="h2 mt-s" style="max-width:20ch;">Real South Florida projects, documented.</h2></div>
-      <p class="body-l" style="max-width:34ch;">Drag the handle to see before and after. Every project is a real loss our crews restored: the proof that ranks, and the proof that converts.</p>
-    </div>
-    <div class="proj-grid mt-l">
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/kissimmee/3249792336.webp" alt="Restoration project by Paramount Property Restoration in Kissimmee, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Water · Kissimmee</span></figcaption></figure>
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/hollywood/3241799450.webp" alt="Restoration project by Paramount Property Restoration in Hollywood, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Mold · Hollywood</span></figcaption></figure>
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/homestead/3232891924.webp" alt="Restoration project by Paramount Property Restoration in Homestead, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Storm · Homestead</span></figcaption></figure>
-    </div>
+    <div class="sec-head"><div><span class="eyebrow">03 · In the field</span><h2 class="h2 mt-s" style="max-width:22ch;">A closer look at <em>the work.</em></h2></div><a href="/projects/" class="link-arrow">View all {projects.length} projects <span aria-hidden="true">↗</span></a></div>
+    <p class="body-l mt-m" style="max-width:56ch;">Real project photos, from affected materials to inspection readings. Explore the details behind each visit.</p>
+    <div class="work-grid mt-l">{projects.slice(0,6).map(project => <ProjectCard project={project} compact />)}</div>
   </div>
 </section>
 
@@ -170,7 +150,7 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
   <div class="wrap-wide">
     <div class="sec-head reveal">
       <div><span class="eyebrow">04 · Where we work</span><h2 class="h2 mt-s" style="max-width:20ch;">{CITY_COUNT} South Florida cities. <em>Real</em> local crews.</h2></div>
-      <p class="body-l" style="max-width:34ch;">We only claim cities where we actually operate, with local projects, response times and storm-risk knowledge. No filler pages for towns we don't serve.</p>
+      <p class="body-l" style="max-width:34ch;">Find your city and learn about local service coverage. Call us to confirm availability for your property and type of damage.</p>
     </div>
     <div class="areas-grid mt-l reveal">
       {REGIONS.map((region) => (
@@ -200,7 +180,7 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
         <span class="eyebrow">Insurance, handled</span>
         <h2 class="h2 mt-s" style="max-width:18ch;">We speak your insurer's language, so you don't have to.</h2>
         <p class="lead maxw mt-m">From the first photo to the final invoice, we document the loss and bill your carrier directly. You focus on your family; we handle the claim.</p>
-        <a href="/emergency/" class="btn btn-blue btn-lg mt-m">Start an insurance claim <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="/insurance-claims/" class="btn btn-blue btn-lg mt-m">How we support your claim <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <ul class="insure-list">
         <li><span class="num-label">01</span> Direct insurance billing &amp; carrier coordination</li>
@@ -217,12 +197,12 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
   <div class="wrap-wide">
     <div class="sec-head reveal">
       <div><span class="eyebrow">05 · Resources</span><h2 class="h2 mt-s" style="max-width:18ch;">Answers before the emergency.</h2></div>
-      <a href="/resources/is-black-mold-dangerous/" class="link-arrow">Read the guides <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+      <a href="/resources/" class="link-arrow">Explore resources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
     </div>
     <div class="res-grid mt-l">
       <a href="/resources/is-black-mold-dangerous/" class="res reveal"><span class="num-label">Mold guide</span><h3 class="h3">Is black mold dangerous?</h3><p>What's true, what's hype, and when to call a professional.</p></a>
-      <a href="/resources/is-black-mold-dangerous/" class="res reveal"><span class="num-label">Water damage</span><h3 class="h3">What to do after water damage</h3><p>The first 24 hours that decide your repair bill.</p></a>
-      <a href="/resources/is-black-mold-dangerous/" class="res reveal"><span class="num-label">Storm · seasonal</span><h3 class="h3">What to do after a hurricane</h3><p>A homeowner's step-by-step recovery checklist.</p></a>
+      <a href="/restoration/water-damage/" class="res reveal"><span class="num-label">Water damage</span><h3 class="h3">Water damage restoration</h3><p>Understand extraction, drying and the next steps for your property.</p></a>
+      <a href="/restoration/storm-damage/" class="res reveal"><span class="num-label">Storm damage</span><h3 class="h3">Storm recovery services</h3><p>Explore help with water intrusion, affected materials and storm damage.</p></a>
     </div>
   </div>
 </section>
@@ -233,7 +213,7 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
     <div>
       <span class="eyebrow nodash" style="color:#ffd2c4;">24/7 Emergency Response</span>
       <h2 class="display" style="color:#fff;max-width:16ch;">If you're reading this, something went wrong today.</h2>
-      <p class="lead" style="color:#ffd9cd;max-width:42ch;" class="mt-m">Don't wait for the damage to spread. Call now or send a request, and a certified crew is on the way.</p>
+      <p class="lead mt-m" style="color:#ffd9cd;max-width:42ch;">Don't wait for the damage to spread. Call now or send a request, and a certified crew is on the way.</p>
     </div>
     <div class="emcta-actions">
       <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a>
