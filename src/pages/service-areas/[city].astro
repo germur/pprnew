@@ -5,8 +5,10 @@ import { CITY_CONTENT } from "../../data/cities-content";
 import Icon from "../../components/Icon.astro";
 import companycam from "../../data/companycam.json";
 import selectedProjects from "../../data/selected-projects.json";
+import CityProjectStory from "../../components/CityProjectStory.astro";
+import { CITY_PROJECT_STORIES } from "../../data/city-project-stories";
 
-// Genera una página por cada ciudad del sheet (15 en total).
+// Generate a page for each city configured in REGIONS.
 export function getStaticPaths() {
   const paths = [];
   for (const region of REGIONS) {
@@ -22,10 +24,13 @@ export function getStaticPaths() {
 
 const { city, regionName } = Astro.props;
 const serviceCards = SERVICES.filter((s) => s.slug !== "commercial");
-// Contenido local único si existe; si no, la sección muestra un placeholder.
+// Local context, complemented by approved project documentation where available.
 const local = CITY_CONTENT[city.slug];
 // Fotos reales de proyectos en esta ciudad (CompanyCam). Máximo 6 en la galería.
-const cityPhotos = [...selectedProjects.filter(project => project.citySlug === city.slug).flatMap(project => project.photos), ...((companycam as Record<string, { src: string; alt: string; projectName: string }[]>)[city.slug] || [])].slice(0, 6);
+const cityProjects = selectedProjects.filter(project => project.citySlug === city.slug && CITY_PROJECT_STORIES[project.id]);
+const featuredProject = cityProjects[0];
+const featuredPhoto = featuredProject?.photos[0];
+const cityPhotos = ((companycam as Record<string, { src: string; alt: string; projectName: string }[]>)[city.slug] || []).slice(0, 6);
 const title = `${city.name} Restoration | Water, Fire, Mold & Storm`;
 const description = `24/7 property restoration in ${city.name}, FL. Water damage, mold, fire and storm recovery by local IICRC-certified crews. 24/7 dispatch, insurance handled.`;
 ---
@@ -47,7 +52,14 @@ const description = `24/7 property restoration in ${city.name}, FL. Water damage
           </div>
         </div>
         <aside class="reveal">
-          <div class="area-map" style="aspect-ratio:4/3;border-radius:var(--radius);"><img src="/heroes/map-coverage.webp" alt={`Paramount Property Restoration coverage area including ${city.name}, Florida`} width="1254" height="1254" loading="lazy" decoding="async" /></div>
+          {featuredPhoto ? (
+            <figure class="city-hero-photo">
+              <a href="#local-project"><img src={featuredPhoto.thumbnail} srcset={`${featuredPhoto.thumbnail} ${featuredPhoto.thumbnailWidth}w, ${featuredPhoto.src} ${featuredPhoto.width}w`} sizes="(max-width:880px) 100vw, 40vw" alt={CITY_PROJECT_STORIES[featuredProject.id].captions[0]} width={featuredPhoto.width} height={featuredPhoto.height} loading="eager" decoding="async" /></a>
+              <figcaption>From a {city.name} project <a href="#local-project">See what we documented <span aria-hidden="true">↓</span></a></figcaption>
+            </figure>
+          ) : (
+            <div class="area-map" style="aspect-ratio:4/3;border-radius:var(--radius);"><img src="/heroes/map-coverage.webp" alt={`Paramount Property Restoration coverage area including ${city.name}, Florida`} width="1254" height="1254" loading="lazy" decoding="async" /></div>
+          )}
           <div class="trust-grid" style="grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;">
             <div><div class="metric-sm">24/7</div><span class="num-label">Emergency dispatch to {city.name}</span></div>
             <div><div class="metric-sm">IICRC</div><span class="num-label">Certified crews in {regionName}</span></div>
@@ -57,12 +69,14 @@ const description = `24/7 property restoration in ${city.name}, FL. Water damage
     </div>
   </section>
 
+  {cityProjects.map(project => <CityProjectStory project={project} story={CITY_PROJECT_STORIES[project.id]} />)}
+
   <!-- SERVICES IN CITY -->
   <section class="pt pb">
     <div class="wrap-wide">
       <div class="sec-head reveal">
         <div><span class="eyebrow">01 · Services in {city.name}</span><h2 class="h2 mt-s" style="max-width:20ch;">Every restoration service, right here in {city.name}.</h2></div>
-        <p class="body-l" style="max-width:32ch;">One local crew for all four disasters. No handoffs, no out-of-town subcontractors.</p>
+        <p class="body-l" style="max-width:32ch;">Choose the service that matches the issue at your property. We can discuss the next steps for your location.</p>
       </div>
       <div class="types mt-l">
         {serviceCards.map((s) => (
@@ -106,7 +120,7 @@ const description = `24/7 property restoration in ${city.name}, FL. Water damage
     </div>
   </section>
 
-  {cityPhotos.length > 0 && (
+  {cityProjects.length === 0 && cityPhotos.length > 0 && (
     <!-- REAL PROJECTS (CompanyCam) -->
     <section class="pb">
       <div class="wrap-wide">
@@ -136,3 +150,10 @@ const description = `24/7 property restoration in ${city.name}, FL. Water damage
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .city-hero-photo{border:1px solid var(--line);background:var(--white);}
+  .city-hero-photo img{width:100%;height:clamp(260px,28vw,390px);object-fit:cover;}
+  .city-hero-photo figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;padding:1rem;font-size:.82rem;color:var(--ink-2);}
+  .city-hero-photo figcaption a{text-decoration:underline;text-underline-offset:3px;color:var(--blue);}
+</style>

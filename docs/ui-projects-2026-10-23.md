@@ -19,6 +19,14 @@ También se eliminó de los archivos publicados y del catálogo una captura de a
 
 La selección recibió autorización expresa para publicarse en el repositorio público y en la web. Solo se incorporan esas trece fotos y sus miniaturas WebP: orientación corregida, tamaños de tarjeta y EXIF/GPS eliminados. No se exportan nombres ni direcciones de clientes, descripciones privadas o enlaces firmados. Las candidatas descartadas y los originales permanecen locales, excluidos de Git.
 
+## Contenido local basado en proyectos
+
+Las páginas de Weston, Doral, Miami, Naples, Cape Coral, Sunny Isles Beach, Coral Springs y Port St. Lucie incorporan las fotos autorizadas como contenido editorial, además de la galería. Cada una muestra una fotografía local en el inicio y una sección con observaciones, su utilidad para explicar la evaluación y qué información puede aportar el propietario al solicitar ayuda.
+
+Los pies de foto corresponden a cada imagen y las notas se centralizan en `src/data/city-project-stories.ts`. Se enlazan el proyecto completo y un servicio relacionado sin atribuir al trabajo un siniestro, resultado, plazo o diagnóstico que las fotos no acreditan. Las otras ciudades conservan su presentación anterior.
+
+Se verificaron las ocho páginas compiladas: fotos de su propia ciudad, enlace al proyecto correcto y ausencia de las fotos seleccionadas de otras ciudades. Compilación de 55 páginas e inventario local sin incidencias dentro del alcance del script.
+
 ## Importador
 
 Se corrige el corte después de una página corta: se consulta hasta una página vacía, con deduplicación y límites contra repeticiones. El comando review:photos descarga muestras únicamente en una carpeta local excluida de Git. sync:photos requiere etiqueta web, prepara WebP sin EXIF/GPS, evita exportar nombres privados y conserva el catálogo si falla. No modifica CompanyCam ni corre automáticamente en cada deploy.
