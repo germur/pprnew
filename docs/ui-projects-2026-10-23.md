@@ -1,6 +1,6 @@
 # UI/UX y proyectos — 23 de octubre de 2026
 
-Esta propuesta continúa la auditoría y se basa en su rama, porque el PR #1 sigue abierto. No incorpora fotografías nuevas de la cuenta privada de CompanyCam.
+Esta propuesta continúa la auditoría y se basa en su rama, porque el PR #1 sigue abierto. Incluye las 13 fotografías de CompanyCam revisadas y autorizadas expresamente para publicación el 23 de octubre de 2026.
 
 ## Cambios visibles
 
@@ -13,11 +13,11 @@ Esta propuesta continúa la auditoría y se basa en su rama, porque el PR #1 sig
 
 ## Selección pública
 
-Se eligieron ocho fotografías de ocho proyectos ya incluidos en el repositorio público: Miami, Naples, Orlando, Homestead, Wellington, Doral, Bonita Springs y Weston. Los textos describen lo visible; no atribuyen resultados, duración ni comparaciones antes/después sin evidencia.
+Se incorporan trece fotografías de ocho proyectos revisados en CompanyCam: Weston, Doral, Miami, Naples, Cape Coral, Sunny Isles Beach, Coral Springs y Port St. Lucie. Sustituyen la selección temporal de fotografías ya públicas usada para preparar el diseño. Los textos describen lo visible; no atribuyen resultados, duración ni comparaciones antes/después sin evidencia.
 
 También se eliminó de los archivos publicados y del catálogo una captura de agenda encontrada durante la revisión. Esto no borra el historial de Git ni significa que se haya revisado toda la biblioteca histórica.
 
-Las candidatas nuevas de CompanyCam permanecen locales y excluidas de Git, pendientes de aprobación expresa para publicación. No forman parte de esta rama ni de sus commits.
+La selección recibió autorización expresa para publicarse en el repositorio público y en la web. Solo se incorporan esas trece fotos y sus miniaturas WebP: orientación corregida, tamaños de tarjeta y EXIF/GPS eliminados. No se exportan nombres ni direcciones de clientes, descripciones privadas o enlaces firmados. Las candidatas descartadas y los originales permanecen locales, excluidos de Git.
 
 ## Importador
 
@@ -27,4 +27,4 @@ Se corrige el corte después de una página corta: se consulta hasta una página
 
 ## Validación
 
-Pruebas del flujo de envíos, paginación y navegación. Compilación de 55 páginas, 53 URLs de sitemap y comprobación de destinos locales. Revisar también el deploy preview en móvil y escritorio; no se enviaron formularios a producción.
+Pruebas del flujo de envíos, paginación y navegación. Compilación de 55 páginas, 53 URLs de sitemap y comprobación de destinos locales. Se verificaron dimensiones y ausencia de EXIF/XMP en los 26 archivos preparados (13 fotos y 13 miniaturas). Revisar también el deploy preview en móvil y escritorio; no se enviaron formularios a producción.
