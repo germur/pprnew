@@ -1,4 +1,5 @@
 ---
+import CoverageCard from "../../components/CoverageCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { COMPANY, REGIONS, SERVICES } from "../../data/company";
 import { CITY_CONTENT } from "../../data/cities-content";
@@ -61,7 +62,7 @@ const description = serviceFocus?.description || `24/7 property restoration in $
               <figcaption>From a {city.name} project <a href="#local-project">See what we documented <span aria-hidden="true">↓</span></a></figcaption>
             </figure>
           ) : (
-            <div class="area-map" style="aspect-ratio:4/3;border-radius:var(--radius);"><img src="/heroes/map-coverage.webp" alt={`Paramount Property Restoration coverage area including ${city.name}, Florida`} width="1254" height="1254" loading="lazy" decoding="async" /></div>
+            <CoverageCard city={city.name} region={regionName} />
           )}
           <div class="trust-grid" style="grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;">
             <div><div class="metric-sm">24/7</div><span class="num-label">Emergency dispatch to {city.name}</span></div>

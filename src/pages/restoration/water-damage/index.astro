@@ -1,5 +1,7 @@
 ---
 import LocalServiceLinks from "../../../components/LocalServiceLinks.astro";
+import ProjectPhoto from "../../../components/ProjectPhoto.astro";
+import { SERVICE_IMAGERY } from "../../../data/project-imagery";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { COMPANY , REGIONS } from "../../../data/company";
 import Icon from "../../../components/Icon.astro";
@@ -29,7 +31,7 @@ const description = "Emergency water damage restoration across South Florida. Ex
           <span class="chip">Insurance billed direct</span>
           <span class="chip">24/7 · 365</span>
         </div>
-        <img class="phero-img" src="/heroes/water-damage.webp" alt="Water damage restoration crew extracting standing water and running air movers in a flooded South Florida home" width="1400" height="1050" loading="eager" fetchpriority="high" decoding="async" />
+        <ProjectPhoto selection={SERVICE_IMAGERY["water-damage"]} eager />
       </div>
 
       <aside class="reveal">

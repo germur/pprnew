@@ -1,0 +1,19 @@
+---
+import { REGIONS, CITY_COUNT } from '../data/company';
+import Icon from './Icon.astro';
+interface Props { city?: string; region?: string; }
+const { city, region } = Astro.props;
+const regionSlug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+---
+<aside class="coverage-card" aria-label={city ? `Service information for ${city}` : 'Florida service regions'}>
+  <div class="coverage-icon"><Icon name="home" size={27} /></div>
+  <span class="coverage-label">{city ? region : 'Florida service directory'}</span>
+  <h3>{city ? `Need help in ${city}?` : `${CITY_COUNT} cities. Find yours.`}</h3>
+  <p>Tell us your location and the type of damage. Our team can confirm availability and discuss the next step.</p>
+  {!city && <ul>{REGIONS.map(r => <li><a href={`/service-areas/#region-${regionSlug(r.name)}`}>{r.name}<span aria-hidden="true">↗</span></a></li>)}</ul>}
+  <a class="coverage-action" href={city ? '/contact/' : '/service-areas/'}>{city ? 'Ask about your property' : 'Search all service areas'} <span aria-hidden="true">→</span></a>
+</aside>
+<style>
+.coverage-card{background:linear-gradient(140deg,#fff,var(--blue-soft));border:1px solid #ccd9f2;border-radius:20px;padding:clamp(1.5rem,3vw,2.3rem);color:var(--ink)}.coverage-icon{display:grid;place-items:center;width:50px;height:50px;background:var(--blue-soft);border-radius:14px;color:var(--blue);margin-bottom:1.5rem}.coverage-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);font-weight:600}.coverage-card h3{font-size:clamp(1.6rem,3vw,2rem);font-weight:600;line-height:1.15;letter-spacing:-.04em;margin-top:.7rem}.coverage-card p{color:var(--ink-2);line-height:1.7;font-size:.92rem;max-width:55ch;margin-top:1rem}.coverage-card ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;padding:0;margin:1.3rem 0}.coverage-card li a{display:flex;justify-content:space-between;gap:10px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.87rem;min-height:48px}.coverage-card a:hover{color:var(--blue)}.coverage-card .coverage-action{display:inline-flex;gap:1rem;align-items:center;min-height:48px;margin-top:1rem;color:var(--blue);font-size:.88rem;font-weight:600}.coverage-action:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:540px){.coverage-card ul{grid-template-columns:1fr}.coverage-card{padding:1.5rem}}
+</style>
