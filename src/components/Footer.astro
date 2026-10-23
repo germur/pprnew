@@ -1,54 +1,27 @@
 ---
-import { COMPANY, SERVICES } from "../data/company";
-const footerCities = [
-  { name: "Miami", url: "/service-areas/miami/" },
-  { name: "Fort Lauderdale", url: "/service-areas/fort-lauderdale/" },
-  { name: "Naples", url: "/service-areas/naples/" },
-  { name: "West Palm Beach", url: "/service-areas/west-palm-beach/" },
-  { name: "Boca Raton", url: "/service-areas/boca-raton/" },
-];
+import { COMPANY, SERVICES, REGIONS, CITY_COUNT } from "../data/company";
+import Icon from "./Icon.astro";
 const year = new Date().getFullYear();
+const regionSlug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 ---
 <footer class="foot">
   <div class="wrap-wide">
+    <div class="foot-contact">
+      <div><span class="foot-kicker">Whenever you need the next step</span><h2>Let's talk about your property.</h2></div>
+      <a class="foot-call" href={`tel:${COMPANY.phoneRaw}`}><span class="foot-call-icon"><Icon name="phone" size={24} /></span><span><small>Call our team · 24/7</small>{COMPANY.phone}</span><span aria-hidden="true">↗</span></a>
+    </div>
     <div class="foot-top">
-      <div>
-        <a href="/" class="brand"><img src="/ppr-logo.png" alt="Paramount Property Restoration" width="1024" height="315" style="height:38px;width:auto;display:block;" /></a>
-        <p style="margin-top:1.2rem;max-width:30ch;font-size:.95rem;">{COMPANY.region}'s 24/7 restoration response for water, fire, mold and storm damage. IICRC-certified, fully insured &amp; bonded.</p>
-        <div class="foot-badges" style="margin-top:1.4rem;">
-          {COMPANY.credentials.map((c) => <span class="fbadge">{c}</span>)}
-        </div>
+      <div class="foot-about">
+        <a href="/" class="brand" aria-label={`${COMPANY.name} home`}><img src="/ppr-logo.png" alt="Paramount Property Restoration" width="1024" height="315" /></a>
+        <p>Restoration support for water, fire, mold and storm damage. A clear next step for your property.</p>
+        <div class="foot-badges">{COMPANY.credentials.map(c => <span class="fbadge">{c}</span>)}</div>
+        <address><span>Miami office</span>{COMPANY.address}<br />{COMPANY.city}, {COMPANY.state} {COMPANY.zip}</address>
+        <a class="foot-email" href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
       </div>
-      <div>
-        <h4>Services</h4>
-        <ul>
-          {SERVICES.map((s) => <li><a href={s.url}>{s.short}</a></li>)}
-        </ul>
-      </div>
-      <div>
-        <h4>Service Areas</h4>
-        <ul>
-          {footerCities.map((c) => <li><a href={c.url}>{c.name}</a></li>)}
-          <li><a href="/service-areas/">All cities →</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/projects/">Our Work</a></li>
-          <li><a href="/our-process/">Our Process</a></li>
-          <li><a href="/insurance-claims/">Insurance Claims</a></li>
-          <li><a href="/resources/">Resources</a></li>
-          <li><a href="/emergency/">Emergency 24/7</a></li>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href={`tel:${COMPANY.phoneRaw}`}>{COMPANY.phone}</a></li>
-        </ul>
-      </div>
+      <nav aria-label="Footer services"><h3>Services</h3><ul>{SERVICES.map(s => <li><a href={s.url}>{s.short}</a></li>)}</ul><a class="foot-more" href="/restoration/">Explore services <span aria-hidden="true">→</span></a></nav>
+      <nav aria-label="Footer service regions"><h3>Where we work</h3><ul>{REGIONS.map(r => <li><a href={`/service-areas/#region-${regionSlug(r.name)}`}>{r.name}</a></li>)}</ul><a class="foot-more" href="/service-areas/">Find your city · {CITY_COUNT} cities <span aria-hidden="true">→</span></a></nav>
+      <nav aria-label="Footer company"><h3>Explore</h3><ul><li><a href="/projects/">Our Work</a></li><li><a href="/our-process/">Our Process</a></li><li><a href="/insurance-claims/">Insurance Claims</a></li><li><a href="/resources/">Resources</a></li><li><a href="/contact/">Contact Us</a></li><li><a href="/emergency/">Request Emergency Help</a></li></ul></nav>
     </div>
-    <div class="foot-bottom">
-      <span>© {year} {COMPANY.name}. Fully insured &amp; bonded.</span>
-      <span><a href="/privacy-policy/">Privacy</a> · <a href="/terms-of-service/">Terms</a></span>
-      <span>Restoration only · water · fire · mold · storm. Not a general contractor.</span>
-    </div>
+    <div class="foot-bottom"><span>© {year} {COMPANY.name}</span><nav aria-label="Legal"><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-of-service/">Terms of Service</a></nav><span>Water · Fire · Mold · Storm</span></div>
   </div>
 </footer>

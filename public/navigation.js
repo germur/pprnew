@@ -39,12 +39,20 @@ export function initNavigation() {
     if (open) {
       previousOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
-      mobile.querySelector('a')?.focus();
+      // Wait for the menu's visibility styles before moving keyboard focus.
+      window.requestAnimationFrame(() => {
+        if (open) mobile.querySelector('a')?.focus();
+      });
     } else {
       document.body.style.overflow = previousOverflow;
       burger.focus();
     }
   };
+  mobile.addEventListener('transitionend', e => {
+    if (open && e.target === mobile && document.activeElement === burger) {
+      mobile.querySelector('a')?.focus();
+    }
+  });
   burger.addEventListener('click', () => setOpen(!open));
   mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
   document.addEventListener('keydown', e => {

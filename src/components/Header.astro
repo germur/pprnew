@@ -1,69 +1,50 @@
 ---
 import { COMPANY, SERVICES } from "../data/company";
-const dropdownServices = SERVICES;
-const currentPath = Astro.url.pathname;
+import Icon from "./Icon.astro";
+const currentPath = Astro.url.pathname.replace(/\/?$/, "/");
+const isCurrent = (url: string) => currentPath.startsWith(url);
+const links = [
+  { label: "Service Areas", url: "/service-areas/" },
+  { label: "Our Work", url: "/projects/" },
+  { label: "Our Process", url: "/our-process/" },
+  { label: "Resources", url: "/resources/" },
+];
+const servicesActive = isCurrent("/restoration/") || isCurrent("/commercial/");
 ---
-<!-- UTILITY BAR -->
 <div class="util">
   <div class="wrap-wide">
-    <div class="util-left">
-      <span><i class="dot"></i> 24/7 Emergency Response</span>
-      <span>IICRC Certified</span>
-      <span>Fully Insured &amp; Bonded</span>
-      <span>We work with your insurance</span>
-    </div>
-    <div class="util-right">
-      <a href={`tel:${COMPANY.phoneRaw}`}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {COMPANY.phone}</a>
-    </div>
+    <div class="util-left"><span><i class="dot"></i> 24/7 emergency contact</span><span>IICRC Certified</span><span>Fully Insured &amp; Bonded</span></div>
+    <div class="util-right"><a href="/insurance-claims/">Insurance claim support <span aria-hidden="true">↗</span></a></div>
   </div>
 </div>
-
-<!-- HEADER -->
 <header class="head">
   <div class="wrap-wide head-in">
-    <a href="/" class="brand" aria-label={`${COMPANY.name} home`}>
-      <img src="/ppr-logo.png" alt="Paramount Property Restoration" width="1024" height="315" style="height:44px;width:auto;display:block;" />
-    </a>
+    <a href="/" class="brand" aria-label={`${COMPANY.name} home`}><img src="/ppr-logo.png" alt="Paramount Property Restoration" width="1024" height="315" /></a>
     <nav class="nav" aria-label="Main navigation">
       <div class="has-menu">
-        <button data-services-toggle aria-expanded="false" aria-controls="services-dropdown" type="button">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <button data-services-toggle data-active={servicesActive ? "true" : undefined} aria-expanded="false" aria-controls="services-dropdown" type="button">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
         <div class="dropdown" id="services-dropdown" inert>
-          {dropdownServices.map((s) => (
-            <a class="dd-item" href={s.url}><span class="t">{s.short}</span><span class="d">{s.desc}</span></a>
-          ))}
-          <div class="dd-foot">
-            <span class="num-label">Restoration · water · fire · mold · storm</span>
-            <a class="link-arrow" href="/restoration/">All services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
-          </div>
+          <div class="dd-heading">How can we help your property?</div>
+          {SERVICES.map(s => <a class="dd-item" href={s.url} aria-current={currentPath === s.url ? "page" : undefined}><span class="dd-icon"><Icon name={s.icon} size={22} /></span><span class="dd-copy"><span class="t">{s.short}</span><span class="d">{s.desc}</span></span></a>)}
+          <div class="dd-foot"><a href="/restoration/">Explore all services <span aria-hidden="true">→</span></a><a href="/contact/">Not sure? Talk to us</a></div>
         </div>
       </div>
-      <a href="/service-areas/" aria-current={currentPath === "/service-areas/" ? "page" : undefined}>Service Areas</a>
-      <a href="/projects/" aria-current={currentPath === "/projects/" ? "page" : undefined}>Our Work</a>
-      <a href="/resources/">Resources</a>
-      <a href="/our-process/">Our Process</a>
+      {links.map(link => <a href={link.url} aria-current={currentPath === link.url ? "page" : isCurrent(link.url) ? "location" : undefined}>{link.label}</a>)}
     </nav>
     <div class="head-cta">
-      <div class="head-phone">
-        <div class="l">24/7 Emergency</div>
-        <a class="n" href={`tel:${COMPANY.phoneRaw}`}>{COMPANY.phone}</a>
-      </div>
-      <a href="/emergency/" class="btn btn-alert">Get Help Now</a>
+      <div class="head-phone"><div class="l">Talk to our team · 24/7</div><a class="n" href={`tel:${COMPANY.phoneRaw}`}>{COMPANY.phone}</a></div>
+      <a href="/emergency/" class="btn btn-alert">Get Help Now <span class="head-arrow" aria-hidden="true">↗</span></a>
       <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-navigation" type="button"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
-
-<!-- MOBILE NAV -->
 <nav class="mnav" id="mobile-navigation" aria-label="Mobile navigation" inert>
-  <div class="grp">Services</div>
-  {SERVICES.filter(s => s.slug !== "commercial").map((s) => (
-    <a href={s.url}>{s.short}</a>
-  ))}
-  <div class="grp">Explore</div>
-  <a href="/service-areas/">Service Areas</a>
-  <a href="/projects/">Our Work</a>
-  <a href="/commercial/">Commercial</a>
-  <a href="/resources/">Resources</a>
-  <a href="/contact/">Contact</a>
-  <a href="/emergency/">Emergency 24/7</a>
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-intro">How can we help?</div>
+    <div class="grp">Restoration services</div>
+    <div class="mobile-service-links">{SERVICES.map(s => <a href={s.url} aria-current={currentPath === s.url ? "page" : undefined}><Icon name={s.icon} size={20} /><span>{s.short}</span></a>)}</div>
+    <div class="grp">Explore Paramount</div>
+    <div class="mobile-explore-links">{links.map(link => <a href={link.url} aria-current={currentPath === link.url ? "page" : isCurrent(link.url) ? "location" : undefined}>{link.label}<span aria-hidden="true">↗</span></a>)}<a href="/insurance-claims/">Insurance Claims <span aria-hidden="true">↗</span></a><a href="/contact/">Contact <span aria-hidden="true">↗</span></a></div>
+    <a class="mobile-menu-call" href={`tel:${COMPANY.phoneRaw}`}><Icon name="phone" size={22} /><span><small>24/7 emergency contact</small>{COMPANY.phone}</span></a>
+  </div>
 </nav>
