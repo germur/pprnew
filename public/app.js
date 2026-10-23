@@ -1,4 +1,5 @@
 /* Paramount — shared interactions */
+import { submitLead } from './submit-lead.js';
 (function(){
   // sticky header shadow
   const head=document.querySelector('.head');
@@ -48,32 +49,59 @@
 
   // emergency form validation (works on any .ef form)
   document.querySelectorAll('form[data-emergency]').forEach(form=>{
-    form.addEventListener('submit',e=>{
+    let pending=false;
+    let submitted=false;
+    const button=form.querySelector('button[type="submit"]');
+    const error=form.querySelector('[data-error]');
+    form.addEventListener('submit',async e=>{
       e.preventDefault();
+      if(pending||submitted)return;
+      if(error)error.hidden=true;
       let ok=true;
       form.querySelectorAll('[required]').forEach(inp=>{
         const wrap=inp.closest('.field');
-        const valid=inp.type==='tel'? /[0-9]{7,}/.test(inp.value.replace(/\D/g,'')) : inp.value.trim().length>1;
+        const valid=inp.type==='tel'? /^[0-9]{7,15}$/.test(inp.value.replace(/\D/g,'')) : inp.value.trim().length>0;
         wrap.classList.toggle('err',!valid);
+        inp.setAttribute('aria-invalid',String(!valid));
         if(!valid)ok=false;
       });
       if(ok){
+        pending=true;
+        form.setAttribute('aria-busy','true');
+        const label=button.innerHTML;
+        button.disabled=true;
+        button.textContent='Sending…';
         try{
-          const data=new FormData(form);
-          fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()});
-        }catch(err){}
-        try{
-          if(typeof gtag==='function'){
-            gtag('event','generate_lead',{form_name:(form.getAttribute('name')||'unknown'),page_path:location.pathname});
-          }
-        }catch(err){}
-        const done=form.querySelector('[data-success]');
-        form.querySelectorAll('.field,.ef-actions,.ef-grid').forEach(el=>el.style.display='none');
-        if(done){done.style.display='block';}
+          await submitLead(new FormData(form));
+          submitted=true;
+          // Analytics must never turn an accepted request into a submission error.
+          try{
+            if(typeof gtag==='function'){
+              gtag('event','generate_lead',{form_name:(form.getAttribute('name')||'unknown'),page_path:location.pathname});
+            }
+          }catch(err){}
+          const done=form.querySelector('[data-success]');
+          form.querySelectorAll('.field,.ef-actions,.ef-grid,button[type="submit"]').forEach(el=>el.style.display='none');
+          if(done){done.style.display='block';done.focus();}
+        }catch(err){
+          // Preserve all fields so the visitor can retry or call directly.
+          if(error){error.hidden=false;error.focus();}
+        }finally{
+          pending=false;
+          form.setAttribute('aria-busy','false');
+          button.disabled=false;
+          button.innerHTML=label;
+        }
+      }else{
+        const invalid=form.querySelector('[aria-invalid="true"]');
+        if(invalid)invalid.focus();
       }
     });
     form.querySelectorAll('input,select,textarea').forEach(inp=>{
-      inp.addEventListener('input',()=>inp.closest('.field')&&inp.closest('.field').classList.remove('err'));
+      inp.addEventListener('input',()=>{
+        if(inp.closest('.field'))inp.closest('.field').classList.remove('err');
+        inp.removeAttribute('aria-invalid');
+      });
     });
   });
 })();

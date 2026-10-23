@@ -11,8 +11,9 @@ export interface Props {
   path?: string;
   /** clase extra en <body> (ej "epage" para Emergency) */
   bodyClass?: string;
+  noindex?: boolean;
 }
-const { title, description, path = "/", bodyClass = "" } = Astro.props;
+const { title, description, path = "/", bodyClass = "", noindex = false } = Astro.props;
 const canonical = new URL(path, Astro.site).href;
 
 // Schema JSON-LD LocalBusiness, crítico para local pack y rich results.
@@ -101,14 +102,15 @@ const breadcrumbSchema = { "@context": "https://schema.org", "@type": "Breadcrum
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large"} />
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   {segs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 </head>
 <body class={bodyClass}>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <Header />
-  <slot />
+  <main id="main-content" tabindex="-1"><slot /></main>
   <Footer />
-  <script is:inline src="/app.js"></script>
+  <script is:inline type="module" src="/app.js"></script>
 </body>
 </html>

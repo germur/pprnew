@@ -1,0 +1,448 @@
+{
+  "html_pages": 54,
+  "city_pages": 35,
+  "sitemap_urls": 52,
+  "sitemap_error_urls": [],
+  "issue_counts": {
+    "missing-main-landmark": 54,
+    "canonical": 1,
+    "error-page-indexable": 2,
+    "control-without-associated-label": 25
+  },
+  "issues": [
+    {
+      "page": "/404.html",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/404.html",
+      "issue": "canonical",
+      "detail": [
+        "https://paramountpropertyrestoration.com/404/"
+      ]
+    },
+    {
+      "page": "/404.html",
+      "issue": "error-page-indexable",
+      "detail": "/404.html"
+    },
+    {
+      "page": "/410-gone/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/410-gone/",
+      "issue": "error-page-indexable",
+      "detail": "/410-gone/"
+    },
+    {
+      "page": "/commercial/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/contact/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/contact/",
+      "issue": "control-without-associated-label",
+      "detail": "name"
+    },
+    {
+      "page": "/contact/",
+      "issue": "control-without-associated-label",
+      "detail": "phone"
+    },
+    {
+      "page": "/contact/",
+      "issue": "control-without-associated-label",
+      "detail": "city"
+    },
+    {
+      "page": "/contact/",
+      "issue": "control-without-associated-label",
+      "detail": "service"
+    },
+    {
+      "page": "/emergency/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/emergency/",
+      "issue": "control-without-associated-label",
+      "detail": "first-name"
+    },
+    {
+      "page": "/emergency/",
+      "issue": "control-without-associated-label",
+      "detail": "last-name"
+    },
+    {
+      "page": "/emergency/",
+      "issue": "control-without-associated-label",
+      "detail": "phone"
+    },
+    {
+      "page": "/emergency/",
+      "issue": "control-without-associated-label",
+      "detail": "city"
+    },
+    {
+      "page": "/emergency/",
+      "issue": "control-without-associated-label",
+      "detail": "service"
+    },
+    {
+      "page": "/emergency/",
+      "issue": "control-without-associated-label",
+      "detail": "message"
+    },
+    {
+      "page": "/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/insurance-claims/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/our-process/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/privacy-policy/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/resources/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/resources/is-black-mold-dangerous/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/restoration/fire-damage/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/restoration/fire-damage/",
+      "issue": "control-without-associated-label",
+      "detail": "name"
+    },
+    {
+      "page": "/restoration/fire-damage/",
+      "issue": "control-without-associated-label",
+      "detail": "phone"
+    },
+    {
+      "page": "/restoration/fire-damage/",
+      "issue": "control-without-associated-label",
+      "detail": "service"
+    },
+    {
+      "page": "/restoration/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/restoration/mold-remediation/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/restoration/mold-remediation/",
+      "issue": "control-without-associated-label",
+      "detail": "name"
+    },
+    {
+      "page": "/restoration/mold-remediation/",
+      "issue": "control-without-associated-label",
+      "detail": "phone"
+    },
+    {
+      "page": "/restoration/mold-remediation/",
+      "issue": "control-without-associated-label",
+      "detail": "service"
+    },
+    {
+      "page": "/restoration/mold-testing/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/restoration/mold-testing/",
+      "issue": "control-without-associated-label",
+      "detail": "name"
+    },
+    {
+      "page": "/restoration/mold-testing/",
+      "issue": "control-without-associated-label",
+      "detail": "phone"
+    },
+    {
+      "page": "/restoration/mold-testing/",
+      "issue": "control-without-associated-label",
+      "detail": "service"
+    },
+    {
+      "page": "/restoration/storm-damage/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/restoration/storm-damage/",
+      "issue": "control-without-associated-label",
+      "detail": "name"
+    },
+    {
+      "page": "/restoration/storm-damage/",
+      "issue": "control-without-associated-label",
+      "detail": "phone"
+    },
+    {
+      "page": "/restoration/storm-damage/",
+      "issue": "control-without-associated-label",
+      "detail": "service"
+    },
+    {
+      "page": "/restoration/water-damage/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/restoration/water-damage/",
+      "issue": "control-without-associated-label",
+      "detail": "name"
+    },
+    {
+      "page": "/restoration/water-damage/",
+      "issue": "control-without-associated-label",
+      "detail": "phone"
+    },
+    {
+      "page": "/restoration/water-damage/",
+      "issue": "control-without-associated-label",
+      "detail": "service"
+    },
+    {
+      "page": "/service-areas/alva/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/boca-raton/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/bonita-springs/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/boynton-beach/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/cape-coral/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/cooper-city/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/coral-gables/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/coral-springs/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/davie/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/deerfield-beach/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/delray-beach/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/doral/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/estero/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/fort-lauderdale/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/fort-myers/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/hialeah/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/hobe-sound/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/hollywood/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/homestead/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/kissimmee/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/marco-island/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/miami/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/miami-gardens/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/naples/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/orlando/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/port-st-lucie/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/sarasota/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/st-cloud/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/stuart/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/sunny-isles-beach/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/sunrise/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/wellington/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/west-palm-beach/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/weston/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/service-areas/winter-springs/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    },
+    {
+      "page": "/terms-of-service/",
+      "issue": "missing-main-landmark",
+      "detail": "No main landmark"
+    }
+  ],
+  "largest_images": [
+    {
+      "path": "/companycam/coral-springs/3129099872.webp",
+      "bytes": 387266
+    },
+    {
+      "path": "/companycam/miami/3046357299.webp",
+      "bytes": 332158
+    },
+    {
+      "path": "/companycam/port-st-lucie/3373329638.webp",
+      "bytes": 329962
+    },
+    {
+      "path": "/companycam/miami/3046356192.webp",
+      "bytes": 325394
+    },
+    {
+      "path": "/companycam/port-st-lucie/3373299585.webp",
+      "bytes": 310040
+    }
+  ]
+}
