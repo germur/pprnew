@@ -1,0 +1,30 @@
+{
+  "html_pages": 54,
+  "city_pages": 35,
+  "sitemap_urls": 52,
+  "sitemap_error_urls": [],
+  "issue_counts": {},
+  "issues": [],
+  "largest_images": [
+    {
+      "path": "/companycam/coral-springs/3129099872.webp",
+      "bytes": 387266
+    },
+    {
+      "path": "/companycam/miami/3046357299.webp",
+      "bytes": 332158
+    },
+    {
+      "path": "/companycam/port-st-lucie/3373329638.webp",
+      "bytes": 329962
+    },
+    {
+      "path": "/companycam/miami/3046356192.webp",
+      "bytes": 325394
+    },
+    {
+      "path": "/companycam/port-st-lucie/3373299585.webp",
+      "bytes": 310040
+    }
+  ]
+}

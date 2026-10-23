@@ -1,0 +1,46 @@
+---
+import projects from '../data/selected-projects.json';
+import type { CityProjectStory } from '../data/city-project-stories';
+interface Props { project: (typeof projects)[number]; story: CityProjectStory; }
+const { project, story } = Astro.props;
+---
+<section class="city-proof pt pb" id="local-project" aria-labelledby="local-project-title">
+  <div class="wrap-wide">
+    <div class="sec-head">
+      <div><span class="eyebrow">From a {project.city} property visit</span><h2 class="h2 mt-s" id="local-project-title">{story.heading}</h2></div>
+      <a href={`/projects/#${project.id}`} class="link-arrow">View the project <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="city-proof-layout mt-l">
+      <div class:list={['city-proof-photos', { 'city-proof-pair': project.photos.length > 1 }]}>
+        {project.photos.map((photo, index) => (
+          <figure>
+            <a href={photo.src} data-lightbox={project.id} target="_blank" rel="noopener" aria-label={`Open full photo: ${story.captions[index]}`}>
+              <img src={photo.thumbnail} srcset={`${photo.thumbnail} ${photo.thumbnailWidth}w, ${photo.src} ${photo.width}w`} sizes="(max-width:600px) 100vw, (max-width:1000px) 50vw, 30vw" width={photo.width} height={photo.height} alt={story.captions[index]} loading="lazy" decoding="async" />
+            </a>
+            <figcaption>{story.captions[index]}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="city-proof-copy">
+        <div><h3 class="kicker">What the photos show</h3><p>{story.observation}</p></div>
+        <div><h3 class="kicker">Why the detail matters</h3><p>{story.relevance}</p></div>
+        <div class="city-proof-next"><h3 class="kicker">For your property in {project.city}</h3><p>{story.nextStep}</p><a href={story.serviceUrl} class="link-arrow">{story.serviceLabel} <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .city-proof{background:var(--paper-2);scroll-margin-top:100px;}
+  .city-proof .h2{max-width:26ch;}
+  .city-proof-layout{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:start;}
+  .city-proof-photos{display:grid;gap:1.3rem;min-width:0;}
+  .city-proof-pair{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .city-proof-photos img{width:100%;height:auto;background:var(--paper);border-radius:16px;}
+  .city-proof-photos figcaption{font-size:.85rem;color:var(--ink-2);line-height:1.5;margin-top:.7rem;}
+  .city-proof-copy{display:grid;gap:1.5rem;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:clamp(1.4rem,3vw,2rem);}
+  .city-proof-copy p{color:var(--ink-2);margin-top:.5rem;}
+  .city-proof-next{border-top:1px solid var(--line-strong);padding-top:1.3rem;}
+  .city-proof-next a{margin-top:1rem;}
+  @media(max-width:1000px){.city-proof-layout{grid-template-columns:1fr;}.city-proof-photos:not(.city-proof-pair){max-width:680px;}}
+  @media(max-width:600px){.city-proof-pair{grid-template-columns:1fr;}}
+</style>

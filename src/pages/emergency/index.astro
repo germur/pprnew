@@ -13,9 +13,9 @@ const description = "24/7 emergency restoration in South Florida. Call now or re
     <div class="ehero-grid">
       <div class="reveal">
         <span class="ebadge"><span class="pulse"></span> Live dispatch · 24 / 7 / 365</span>
-        <h1 class="display mt-m" style="font-size:clamp(2.6rem,6vw,5rem);">If it's an emergency, <em>we're already moving.</em></h1>
-        <p class="lead" style="color:#aac3ff;max-width:42ch;margin-top:2rem;">Don't wait for the damage to spread. Call the line below, it's answered by a real dispatcher, or send the form and we'll call you back in minutes.</p>
-        <div class="ephone-big mt-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {COMPANY.phone}</div>
+        <h1 class="display mt-m" style="font-size:clamp(2.6rem,6vw,5rem);">Property emergency?<br /><em>Call us any time.</em></h1>
+        <p class="lead" style="color:#aac3ff;max-width:42ch;margin-top:2rem;">Tell us what happened so we can discuss the next step. For an active emergency, call our 24/7 line. You can also send a request online.</p>
+        <a href={`tel:${COMPANY.phoneRaw}`} class="ephone-big mt-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {COMPANY.phone}</a>
         <div class="chips mt-m" style="--line-strong:rgba(255,255,255,.25);">
           <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">24/7 response</span>
           <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">Insurance handled</span>
@@ -25,24 +25,25 @@ const description = "24/7 emergency restoration in South Florida. Call now or re
 
       <div class="eform reveal">
         <div class="eyebrow nodash" style="color:#9db8ff;">Request immediate help</div>
-        <h2 class="h3" style="color:#fff;margin:.4rem 0 1.4rem;">We'll call you back in minutes.</h2>
+        <h2 class="h3" style="color:#fff;margin:.4rem 0 1.4rem;">Tell us where you need help.</h2>
         <form data-emergency name="emergency" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="emergency" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p>
           <div class="ef-grid">
-            <div class="field"><label>First name</label><input type="text" name="first-name" required placeholder="First"><span class="msg">Required</span></div>
-            <div class="field"><label>Last name</label><input type="text" name="last-name" required placeholder="Last"><span class="msg">Required</span></div>
-            <div class="field"><label>Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000"><span class="msg">Valid phone required</span></div>
-            <div class="field"><label>City</label><input type="text" name="city" required placeholder="e.g. Miami"><span class="msg">Required</span></div>
-            <div class="field full"><label>Type of damage</label><select name="service" required><option value="">Select the emergency…</option><option>Water damage / flooding</option><option>Mold</option><option>Fire / smoke</option><option>Storm / hurricane</option><option>Sewage backup</option><option>Not sure, need help</option></select><span class="msg">Choose one</span></div>
-            <div class="field full"><label>Briefly, what's happening?</label><textarea name="message" rows="3" placeholder="Optional, a sentence helps us send the right crew"></textarea></div>
+            <div class="field"><label for="emergency-first-name">First name</label><input type="text" name="first-name" required placeholder="First" id="emergency-first-name" autocomplete="given-name" aria-describedby="emergency-first-name-error"><span class="msg" id="emergency-first-name-error">Required</span></div>
+            <div class="field"><label for="emergency-last-name">Last name</label><input type="text" name="last-name" required placeholder="Last" id="emergency-last-name" autocomplete="family-name" aria-describedby="emergency-last-name-error"><span class="msg" id="emergency-last-name-error">Required</span></div>
+            <div class="field"><label for="emergency-phone">Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000" id="emergency-phone" autocomplete="tel" aria-describedby="emergency-phone-error"><span class="msg" id="emergency-phone-error">Valid phone required</span></div>
+            <div class="field"><label for="emergency-city">City</label><input type="text" name="city" required placeholder="e.g. Miami" id="emergency-city" autocomplete="address-level2" aria-describedby="emergency-city-error"><span class="msg" id="emergency-city-error">Required</span></div>
+            <div class="field full"><label for="emergency-service">Type of damage</label><select name="service" required id="emergency-service" aria-describedby="emergency-service-error"><option value="">Select the emergency…</option><option>Water damage / flooding</option><option>Mold</option><option>Fire / smoke</option><option>Storm / hurricane</option><option>Sewage backup</option><option>Not sure, need help</option></select><span class="msg" id="emergency-service-error">Choose one</span></div>
+            <div class="field full"><label for="emergency-message">Briefly, what's happening?</label><textarea name="message" rows="3" placeholder="Optional, a sentence helps us send the right crew" id="emergency-message"></textarea></div>
           </div>
           <div class="ef-actions">
             <button class="btn btn-alert btn-lg btn-block" type="submit">Send emergency request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
             <p style="text-align:center;color:#6f8195;font-size:.8rem;margin-top:.9rem;font-family:var(--mono);letter-spacing:.04em;">Or call {COMPANY.phone}, answered live</p>
           </div>
-          <div data-success style="display:none;text-align:center;padding:1.5rem 0;">
+          <p data-error role="alert" tabindex="-1" hidden style="color:#fff;margin-top:1rem;">We couldn't confirm receipt of your request. Please try again or <a href={`tel:${COMPANY.phoneRaw}`} style="color:#fff;text-decoration:underline;">call {COMPANY.phone}</a> for urgent help.</p>
+      <div data-success role="status" tabindex="-1" style="display:none;text-align:center;padding:1.5rem 0;">
             <svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="46" height="46" style="margin:0 auto 1rem;"><circle cx="12" cy="12" r="10"/><path d="M16 9l-5 5-3-3"/></svg>
             <h3 style="color:#fff;font-family:var(--serif);font-weight:300;font-size:1.8rem;">Request received.</h3>
-            <p style="color:#9db8ff;margin-top:.5rem;">A dispatcher is calling you now. For the fastest response, call <strong style="color:#fff;">{COMPANY.phone}</strong>.</p>
+            <p style="color:#9db8ff;margin-top:.5rem;">Your request has been received. For the fastest response, call <strong style="color:#fff;">{COMPANY.phone}</strong>.</p>
           </div>
         </form>
       </div>

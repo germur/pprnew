@@ -1,6 +1,7 @@
 ---
 import { COMPANY, SERVICES } from "../data/company";
 const dropdownServices = SERVICES;
+const currentPath = Astro.url.pathname;
 ---
 <!-- UTILITY BAR -->
 <div class="util">
@@ -23,10 +24,10 @@ const dropdownServices = SERVICES;
     <a href="/" class="brand" aria-label={`${COMPANY.name} home`}>
       <img src="/ppr-logo.png" alt="Paramount Property Restoration" width="1024" height="315" style="height:44px;width:auto;display:block;" />
     </a>
-    <nav class="nav">
+    <nav class="nav" aria-label="Main navigation">
       <div class="has-menu">
-        <button>Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="dropdown">
+        <button data-services-toggle aria-expanded="false" aria-controls="services-dropdown" type="button">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="dropdown" id="services-dropdown" inert>
           {dropdownServices.map((s) => (
             <a class="dd-item" href={s.url}><span class="t">{s.short}</span><span class="d">{s.desc}</span></a>
           ))}
@@ -36,31 +37,33 @@ const dropdownServices = SERVICES;
           </div>
         </div>
       </div>
-      <a href="/service-areas/">Service Areas</a>
+      <a href="/service-areas/" aria-current={currentPath === "/service-areas/" ? "page" : undefined}>Service Areas</a>
+      <a href="/projects/" aria-current={currentPath === "/projects/" ? "page" : undefined}>Our Work</a>
       <a href="/resources/">Resources</a>
-      <a href="/commercial/">Commercial</a>
       <a href="/our-process/">Our Process</a>
     </nav>
     <div class="head-cta">
       <div class="head-phone">
         <div class="l">24/7 Emergency</div>
-        <div class="n">{COMPANY.phone}</div>
+        <a class="n" href={`tel:${COMPANY.phoneRaw}`}>{COMPANY.phone}</a>
       </div>
       <a href="/emergency/" class="btn btn-alert">Get Help Now</a>
-      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-navigation" type="button"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <!-- MOBILE NAV -->
-<div class="mnav">
+<nav class="mnav" id="mobile-navigation" aria-label="Mobile navigation" inert>
   <div class="grp">Services</div>
   {SERVICES.filter(s => s.slug !== "commercial").map((s) => (
     <a href={s.url}>{s.short}</a>
   ))}
   <div class="grp">Explore</div>
   <a href="/service-areas/">Service Areas</a>
-  <a href="/resources/">Resources</a>
+  <a href="/projects/">Our Work</a>
   <a href="/commercial/">Commercial</a>
+  <a href="/resources/">Resources</a>
+  <a href="/contact/">Contact</a>
   <a href="/emergency/">Emergency 24/7</a>
-</div>
+</nav>

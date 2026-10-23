@@ -3,13 +3,16 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
+    "test": "node --test",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "sync:photos": "node --env-file=.env scripts/fetch-companycam.mjs"
+    "sync:photos": "node --env-file=.env scripts/fetch-companycam.mjs",
+    "review:photos": "node --env-file=.env scripts/review-companycam.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^4.16.0"
+    "astro": "^4.16.0",
+    "sharp": "^0.34.5"
   }
 }

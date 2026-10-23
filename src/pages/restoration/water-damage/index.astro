@@ -1,4 +1,5 @@
 ---
+import LocalServiceLinks from "../../../components/LocalServiceLinks.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { COMPANY , REGIONS } from "../../../data/company";
 import Icon from "../../../components/Icon.astro";
@@ -40,12 +41,13 @@ const description = "Emergency water damage restoration across South Florida. Ex
           <hr>
           <form data-emergency class="ef-mini" name="water-damage" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="water-damage" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p>
             <div style="display:flex;flex-direction:column;gap:.9rem;">
-              <div class="field"><label>Your name</label><input type="text" name="name" required placeholder="Full name"><span class="msg">Enter your name</span></div>
-              <div class="field"><label>Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000"><span class="msg">Enter a valid phone</span></div>
-              <div class="field"><label>What happened?</label><select name="service" required><option value="">Select…</option><option>Burst / leaking pipe</option><option>Roof or ceiling leak</option><option>Flooding / storm water</option><option>Appliance overflow</option><option>Sewage backup</option></select><span class="msg">Choose one</span></div>
+              <div class="field"><label for="water-damage-name">Your name</label><input type="text" name="name" required placeholder="Full name" id="water-damage-name" autocomplete="name" aria-describedby="water-damage-name-error"><span class="msg" id="water-damage-name-error">Enter your name</span></div>
+              <div class="field"><label for="water-damage-phone">Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000" id="water-damage-phone" autocomplete="tel" aria-describedby="water-damage-phone-error"><span class="msg" id="water-damage-phone-error">Enter a valid phone</span></div>
+              <div class="field"><label for="water-damage-service">What happened?</label><select name="service" required id="water-damage-service" aria-describedby="water-damage-service-error"><option value="">Select…</option><option>Burst / leaking pipe</option><option>Roof or ceiling leak</option><option>Flooding / storm water</option><option>Appliance overflow</option><option>Sewage backup</option></select><span class="msg" id="water-damage-service-error">Choose one</span></div>
             </div>
             <button class="btn btn-alert btn-block mt-m" type="submit">Request callback</button>
-            <div data-success style="display:none;text-align:center;padding:1rem 0;">
+            <p data-error role="alert" tabindex="-1" hidden style="color:#fff;margin-top:1rem;">We couldn't confirm receipt of your request. Please try again or <a href={`tel:${COMPANY.phoneRaw}`} style="color:#fff;text-decoration:underline;">call {COMPANY.phone}</a> for urgent help.</p>
+    <div data-success role="status" tabindex="-1" style="display:none;text-align:center;padding:1rem 0;">
               <svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="34" height="34" style="margin:0 auto .6rem;"><path d="M20 6L9 17l-5-5"/></svg>
               <p style="color:#fff;font-weight:600;">Request received.</p>
               <p style="color:#9db8ff;font-size:.9rem;">A dispatcher will call within minutes.</p>
@@ -210,6 +212,7 @@ const description = "Emergency water damage restoration across South Florida. Ex
 </section>
 
 <!-- EMERGENCY CTA -->
+<LocalServiceLinks heading="Water cleanup for your property" description="Read what information to share about the water source, affected materials and drying needs in these service areas." links={[{ href: "/service-areas/cooper-city/#flood-cleanup", label: "Cooper City flood cleanup" }, { href: "/service-areas/hobe-sound/#water-removal", label: "Hobe Sound water damage cleanup" }]} />
 <section class="emcta">
   <div class="wrap-wide emcta-in reveal">
     <div>

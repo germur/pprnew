@@ -14,9 +14,9 @@ const description = "Contact Paramount Property Restoration. Call 24/7 for emerg
     <h1 class="display mt-s" style="font-size:clamp(2.6rem,6vw,5rem);">Talk to a real person, <em>any hour.</em></h1>
     <p class="lead maxw mt-m">For active emergencies, calling is fastest, the line is answered live, day or night. For everything else, send the form and we'll get back to you.</p>
     <div class="cta-row mt-l"><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-primary btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;border-top:1px solid var(--line);padding-top:2rem;">
+    <div class="contact-details">
       <div><span class="num-label">Phone · 24/7</span><p style="font-family:var(--serif);font-weight:300;font-size:1.5rem;margin-top:.3rem;">{COMPANY.phone}</p></div>
-      <div><span class="num-label">Email</span><p style="font-family:var(--serif);font-weight:300;font-size:1.5rem;margin-top:.3rem;">{COMPANY.email}</p></div>
+      <div><span class="num-label">Email</span><p style="font-family:var(--serif);font-weight:300;font-size:1.5rem;margin-top:.3rem;"><a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></p></div>
       <div><span class="num-label">Hours</span><p style="margin-top:.3rem;">Emergency response 24 / 7 / 365<br>Office: Mon to Fri, 8am to 6pm</p></div>
       <div><span class="num-label">Service area</span><p style="margin-top:.3rem;">35 cities across South Florida<br><a href="/service-areas/" class="link-arrow" style="font-size:.95rem;">See areas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></p></div>
     </div>
@@ -28,13 +28,14 @@ const description = "Contact Paramount Property Restoration. Call 24/7 for emerg
     <hr>
     <form data-emergency class="ef-mini" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="contact" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p>
       <div style="display:flex;flex-direction:column;gap:.9rem;">
-        <div class="field"><label>Your name</label><input type="text" name="name" required placeholder="Full name"><span class="msg">Enter your name</span></div>
-        <div class="field"><label>Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000"><span class="msg">Enter a valid phone</span></div>
-        <div class="field"><label>City</label><input type="text" name="city" placeholder="e.g. Miami"></div>
-        <div class="field"><label>How can we help?</label><select name="service" required><option value="">Select…</option><option>Water damage</option><option>Mold</option><option>Fire / smoke</option><option>Storm / hurricane</option><option>Commercial / property management</option><option>Insurance question</option><option>Something else</option></select><span class="msg">Choose one</span></div>
+        <div class="field"><label for="contact-name">Your name</label><input type="text" name="name" required placeholder="Full name" id="contact-name" autocomplete="name" aria-describedby="contact-name-error"><span class="msg" id="contact-name-error">Enter your name</span></div>
+        <div class="field"><label for="contact-phone">Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000" id="contact-phone" autocomplete="tel" aria-describedby="contact-phone-error"><span class="msg" id="contact-phone-error">Enter a valid phone</span></div>
+        <div class="field"><label for="contact-city">City</label><input type="text" name="city" placeholder="e.g. Miami" id="contact-city" autocomplete="address-level2"></div>
+        <div class="field"><label for="contact-service">How can we help?</label><select name="service" required id="contact-service" aria-describedby="contact-service-error"><option value="">Select…</option><option>Water damage</option><option>Mold</option><option>Fire / smoke</option><option>Storm / hurricane</option><option>Commercial / property management</option><option>Insurance question</option><option>Something else</option></select><span class="msg" id="contact-service-error">Choose one</span></div>
       </div>
       <button class="btn btn-blue btn-block mt-m" type="submit">Send message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      <div data-success style="display:none;text-align:center;padding:1rem 0;">
+      <p data-error role="alert" tabindex="-1" hidden style="color:#fff;margin-top:1rem;">We couldn't confirm receipt of your request. Please try again or <a href={`tel:${COMPANY.phoneRaw}`} style="color:#fff;text-decoration:underline;">call {COMPANY.phone}</a> for urgent help.</p>
+      <div data-success role="status" tabindex="-1" style="display:none;text-align:center;padding:1rem 0;">
         <svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="34" height="34" style="margin:0 auto .6rem;"><path d="M20 6L9 17l-5-5"/></svg>
         <p style="color:#fff;font-weight:600;">Message sent.</p>
         <p style="color:#9db8ff;font-size:.9rem;">We'll reply soon. For emergencies, call {COMPANY.phone}.</p>

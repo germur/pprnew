@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import projects from '../../data/selected-projects.json';
+import { COMPANY } from '../../data/company';
+const cities = [...new Map(projects.map(p => [p.citySlug, p.city])).entries()].sort((a,b) => a[1].localeCompare(b[1]));
+---
+<BaseLayout title="Our Work | Restoration Project Photos | Paramount" description="See documented property conditions, inspection readings and equipment from Paramount projects across Florida. Browse real project photos by city." path="/projects/">
+  <div class="wrap-wide"><nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span> Our Work</nav></div>
+  <section class="work-intro wrap-wide">
+    <div><span class="eyebrow">Our work, documented</span><h1 class="h1 mt-s">Real properties.<br /><em>Every detail matters.</em></h1></div>
+    <p class="lead">A closer look at what we see on site: affected materials, moisture readings and equipment. These are project photos, not staged before-and-after comparisons.</p>
+  </section>
+  <section class="wrap-wide pb" aria-label="Project gallery">
+    <div class="work-toolbar">
+      <div><label for="project-city">Browse by city</label><select id="project-city"><option value="">All cities</option>{cities.map(([slug,name]) => <option value={slug}>{name}</option>)}</select></div>
+      <p id="project-count" role="status" aria-live="polite">{projects.length} projects</p>
+    </div>
+    <div class="work-grid">{projects.map(project => <ProjectCard project={project} />)}</div>
+  </section>
+  <section class="emcta"><div class="wrap-wide emcta-in"><div><span class="eyebrow nodash" style="color:#ffd2c4;">Need help with your property?</span><h2 class="h2 mt-s" style="color:#fff;">Tell us what happened.</h2><p class="lead mt-s" style="color:#fff;">For an active emergency, calling is the fastest way to reach us.</p></div><div class="emcta-actions"><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);">Call {COMPANY.phone}</a><a href="/contact/" class="btn btn-lg btn-ghost" style="color:#fff;border-color:#fff;">Send a request</a></div></div></section>
+</BaseLayout>
+<script>
+  const select = document.querySelector<HTMLSelectElement>('#project-city');
+  const entries = [...document.querySelectorAll<HTMLElement>('[data-project]')];
+  const status = document.querySelector('#project-count');
+  select?.addEventListener('change', () => {
+    let count = 0;
+    entries.forEach(entry => { entry.hidden = Boolean(select.value && entry.dataset.city !== select.value); if (!entry.hidden) count++; });
+    if(status) status.textContent = `${count} ${count === 1 ? 'project' : 'projects'}`;
+  });
+  // A link from a preview opens the matching project, including its photo list.
+  const openTarget = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = entries.find(entry => entry.id === id);
+    if (!target) return;
+    if(select) select.value = '';
+    entries.forEach(entry => { entry.hidden = false; });
+    if(status) status.textContent = `${entries.length} projects`;
+    const details = target.querySelector('details');
+    if(details) details.open = true;
+  };
+  openTarget();
+  window.addEventListener('hashchange', openTarget);
+</script>

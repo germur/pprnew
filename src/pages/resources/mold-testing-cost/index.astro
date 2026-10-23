@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { COMPANY } from '../../../data/company';
+const title = 'Mold Testing Cost in Florida: What an Estimate Includes';
+const description = 'Understand the factors behind a mold inspection and testing estimate: property scope, samples, lab analysis and reporting. Know what to ask before booking.';
+---
+<BaseLayout title={title} description={description} path="/resources/mold-testing-cost/">
+  <div class="wrap-wide"><nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/resources/">Resources</a><span aria-hidden="true">/</span> Mold testing cost</nav></div>
+  <section class="cost-hero pt pb"><div class="wrap">
+    <span class="eyebrow">Mold inspection and testing</span>
+    <h1 class="h1 mt-s">What affects the cost of mold testing in Florida?</h1>
+    <p class="lead mt-m">The useful question is what the estimate includes. An inspection, a set of samples and a laboratory report are different parts of the work. Understanding the proposed scope helps you compare quotes and decide whether testing addresses your concern.</p>
+    <nav class="hero-quicklinks" aria-label="In this guide"><a href="#cost-factors">Cost factors</a><a href="#testing-purpose">Do you need testing?</a><a href="#compare-estimates">Compare estimates</a></nav>
+  </div></section>
+  <article class="wrap cost-body pb">
+    <section id="cost-factors" class="prose">
+      <h2 class="h2">What goes into an inspection and testing estimate?</h2>
+      <p>There is no single scope that fits every property. A concern in one room may require a different investigation from water damage affecting several rooms or a managed building. A phone description helps start the discussion, but it cannot establish everything that will be needed on site.</p>
+      <dl class="cost-factors">
+        <div><dt>Property and inspection scope</dt><dd>Ask which rooms and accessible areas will be examined, what the visit is intended to establish and which access limitations apply. Clarify whether the quote covers an inspection alone or also sampling.</dd></div>
+        <div><dt>Number and purpose of samples</dt><dd>Ask why each proposed air or surface sample is useful. A sample plan should address a defined question. Compare what is included rather than choosing only by the advertised starting price.</dd></div>
+        <div><dt>Laboratory analysis and reporting</dt><dd>Clarify whether analysis fees, interpretation and a written report are included. Ask who analyzes the samples and what the report will explain about the property and the limits of the results.</dd></div>
+        <div><dt>Additional visits or follow-up work</dt><dd>A further visit, additional samples or a post-remediation evaluation may be separate. Ask what would trigger extra work, how it would be priced and whether your approval is needed before it proceeds.</dd></div>
+      </dl>
+      <p>Paramount does not publish a fixed testing price on this page. Request a written estimate for your property and question, with the included work and any optional charges identified. This guide is not a quote for inspection, laboratory analysis or remediation.</p>
+    </section>
+    <section id="testing-purpose" class="prose">
+      <h2 class="h2">Does every mold concern require sampling?</h2>
+      <p>No. The <a href="https://www.epa.gov/mold/mold-testing-or-sampling" target="_blank" rel="noopener">EPA explains that sampling is usually unnecessary when mold growth is visible</a>. It also notes that there are no federal limits for mold or mold spores against which a sample can establish compliance. Ask what a proposed test would help decide before paying for it.</p>
+      <p>Inspection, testing and remediation serve different purposes. An inspection examines a concern; sampling collects information for analysis; remediation addresses affected materials under an assessed scope. A testing estimate should not be treated as a price for removing mold or repairing a moisture source.</p>
+      <p>If sampling is proposed, ask who designs the plan and interprets the results, and how the findings will affect the next step. Be clear about who performs assessment, removal and any follow-up evaluation, rather than assuming those roles are the same.</p>
+      <a href="/restoration/mold-testing/" class="link-arrow">Explore mold inspection and testing <span aria-hidden="true">↗</span></a>
+    </section>
+    <section id="compare-estimates" class="prose">
+      <h2 class="h2">Questions to ask before booking</h2>
+      <ul>
+        <li>What question will the visit help answer, and which areas are included?</li>
+        <li>Are samples necessary for that question? How many are included?</li>
+        <li>Does the estimate include laboratory analysis, interpretation and a written report?</li>
+        <li>What access restrictions or inaccessible areas could limit the findings?</li>
+        <li>How will additional samples, visits or other charges be approved?</li>
+        <li>If further work is recommended, will it have a separate written scope?</li>
+      </ul>
+      <p>When comparing two quotes, check that they cover the same work. A lower initial figure may include fewer services; a more expensive proposal should explain what additional information or work you are paying for. Ask for the scope in writing rather than relying on a package name.</p>
+    </section>
+    <section class="cost-next" aria-labelledby="cost-next-title">
+      <div><span class="eyebrow">Your next step</span><h2 class="h3 mt-s" id="cost-next-title">Describe the concern before choosing a test.</h2><p class="mt-s">Share the location, affected rooms, any visible growth or odor, the history of water damage and previous reports. We can discuss the appropriate next step and the scope to request.</p></div>
+      <div class="cost-actions"><a href="/contact/" class="btn btn-primary">Request an assessment discussion</a><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-ghost">Call {COMPANY.phone}</a></div>
+    </section>
+    <p class="cost-related">Need to understand removal work? <a href="/restoration/mold-remediation/">Read about mold remediation</a>. Dealing with a current water loss? <a href="/restoration/water-damage/">Explore water extraction and drying</a>.</p>
+  </article>
+</BaseLayout>
+<style>
+  .cost-hero{background:linear-gradient(135deg,var(--blue-soft),var(--paper));border-bottom:1px solid var(--line);}.cost-hero .wrap{max-width:1100px;}.cost-hero .h1{max-width:24ch;}.cost-hero .lead{max-width:70ch;}
+  .cost-body{max-width:1000px;padding-top:1rem;}.cost-body>.prose{max-width:none;}.cost-body .h2{font-size:clamp(1.7rem,3vw,2.3rem);}.cost-body p,.cost-body li{font-size:1.05rem;}.cost-factors{display:grid;gap:1rem;margin:1.5rem 0;}.cost-factors>div{padding:1.4rem;border:1px solid var(--line);border-radius:16px;background:var(--white);}.cost-factors dt{font-weight:600;margin-bottom:.5rem;}.cost-factors dd{color:var(--ink-2);line-height:1.7;}
+  .cost-next{padding:clamp(1.4rem,3vw,2rem);margin-top:3rem;background:var(--blue-soft);border-radius:20px;}.cost-next p{color:var(--ink-2);}.cost-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem;}.cost-related{margin-top:1.5rem;color:var(--ink-2);}.cost-related a{color:var(--blue);text-decoration:underline;text-underline-offset:3px;}
+  @media(max-width:540px){.cost-actions{flex-direction:column;}.cost-actions .btn{width:100%;}}
+</style>

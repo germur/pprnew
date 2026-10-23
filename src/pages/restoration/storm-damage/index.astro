@@ -1,4 +1,5 @@
 ---
+import LocalServiceLinks from "../../../components/LocalServiceLinks.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { COMPANY , REGIONS } from "../../../data/company";
 import Icon from "../../../components/Icon.astro";
@@ -25,12 +26,13 @@ const description = "Storm and hurricane damage restoration in South Florida. Em
     <div class="ph-note">Answered live · 24 hours a day</div>
     <hr>
     <form data-emergency class="ef-mini" name="storm-damage" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="storm-damage" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p><div style="display:flex;flex-direction:column;gap:.9rem;">
-      <div class="field"><label>Your name</label><input type="text" name="name" required placeholder="Full name"><span class="msg">Enter your name</span></div>
-      <div class="field"><label>Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000"><span class="msg">Enter a valid phone</span></div>
-      <div class="field"><label>What's going on?</label><select name="service" required><option value="">Select…</option><option>Roof damage / need tarping</option><option>Flooding / water intrusion</option><option>Wind & debris damage</option><option>Fallen tree</option><option>Storm-surge flooding</option></select><span class="msg">Choose one</span></div>
+      <div class="field"><label for="storm-damage-name">Your name</label><input type="text" name="name" required placeholder="Full name" id="storm-damage-name" autocomplete="name" aria-describedby="storm-damage-name-error"><span class="msg" id="storm-damage-name-error">Enter your name</span></div>
+      <div class="field"><label for="storm-damage-phone">Phone</label><input type="tel" name="phone" required placeholder="(000) 000-0000" id="storm-damage-phone" autocomplete="tel" aria-describedby="storm-damage-phone-error"><span class="msg" id="storm-damage-phone-error">Enter a valid phone</span></div>
+      <div class="field"><label for="storm-damage-service">What's going on?</label><select name="service" required id="storm-damage-service" aria-describedby="storm-damage-service-error"><option value="">Select…</option><option>Roof damage / need tarping</option><option>Flooding / water intrusion</option><option>Wind & debris damage</option><option>Fallen tree</option><option>Storm-surge flooding</option></select><span class="msg" id="storm-damage-service-error">Choose one</span></div>
     </div>
     <button class="btn btn-alert btn-block mt-m" type="submit">Request callback</button>
-    <div data-success style="display:none;text-align:center;padding:1rem 0;"><svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="34" height="34" style="margin:0 auto .6rem;"><path d="M20 6L9 17l-5-5"/></svg><p style="color:#fff;font-weight:600;">Request received.</p><p style="color:#9db8ff;font-size:.9rem;">We'll call you shortly.</p></div>
+    <p data-error role="alert" tabindex="-1" hidden style="color:#fff;margin-top:1rem;">We couldn't confirm receipt of your request. Please try again or <a href={`tel:${COMPANY.phoneRaw}`} style="color:#fff;text-decoration:underline;">call {COMPANY.phone}</a> for urgent help.</p>
+    <div data-success role="status" tabindex="-1" style="display:none;text-align:center;padding:1rem 0;"><svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="34" height="34" style="margin:0 auto .6rem;"><path d="M20 6L9 17l-5-5"/></svg><p style="color:#fff;font-weight:600;">Request received.</p><p style="color:#9db8ff;font-size:.9rem;">We'll call you shortly.</p></div>
     </form>
     <hr>
     <ul class="ef-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> We work with all major insurers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> No-obligation on-site assessment</li></ul>
@@ -121,6 +123,7 @@ const description = "Storm and hurricane damage restoration in South Florida. Em
   <div class="rel-grid mt-l"><a href="/restoration/water-damage/" class="rel reveal"><div><span class="num-label">Related service</span><h3 style="margin-top:.3rem;">Water Damage Restoration</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
       <a href="/restoration/mold-remediation/" class="rel reveal"><div><span class="num-label">Related service</span><h3 style="margin-top:.3rem;">Mold Remediation</h3></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a></div>
 </div></section>
+<LocalServiceLinks heading="Storm recovery in Deerfield Beach" description="Understand the distinction between temporary protection, interior drying and permanent repairs when describing your loss." links={[{ href: "/service-areas/deerfield-beach/#storm-assessment", label: "Deerfield Beach storm restoration" }]} />
 <section class="emcta"><div class="wrap-wide emcta-in reveal">
   <div><span class="eyebrow nodash" style="color:#ffd2c4;">Before the next band</span><h2 class="display" style="color:#fff;max-width:16ch;">Tarp now. Restore once.</h2></div>
   <div class="emcta-actions"><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a><a href="/emergency/" class="btn btn-lg btn-block" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5);">Request help online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>

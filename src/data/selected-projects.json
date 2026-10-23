@@ -1,0 +1,186 @@
+[
+  {
+    "id": "weston-114190723",
+    "city": "Weston",
+    "citySlug": "weston",
+    "title": "Exposed wall materials",
+    "summary": "Interior damage documented around an opened wall and window area.",
+    "category": "Damage documentation",
+    "photos": [
+      {
+        "src": "/projects/3552109666.webp",
+        "alt": "Exposed wall and window framing with damaged interior materials.",
+        "width": 1200,
+        "height": 1600,
+        "thumbnail": "/projects/3552109666-720.webp",
+        "thumbnailWidth": 720
+      },
+      {
+        "src": "/projects/3552109649.webp",
+        "alt": "Closer view of the affected interior wall and window opening.",
+        "width": 1200,
+        "height": 1600,
+        "thumbnail": "/projects/3552109649-720.webp",
+        "thumbnailWidth": 720
+      }
+    ]
+  },
+  {
+    "id": "doral-105974310",
+    "city": "Doral",
+    "citySlug": "doral",
+    "title": "Checking moisture at the wall base",
+    "summary": "Meter readings document moisture conditions along interior walls.",
+    "category": "Moisture checks",
+    "photos": [
+      {
+        "src": "/projects/3478489098.webp",
+        "alt": "Moisture meter positioned against an interior wall near the baseboard.",
+        "width": 1600,
+        "height": 1200,
+        "thumbnail": "/projects/3478489098-720.webp",
+        "thumbnailWidth": 720
+      },
+      {
+        "src": "/projects/3478488271.webp",
+        "alt": "Moisture reading recorded at a second point along the wall base.",
+        "width": 1600,
+        "height": 1200,
+        "thumbnail": "/projects/3478488271-720.webp",
+        "thumbnailWidth": 720
+      }
+    ]
+  },
+  {
+    "id": "miami-111079436",
+    "city": "Miami",
+    "citySlug": "miami",
+    "title": "Documenting ceiling damage",
+    "summary": "Photos record affected ceiling materials and the surrounding room.",
+    "category": "Damage documentation",
+    "photos": [
+      {
+        "src": "/projects/3660780228.webp",
+        "alt": "Damaged ceiling materials above a tiled interior wall.",
+        "width": 1200,
+        "height": 1600,
+        "thumbnail": "/projects/3660780228-720.webp",
+        "thumbnailWidth": 720
+      },
+      {
+        "src": "/projects/3660780147.webp",
+        "alt": "Second view of the affected ceiling and wall junction.",
+        "width": 1200,
+        "height": 1600,
+        "thumbnail": "/projects/3660780147-720.webp",
+        "thumbnailWidth": 720
+      }
+    ]
+  },
+  {
+    "id": "naples-107953477",
+    "city": "Naples",
+    "citySlug": "naples",
+    "title": "Ceiling inspection",
+    "summary": "Close-up documentation of a ceiling area and a meter check.",
+    "category": "Moisture checks",
+    "photos": [
+      {
+        "src": "/projects/3295044859.webp",
+        "alt": "Inspection tool beside a discolored section of ceiling.",
+        "width": 1200,
+        "height": 1600,
+        "thumbnail": "/projects/3295044859-720.webp",
+        "thumbnailWidth": 720
+      },
+      {
+        "src": "/projects/3295038620.webp",
+        "alt": "Moisture meter held against the affected ceiling area.",
+        "width": 1200,
+        "height": 1600,
+        "thumbnail": "/projects/3295038620-720.webp",
+        "thumbnailWidth": 720
+      }
+    ]
+  },
+  {
+    "id": "cape-coral-112078214",
+    "city": "Cape Coral",
+    "citySlug": "cape-coral",
+    "title": "Equipment on site",
+    "summary": "Field documentation shows equipment positioned inside a property.",
+    "category": "Equipment on site",
+    "photos": [
+      {
+        "src": "/projects/3466013122.webp",
+        "alt": "Portable equipment positioned beside an interior doorway.",
+        "width": 1600,
+        "height": 1200,
+        "thumbnail": "/projects/3466013122-720.webp",
+        "thumbnailWidth": 720
+      }
+    ]
+  },
+  {
+    "id": "sunny-isles-beach-106117406",
+    "city": "Sunny Isles Beach",
+    "citySlug": "sunny-isles-beach",
+    "title": "Recording site conditions",
+    "summary": "An instrument reading forms part of the site documentation.",
+    "category": "Moisture checks",
+    "photos": [
+      {
+        "src": "/projects/3426774527.webp",
+        "alt": "Environmental instrument displaying a reading outside a property.",
+        "width": 1200,
+        "height": 1600,
+        "thumbnail": "/projects/3426774527-720.webp",
+        "thumbnailWidth": 720
+      }
+    ]
+  },
+  {
+    "id": "coral-springs-110858457",
+    "city": "Coral Springs",
+    "citySlug": "coral-springs",
+    "title": "Interior condition check",
+    "summary": "Instrument readings help document the conditions during an inspection.",
+    "category": "Moisture checks",
+    "photos": [
+      {
+        "src": "/projects/3413408375.webp",
+        "alt": "Environmental instrument displaying a reading beside an interior wall.",
+        "width": 1200,
+        "height": 1600,
+        "thumbnail": "/projects/3413408375-720.webp",
+        "thumbnailWidth": 720
+      }
+    ]
+  },
+  {
+    "id": "port-st-lucie-110960030",
+    "city": "Port St. Lucie",
+    "citySlug": "port-st-lucie",
+    "title": "Documenting an interior work area",
+    "summary": "Views of the floor, cabinetry and appliances record conditions in the work area.",
+    "category": "Damage documentation",
+    "photos": [
+      {
+        "src": "/projects/3417603920.webp",
+        "alt": "Interior work area with cabinetry and flooring visible.",
+        "width": 1200,
+        "height": 1600,
+        "thumbnail": "/projects/3417603920-720.webp",
+        "thumbnailWidth": 720
+      },
+      {
+        "src": "/projects/3417601547.webp",
+        "alt": "Second view of the flooring and appliances in the work area.",
+        "width": 1600,
+        "height": 1200,
+        "thumbnail": "/projects/3417601547-720.webp",
+        "thumbnailWidth": 720
+      }
+    ]
+  }
+]
