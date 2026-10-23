@@ -26,14 +26,16 @@ test('services open with keyboard and close with Escape or outside click', () =>
 });
 test('mobile menu manages focus, traps Tab and restores scrolling', () => {
   const originalDocument=globalThis.document,originalWindow=globalThis.window;
-  const burger=element(),menu=element(),first=element(),last=element(),call=element(),main=element(),events=new Map();let resize;
+  const burger=element(),menu=element(),first=element(),last=element(),call=element(),main=element(),events=new Map();let resize, nextFrame;
   menu.querySelector=()=>first;menu.querySelectorAll=()=>[first,last];
   globalThis.document={body:{style:{overflow:'auto'}},activeElement:burger,querySelector:s=>s==='.burger'?burger:s==='.mnav'?menu:null,querySelectorAll:s=>s==='main,footer,.util,.mobile-actions'?[main]:[call,burger],addEventListener:(name,fn)=>events.set(name,fn)};
-  globalThis.window={matchMedia:()=>({addEventListener:(_,fn)=>{resize=fn;}})};
+  globalThis.window={requestAnimationFrame:fn=>{nextFrame=fn;},matchMedia:()=>({addEventListener:(_,fn)=>{resize=fn;}})};
   try {
-    initNavigation();burger.events.get('click')();assert.equal(burger.getAttribute('aria-expanded'),'true');assert.equal(menu.inert,false);assert.equal(main.inert,true);assert.equal(document.activeElement,first);assert.equal(document.body.style.overflow,'hidden');
+    initNavigation();burger.events.get('click')();nextFrame();assert.equal(burger.getAttribute('aria-expanded'),'true');assert.equal(menu.inert,false);assert.equal(main.inert,true);assert.equal(document.activeElement,first);assert.equal(document.body.style.overflow,'hidden');
+    burger.focus();menu.events.get('transitionend')({target:menu});assert.equal(document.activeElement,first);
+    last.focus();menu.events.get('transitionend')({target:menu});assert.equal(document.activeElement,last);
     last.focus();let prevented=false;events.get('keydown')({key:'Tab',shiftKey:false,preventDefault(){prevented=true;}});assert.equal(prevented,true);assert.equal(document.activeElement,call);
     events.get('keydown')({key:'Escape',preventDefault(){}});assert.equal(menu.inert,true);assert.equal(main.inert,false);assert.equal(document.activeElement,burger);assert.equal(document.body.style.overflow,'auto');
-    burger.events.get('click')();resize({matches:true});assert.equal(burger.getAttribute('aria-expanded'),'false');
+    burger.events.get('click')();resize({matches:true});nextFrame();assert.equal(burger.getAttribute('aria-expanded'),'false');assert.equal(document.activeElement,burger);
   } finally {globalThis.document=originalDocument;globalThis.window=originalWindow;}
 });
