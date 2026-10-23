@@ -1,0 +1,30 @@
+---
+import type { CityServiceFocus } from '../data/city-service-focus';
+import { COMPANY } from '../data/company';
+interface Props { city: string; focus: CityServiceFocus; }
+const { city, focus } = Astro.props;
+---
+<section class="local-help pt pb" id="local-services" aria-labelledby="local-services-title">
+  <div class="wrap-wide">
+    <div class="sec-head"><div><span class="eyebrow">Help for your {city} property</span><h2 class="h2 mt-s" id="local-services-title">{focus.heading}</h2></div></div>
+    <p class="lead mt-m local-help-intro">{focus.intro}</p>
+    <div class="local-help-layout mt-l">
+      <div class="local-help-sections">
+        {focus.sections.map(section => <article id={section.id}><h3 class="h3">{section.heading}</h3>{section.paragraphs.map(paragraph => <p>{paragraph}</p>)}<a href={section.serviceUrl} class="link-arrow">{section.serviceLabel} <span aria-hidden="true">↗</span></a></article>)}
+      </div>
+      <aside class="local-help-request" aria-label="Prepare your restoration request">
+        <span class="eyebrow nodash">Before you call</span><h3 class="h3 mt-s">Tell us what happened.</h3><p class="mt-s">These details help us discuss the next step.</p><ul>{focus.prepare.map(item => <li>{item}</li>)}</ul>
+        <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-primary btn-block">Call {COMPANY.phone}</a><a href="/contact/" class="btn btn-ghost btn-block mt-s">Send a request</a>
+      </aside>
+    </div>
+    <div class="faq mt-l"><h3 class="h3" style="margin-bottom:1.2rem;">Questions about this work</h3>{focus.faqs.map(faq => <details><summary>{faq.question}<span class="pm" aria-hidden="true"></span></summary><div class="ans">{faq.answer}</div></details>)}</div>
+  </div>
+</section>
+<style>
+  .local-help{background:var(--white);border-bottom:1px solid var(--line);}
+  .local-help .h2{max-width:28ch;}.local-help-intro{max-width:78ch;}
+  .local-help-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:start;}
+  .local-help-sections{display:grid;gap:2.5rem;}.local-help-sections p{color:var(--ink-2);line-height:1.75;margin-top:1rem;max-width:72ch;}.local-help-sections .link-arrow{margin-top:1rem;}
+  .local-help-request{padding:clamp(1.4rem,3vw,2rem);border:1px solid var(--line);border-radius:20px;background:var(--paper);}.local-help-request p,.local-help-request li{font-size:.95rem;color:var(--ink-2);}.local-help-request ul{padding-left:1.2rem;margin:1.2rem 0 1.8rem;display:grid;gap:.8rem;}
+  @media(max-width:820px){.local-help-layout{grid-template-columns:1fr;}}
+</style>

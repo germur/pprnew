@@ -1,0 +1,12 @@
+---
+interface Props { heading: string; description: string; links: { href: string; label: string }[]; }
+const { heading, description, links } = Astro.props;
+---
+<section class="pb"><div class="wrap-wide"><div class="local-service-links">
+  <div><span class="eyebrow">Local service information</span><h2 class="h3 mt-s">{heading}</h2><p class="mt-s">{description}</p></div>
+  <nav aria-label={heading}>{links.map(link => <a class="link-arrow" href={link.href}>{link.label}<span aria-hidden="true">↗</span></a>)}</nav>
+</div></div></section>
+<style>
+  .local-service-links{padding:clamp(1.5rem,3vw,2.5rem);border:1px solid var(--line);border-radius:20px;display:grid;grid-template-columns:1.5fr 1fr;gap:2rem;align-items:center;background:var(--white);}.local-service-links p{color:var(--ink-2);max-width:65ch;}.local-service-links nav{display:flex;flex-direction:column;gap:1rem;}
+  @media(max-width:720px){.local-service-links{grid-template-columns:1fr;gap:1.3rem;}}
+</style>

@@ -1,4 +1,5 @@
 ---
+import LocalServiceLinks from "../../../components/LocalServiceLinks.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { COMPANY , REGIONS } from "../../../data/company";
 import Icon from "../../../components/Icon.astro";
@@ -211,6 +212,7 @@ const description = "Emergency water damage restoration across South Florida. Ex
 </section>
 
 <!-- EMERGENCY CTA -->
+<LocalServiceLinks heading="Water cleanup for your property" description="Read what information to share about the water source, affected materials and drying needs in these service areas." links={[{ href: "/service-areas/cooper-city/#flood-cleanup", label: "Cooper City flood cleanup" }, { href: "/service-areas/hobe-sound/#water-removal", label: "Hobe Sound water damage cleanup" }]} />
 <section class="emcta">
   <div class="wrap-wide emcta-in reveal">
     <div>

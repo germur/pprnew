@@ -6,6 +6,8 @@ import Icon from "../../components/Icon.astro";
 import companycam from "../../data/companycam.json";
 import selectedProjects from "../../data/selected-projects.json";
 import CityProjectStory from "../../components/CityProjectStory.astro";
+import CityServiceFocus from "../../components/CityServiceFocus.astro";
+import { CITY_SERVICE_FOCUS } from "../../data/city-service-focus";
 import { CITY_PROJECT_STORIES } from "../../data/city-project-stories";
 
 // Generate a page for each city configured in REGIONS.
@@ -31,8 +33,9 @@ const cityProjects = selectedProjects.filter(project => project.citySlug === cit
 const featuredProject = cityProjects[0];
 const featuredPhoto = featuredProject?.photos[0];
 const cityPhotos = ((companycam as Record<string, { src: string; alt: string; projectName: string }[]>)[city.slug] || []).slice(0, 6);
-const title = `${city.name} Restoration | Water, Fire, Mold & Storm`;
-const description = `24/7 property restoration in ${city.name}, FL. Water damage, mold, fire and storm recovery by local IICRC-certified crews. 24/7 dispatch, insurance handled.`;
+const serviceFocus = CITY_SERVICE_FOCUS[city.slug];
+const title = serviceFocus?.title || `${city.name} Restoration | Water, Fire, Mold & Storm`;
+const description = serviceFocus?.description || `24/7 property restoration in ${city.name}, FL. Water damage, mold, fire and storm recovery by local IICRC-certified crews. 24/7 dispatch, insurance handled.`;
 ---
 
 <BaseLayout title={title} description={description} path={`/service-areas/${city.slug}/`}>
@@ -70,9 +73,11 @@ const description = `24/7 property restoration in ${city.name}, FL. Water damage
   </section>
 
   <nav class="page-sections wrap-wide" aria-label={`Explore restoration in ${city.name}`}>
-    <span>Explore {city.name}</span><a href="#city-services">Services</a>{featuredProject && <a href="#local-project">Local project</a>}<a href="#local-context">Local conditions</a><a href="#city-help">Get help</a>
+    <span>Explore {city.name}</span>{serviceFocus && <a href="#local-services">Restoration details</a>}<a href="#city-services">Services</a>{featuredProject && <a href="#local-project">Local project</a>}<a href="#local-context">Local conditions</a><a href="#city-help">Get help</a>
   </nav>
   {cityProjects.map(project => <CityProjectStory project={project} story={CITY_PROJECT_STORIES[project.id]} />)}
+
+  {serviceFocus && <CityServiceFocus city={city.name} focus={serviceFocus} />}
 
   <!-- SERVICES IN CITY -->
   <section class="pt pb" id="city-services">

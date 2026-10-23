@@ -1,6 +1,20 @@
 # Paramount Property Restoration - migracion sitio viejo -> nuevo
 # 301 = consolidacion a pillar | 410 = podado
 
+# --- Reviewed equivalents: substantive local content and testing-cost guide ---
+/restoration/fire-damage/soot-cleanup/bonita-springs/  /service-areas/bonita-springs/  301
+/restoration/fire-damage/soot-cleanup/bonita-springs  /service-areas/bonita-springs/  301
+/restoration/fire-damage/fire-damage-repair/bonita-springs/  /service-areas/bonita-springs/  301
+/restoration/fire-damage/fire-damage-repair/bonita-springs  /service-areas/bonita-springs/  301
+/restoration/water-damage/emergency-water-removal/hobe-sound/  /service-areas/hobe-sound/  301
+/restoration/water-damage/emergency-water-removal/hobe-sound  /service-areas/hobe-sound/  301
+/restoration/mold-remediation/black-mold-removal/hobe-sound/  /service-areas/hobe-sound/  301
+/restoration/mold-remediation/black-mold-removal/hobe-sound  /service-areas/hobe-sound/  301
+/restoration/mold-remediation/mold-damage-restoration/hobe-sound/  /service-areas/hobe-sound/  301
+/restoration/mold-remediation/mold-damage-restoration/hobe-sound  /service-areas/hobe-sound/  301
+/blog/professional-mold-testing-cost-guide-2025/  /resources/mold-testing-cost/  301
+/blog/professional-mold-testing-cost-guide-2025  /resources/mold-testing-cost/  301
+
 # --- 301 ---
 /landing/mold-testing/  /restoration/mold-testing/  301
 /mold-testing/  /restoration/mold-testing/  301
