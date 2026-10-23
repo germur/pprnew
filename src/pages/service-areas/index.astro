@@ -1,65 +1,93 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { COMPANY, REGIONS } from "../../data/company";
+import { COMPANY, REGIONS, CITY_COUNT } from "../../data/company";
+import Icon from "../../components/Icon.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import projects from "../../data/selected-projects.json";
 
-const title = "Service Areas | 35 South Florida Cities | Paramount";
-const description = "Paramount serves 35 South Florida cities across Southwest, Treasure Coast and Southeast Florida with local crews and 24/7 response.";
+const title = `Florida Service Areas | ${CITY_COUNT} Cities | Paramount Restoration`;
+const description = `Find Paramount restoration service information in ${CITY_COUNT} cities across Miami-Dade, Broward, Palm Beach, Southwest Florida, Central Florida and the Treasure Coast.`;
+const regions = REGIONS.map(region => ({...region, id: region.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}));
+const documentedCities = new Set(projects.map(project => project.citySlug));
+const featured = ['doral', 'cape-coral', 'port-st-lucie'].map(slug => projects.find(project => project.citySlug === slug)!).filter(Boolean);
+const heroProject = featured[1];
+const heroPhoto = heroProject.photos[0];
+const directorySchema = {"@context":"https://schema.org", "@type":"ItemList", name:"Paramount restoration service areas", numberOfItems:CITY_COUNT, itemListElement: regions.flatMap(region => region.cities).map((city,index) => ({"@type":"ListItem",position:index+1,name:city.name,url:new URL(`/service-areas/${city.slug}/`,Astro.site).href}))};
 ---
-
 <BaseLayout title={title} description={description} path="/service-areas/">
-<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span> Service Areas</nav></div>
-<section class="phero"><div class="wrap-wide"><div class="phero-grid">
-  <div class="reveal">
-    <span class="eyebrow">Where we work · Product-Led local</span>
-    <h1 class="display mt-s" style="font-size:clamp(2.6rem,6vw,5rem);">35 South Florida cities. <em>Real</em> local crews.</h1>
-    <p class="lead maxw mt-m">We only claim the places we actually serve, with local projects, response times and storm-risk knowledge. Pick your city below.</p>
-    <div class="cta-row mt-l"><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-primary btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a><a href="/emergency/" class="btn btn-ghost btn-lg">Request help <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-  </div>
-  <aside class="reveal"><div class="area-map" style="aspect-ratio:4/5;border-radius:var(--radius);"><img src="/heroes/map-coverage.webp" alt="Map of Paramount Property Restoration coverage across Southwest, Treasure Coast and Southeast Florida" width="1254" height="1254" loading="lazy" decoding="async" /></div></aside>
-</div></div></section>
-<section class="pt pb"><div class="wrap-wide">
-  {REGIONS.map((region, i) => (
-    <Fragment>
-      <div class="sec-head reveal" style={i > 0 ? "margin-top:clamp(3rem,5vw,4rem);" : ""}>
-        <div>
-          <span class="eyebrow">{region.name}</span>
-          <h2 class="h2 mt-s">Cities we serve in {region.name}</h2>
-        </div>
-      </div>
-      <div class="rel-grid mt-l">
-        {region.cities.map((c) => (
-          <a href={`/service-areas/${c.slug}/`} class="rel reveal">
-            <div>
-              <span class="num-label">Restoration · 24/7</span>
-              <h3 style="margin-top:.3rem;">{c.name}</h3>
-            </div>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
-          </a>
-        ))}
-      </div>
-    </Fragment>
-  ))}
-</div></section>
-<section class="insure pb"><div class="wrap-wide"><div class="insure-in reveal">
-  <div>
-    <span class="eyebrow">How local works</span>
-    <h2 class="h2 mt-s" style="max-width:18ch;">A real crew nearby beats a dispatch two counties away.</h2>
-    <p class="lead maxw mt-m">Each city page carries genuine local detail, projects we've done, the neighborhoods we cover and the risks specific to that area. If we can't write it honestly, it's grouped into a region until we can.</p>
-    <a href="/service-areas/miami/" class="btn btn-blue btn-lg mt-m">See an example: Miami <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-  </div>
-  <ul class="insure-list"><li><span class="num-label">→</span> Local projects &amp; before/after proof</li><li><span class="num-label">→</span> Neighborhood-level coverage</li><li><span class="num-label">→</span> Area-specific storm &amp; flood risk</li><li><span class="num-label">→</span> Honest 24/7 response promise</li></ul>
-</div></div></section>
-
-<section class="emcta">
-  <div class="wrap-wide emcta-in reveal">
+  <div class="wrap-wide"><nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span> Service Areas</nav></div>
+  <section class="coverage-hero"><div class="wrap-wide coverage-hero-grid">
     <div>
-      <span class="eyebrow nodash" style="color:#ffd2c4;">24/7 Emergency Response</span>
-      <h2 class="display" style="color:#fff;max-width:16ch;">A certified crew is one call away.</h2>
+      <span class="eyebrow">Florida service areas</span>
+      <h1 class="h1 mt-s">Find restoration help <em>in your city.</em></h1>
+      <p class="lead mt-m">Water, fire, mold or storm damage? Find local service information, see documented project photos and talk to us about your property.</p>
+      <div class="coverage-stats"><span><strong>{CITY_COUNT}</strong> cities listed</span><span><strong>{regions.length}</strong> Florida regions</span><span><Icon name="clock" size={17} /> 24/7 contact</span></div>
+      <div class="cta-row mt-m"><a href="#city-directory" class="btn btn-primary">Find your city <span aria-hidden="true">↓</span></a><a href={`tel:${COMPANY.phoneRaw}`} class="coverage-call"><Icon name="phone" size={18} /> {COMPANY.phone}</a></div>
     </div>
-    <div class="emcta-actions">
-      <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a>
-      <a href="/emergency/" class="btn btn-lg btn-block" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5);">Request help online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <figure class="coverage-field">
+      <img src={heroPhoto.thumbnail} srcset={`${heroPhoto.thumbnail} ${heroPhoto.thumbnailWidth}w, ${heroPhoto.src} ${heroPhoto.width}w`} sizes="(max-width:720px) 100vw, 40vw" alt={heroPhoto.alt} width={heroPhoto.width} height={heroPhoto.height} loading="eager" decoding="async" />
+      <figcaption><span><span class="coverage-photo-label">On site in Florida</span>{heroProject.city} project documentation</span><a href={`/projects/#${heroProject.id}`} aria-label={`View the ${heroProject.city} project`}>View project <span aria-hidden="true">↗</span></a></figcaption>
+    </figure>
+  </div></section>
+
+  <section class="coverage-directory pt pb" id="city-directory" data-area-directory aria-labelledby="directory-title"><div class="wrap-wide">
+    <div class="directory-heading"><div><span class="eyebrow">Your city. Your next step.</span><h2 class="h2 mt-s" id="directory-title">Where do you need help?</h2></div><p>Choose a city for services and local information. <br />Call to confirm availability for your property.</p></div>
+    <div class="directory-controls" data-area-controls hidden>
+      <form class="directory-search" role="search" aria-label="Find a service area">
+        <label for="area-search">Search by city or region</label>
+        <div class="directory-input"><Icon name="inspect" size={22} /><input id="area-search" name="q" type="search" placeholder="Try Miami, Naples or Broward" autocomplete="off" aria-controls="area-results" maxlength="120" /><button type="button" data-area-clear hidden>Clear</button></div>
+      </form>
+      <p data-area-status role="status" aria-live="polite" aria-atomic="true">{CITY_COUNT} cities across {regions.length} regions</p>
     </div>
-  </div>
-</section>
+    <nav class="directory-jumps" aria-label="Browse service areas by region" data-area-jumps>{regions.map(region => <a href={`#region-${region.id}`}>{region.name} <span aria-hidden="true">↓</span></a>)}</nav>
+    <div class="directory-layout" data-area-layout>
+      <aside class="directory-sidebar" data-area-filters hidden>
+        <span class="directory-sidebar-label" id="region-filter-label">Browse a region</span>
+        <div class="directory-region-select"><label for="area-region-select">Region</label><select id="area-region-select" aria-controls="area-results"><option value="all">All regions ({CITY_COUNT} cities)</option>{regions.map(region => <option value={region.id}>{region.name} ({region.cities.length} cities)</option>)}</select></div>
+        <div class="directory-region-buttons" role="group" aria-labelledby="region-filter-label">
+          <button type="button" data-area-region="all" aria-pressed="true">All areas <span>{CITY_COUNT}</span></button>
+          {regions.map(region => <button type="button" data-area-region={region.id} aria-pressed="false">{region.name}<span>{region.cities.length}</span></button>)}
+        </div>
+        <div class="directory-assistance"><Icon name="phone" size={20} /><h3>Not sure where to start?</h3><p>Tell us your location and the type of damage.</p><a href={`tel:${COMPANY.phoneRaw}`}>Call {COMPANY.phone}</a></div>
+      </aside>
+      <div id="area-results">
+        <div class="directory-region-grid">
+          {regions.map(region => <section class="directory-region" id={`region-${region.id}`} data-area-group={region.id} aria-labelledby={`heading-${region.id}`}>
+            <div class="directory-region-head"><div><span class="directory-region-marker" aria-hidden="true"><Icon name="home" size={20} /></span><h3 id={`heading-${region.id}`}>{region.name}</h3></div><span data-area-group-count>{region.cities.length} cities</span></div>
+            <ul>{[...region.cities].sort((a,b) => a.name.localeCompare(b.name)).map(city => <li data-area-city data-name={city.name} data-region={region.id} data-region-name={region.name}><a href={`/service-areas/${city.slug}/`}><span>{city.name}{documentedCities.has(city.slug) && <small>Project photos</small>}</span><span class="directory-city-arrow" aria-hidden="true">↗</span></a></li>)}</ul>
+          </section>)}
+        </div>
+        <div class="directory-empty" data-area-empty hidden><span class="directory-empty-icon" aria-hidden="true"><Icon name="inspect" size={28} /></span><h3 class="h3">No listed cities match these filters.</h3><p>Try another city or region, or call us to check availability for your address.</p><div class="cta-row"><button class="btn btn-primary" type="button" data-area-reset>Reset filters</button><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-ghost">Call {COMPANY.phone}</a></div></div>
+      </div>
+    </div>
+    <div class="coverage-unlisted"><div><h3 class="h3">Don't see your city?</h3><p>Share your address and what happened. Our team can confirm whether service is available and discuss the next step.</p></div><a href="/contact/" class="btn btn-ghost">Ask about your location <span aria-hidden="true">↗</span></a></div>
+  </div></section>
+
+  <section class="coverage-projects pt pb"><div class="wrap-wide">
+    <div class="sec-head"><div><span class="eyebrow">A closer look at the work</span><h2 class="h2 mt-s">Local details. <em>Real project photos.</em></h2></div><a href="/projects/" class="link-arrow">Browse all {projects.length} projects <span aria-hidden="true">↗</span></a></div>
+    <p class="lead mt-m" style="max-width:65ch;">Explore documented property conditions, inspection readings and equipment from visits across Florida.</p>
+    <div class="work-grid mt-l">{featured.map(project => <ProjectCard project={project} compact />)}</div>
+  </div></section>
+  <section class="pt pb"><div class="wrap-wide coverage-next-grid">
+    <div><span class="eyebrow">Plan the next step</span><h2 class="h2 mt-s">A little information helps us help you.</h2><p class="lead mt-m">Have your location, a brief description of the damage and access details ready when you contact us.</p><a href="/our-process/" class="link-arrow mt-m">How the restoration process works <span aria-hidden="true">↗</span></a></div>
+    <div class="faq"><details><summary>Does a city listing guarantee an arrival time?<span class="pm" aria-hidden="true"></span></summary><div class="ans">No. Contact us with your address and type of damage so we can confirm current availability and discuss scheduling. Arrival depends on the location, conditions and work required.</div></details><details><summary>What can I find on a city page?<span class="pm" aria-hidden="true"></span></summary><div class="ans">Service information, local property considerations and ways to request help. Selected cities also include reviewed project photos and an explanation of what those images document.</div></details><details><summary>Can I ask about a commercial property?<span class="pm" aria-hidden="true"></span></summary><div class="ans">Yes. Tell us the building location, affected areas and who can authorize access. <a href="/commercial/">Explore commercial restoration</a> for more information.</div></details></div>
+  </div></section>
+  <section class="coverage-contact"><div class="wrap-wide"><div><span class="eyebrow nodash">24/7 contact</span><h2 class="h2 mt-s">Tell us where you need help.</h2><p class="mt-s">For an active property emergency, calling is the fastest way to reach us.</p></div><div class="cta-row"><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-primary"><Icon name="phone" size={19} /> Call {COMPANY.phone}</a><a href="/emergency/" class="btn btn-ghost">Request help online <span aria-hidden="true">↗</span></a></div></div></section>
+  <script type="application/ld+json" set:html={JSON.stringify(directorySchema)} />
+  <script is:inline type="module" src="/service-areas.js"></script>
 </BaseLayout>
+<style>
+  .coverage-hero{background:radial-gradient(ellipse at 65% 0%,var(--blue-soft),transparent 65%);padding:1.2rem 0 3.5rem;border-bottom:1px solid var(--line);}.coverage-hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center;}.coverage-hero .h1{font-size:clamp(2.6rem,4.3vw,4.3rem);max-width:18ch;letter-spacing:-.05em;}.coverage-hero .lead{max-width:48ch;font-size:1.1rem;}.coverage-stats{display:flex;flex-wrap:wrap;gap:.7rem 1.3rem;margin-top:1.5rem;}.coverage-stats>span{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;color:var(--ink-2);}.coverage-stats strong{font-size:1.1rem;color:var(--ink);}.coverage-stats svg{color:var(--blue);}.coverage-call{display:inline-flex;align-items:center;gap:.5rem;font-size:.95rem;font-weight:600;padding:.65rem;}.coverage-call:hover{color:var(--blue);}.coverage-field{border:5px solid #fff;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);background:#fff;}.coverage-field>img{width:100%;height:290px;object-fit:cover;}.coverage-field figcaption{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem;font-size:.8rem;}.coverage-photo-label{display:block;color:var(--ink-3);font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem;}.coverage-field figcaption a{color:var(--blue);font-weight:600;white-space:nowrap;}
+  .coverage-directory{padding-top:3.5rem;}.directory-heading{display:flex;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:2rem;}.directory-heading>p{font-size:.92rem;color:var(--ink-2);line-height:1.6;}.directory-controls{display:flex;align-items:end;gap:2rem;justify-content:space-between;background:#fff;border:1px solid var(--line);padding:1.25rem 1.5rem;border-radius:18px;margin-bottom:1.5rem;}.directory-search{flex:1;max-width:650px;}.directory-search label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.5rem;}.directory-input{display:flex;align-items:center;gap:.8rem;min-height:54px;padding:0 1rem;border:1px solid var(--line-strong);border-radius:11px;background:var(--paper);}.directory-input:focus-within{outline:3px solid var(--blue-soft);border-color:var(--blue);}.directory-input>svg{flex-shrink:0;color:var(--ink-3);}.directory-input input{width:100%;min-width:0;min-height:52px;background:transparent;border:0;font:inherit;font-size:1rem;color:var(--ink);outline:0;}.directory-input input::placeholder{color:var(--ink-3);}.directory-input button{border:0;background:transparent;color:var(--blue);font:inherit;font-size:.82rem;font-weight:600;cursor:pointer;padding:.5rem 0;min-height:44px;}.directory-controls>p{font-size:.85rem;color:var(--ink-2);padding-bottom:1rem;}.directory-jumps{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:1.5rem;}.directory-jumps a{padding:.7rem 1rem;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:.85rem;}
+  .directory-layout.is-enhanced{display:grid;grid-template-columns:210px minmax(0,1fr);gap:2rem;align-items:start;}.directory-sidebar{position:sticky;top:108px;}.directory-sidebar-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--ink-3);display:block;padding:.5rem .8rem;margin-bottom:.6rem;}.directory-region-buttons{display:flex;flex-direction:column;gap:.35rem;}.directory-region-buttons button{display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:.85rem .9rem;min-height:48px;border:1px solid transparent;background:transparent;color:var(--ink-2);font:inherit;font-weight:500;font-size:.86rem;border-radius:10px;cursor:pointer;text-align:left;}.directory-region-buttons button>span{font-size:.7rem;min-width:24px;text-align:center;padding:.1rem .35rem;border-radius:6px;background:var(--paper-2);}.directory-region-buttons button:hover{background:#fff;border-color:var(--line);}.directory-region-buttons button[aria-pressed=true]{background:var(--blue);color:#fff;font-weight:600;box-shadow:0 5px 12px #2155d921;}.directory-region-buttons button[aria-pressed=true]>span{background:#ffffff24;color:#fff;}.directory-assistance{border-top:1px solid var(--line);margin-top:1.6rem;padding:1.4rem .8rem;}.directory-assistance>svg{color:var(--blue);}.directory-assistance h3{font-size:.9rem;margin-top:.7rem;}.directory-assistance p{font-size:.83rem;color:var(--ink-2);margin-top:.4rem;}.directory-assistance a{display:inline-block;font-size:.85rem;color:var(--blue);font-weight:600;margin-top:.8rem;}
+  .directory-region-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;align-items:start;}.directory-region{border:1px solid var(--line);background:#fff;border-radius:18px;overflow:hidden;}.directory-region-head{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:1.2rem 1.3rem;border-bottom:1px solid var(--line);background:linear-gradient(125deg,#fff,var(--paper));}.directory-region-head>div{display:flex;align-items:center;gap:.7rem;}.directory-region-head h3{font-weight:600;font-size:1rem;letter-spacing:-.02em;}.directory-region-head>span{white-space:nowrap;font-size:.72rem;color:var(--ink-3);}.directory-region-marker{display:flex;align-items:center;justify-content:center;color:var(--blue);width:32px;height:32px;background:var(--blue-soft);border-radius:9px;flex-shrink:0;}.directory-region ul{list-style:none;padding:.4rem .55rem;}.directory-region li+li{border-top:1px solid var(--line);}.directory-region li a{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem .8rem;min-height:54px;border-radius:8px;font-size:.98rem;font-weight:500;transition:background .15s,color .15s;}.directory-region li a>span:first-child{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem .7rem;}.directory-region li a small{color:var(--blue);background:var(--blue-soft);border-radius:5px;font-size:.6rem;font-weight:600;letter-spacing:.01em;padding:.18rem .4rem;}.directory-region li a:hover{color:var(--blue);background:var(--blue-soft);}.directory-city-arrow{color:var(--ink-3);font-size:1.1rem;}.directory-empty{border:1px dashed var(--line-strong);border-radius:18px;padding:clamp(1.5rem,4vw,3rem);background:#fff;}.directory-empty-icon{display:grid;place-items:center;width:54px;height:54px;background:var(--blue-soft);color:var(--blue);border-radius:15px;margin-bottom:1.2rem;}.directory-empty p{margin-top:.8rem;color:var(--ink-2);max-width:50ch;}.directory-empty .cta-row{margin-top:1.4rem;}.coverage-directory [hidden]{display:none!important;}
+  .coverage-unlisted{display:flex;align-items:center;justify-content:space-between;gap:2rem;border:1px solid var(--line);border-radius:18px;background:var(--blue-soft);padding:2rem;margin-top:2rem;}.coverage-unlisted p{font-size:.95rem;color:var(--ink-2);max-width:62ch;margin-top:.5rem;}.coverage-unlisted>.btn{flex-shrink:0;}.coverage-projects{background:var(--paper-2);}.coverage-projects .h2{max-width:23ch;}.coverage-next-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(2rem,5vw,5rem);align-items:start;}.coverage-next-grid .h2{max-width:19ch;}.coverage-next-grid .lead{font-size:1.05rem;max-width:43ch;}.coverage-contact{padding:3rem 0;background:var(--ink);color:#fff;}.coverage-contact>.wrap-wide{display:flex;align-items:center;justify-content:space-between;gap:2rem;}.coverage-contact .eyebrow{color:#b8d0ff;}.coverage-contact p{color:#c6d5e6;max-width:50ch;}.coverage-contact .btn-ghost:hover{background:var(--blue-soft);color:var(--ink);}
+  .directory-region-grid.has-single-region{grid-template-columns:1fr;}.directory-region-grid.has-single-region .directory-region ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 .6rem;}.directory-region-grid.has-single-region .directory-region li:nth-child(2){border-top:0;}
+  @media(max-width:540px){.directory-region-grid.has-single-region .directory-region ul{grid-template-columns:1fr;}.directory-region-grid.has-single-region .directory-region li:nth-child(2){border-top:1px solid var(--line);}}
+  .directory-region-select{display:none;}.directory-region-select label{display:block;font-size:.8rem;font-weight:600;margin-bottom:.5rem;}.directory-region-select select{width:100%;min-width:0;min-height:50px;font:inherit;font-size:16px;color:var(--ink);border:1px solid var(--line-strong);border-radius:10px;background:#fff;padding:.7rem 1rem;}
+  @media(max-width:900px){.directory-region-select{display:block;}.directory-region-buttons{display:none;}}
+  @media(max-width:1100px){.directory-layout.is-enhanced{grid-template-columns:180px minmax(0,1fr);gap:1.25rem;}.directory-region-head{padding:1rem;}.directory-region-head>div{gap:.5rem;}.directory-region-head h3{font-size:.95rem;}.directory-region-head>span{font-size:.65rem;}.directory-region li a{font-size:.92rem;}.coverage-field>img{height:270px;}.coverage-unlisted{align-items:start;flex-direction:column;}}
+  @media(max-width:900px){.directory-layout.is-enhanced{display:block;}.directory-sidebar{position:static;margin-bottom:1.5rem;}.directory-region-buttons{display:none;}.directory-region-buttons button{background:#fff;border-color:var(--line);font-size:.8rem;padding:.65rem .8rem;}.directory-sidebar-label,.directory-assistance{display:none;}.coverage-next-grid{grid-template-columns:1fr;}.coverage-contact>.wrap-wide{align-items:start;flex-direction:column;}}
+  @media(max-width:720px){.coverage-hero{padding:1rem 0 2.5rem;}.coverage-hero-grid{grid-template-columns:1fr;}.coverage-field{display:none;}.coverage-hero .h1{font-size:clamp(2.5rem,7vw,3.6rem);max-width:19ch;}.coverage-hero .lead{font-size:1.05rem;}.coverage-directory{padding-top:2.5rem;}.directory-heading{align-items:start;flex-direction:column;gap:1rem;}.directory-heading>p br{display:none;}.directory-controls{align-items:stretch;flex-direction:column;gap:.8rem;padding:1.1rem;}.directory-search{max-width:none;}.directory-controls>p{padding:0;}.directory-region-grid{gap:1rem;}.directory-region li a>span:first-child{align-items:start;flex-direction:column;}.directory-region-head>div{gap:.5rem;}.directory-region-marker{display:none;}}
+  @media(max-width:540px){.directory-region-grid{grid-template-columns:1fr;}.coverage-hero .cta-row{gap:.4rem 1rem;}.coverage-hero .btn{padding:.85rem 1rem;}.coverage-call{font-size:.85rem;padding:.65rem 0;}.coverage-stats{gap:.6rem 1rem;}.coverage-stats>span{font-size:.75rem;}.directory-input{gap:.5rem;padding:0 .7rem;}.directory-input input{font-size:.93rem;}.directory-region-head{padding:1.2rem;}.directory-region-marker{display:flex;}.directory-region li a>span:first-child{align-items:center;flex-direction:row;}.directory-region li a{min-height:58px;padding:1rem .7rem;}.directory-region-buttons button>span{display:none;}.directory-region-buttons button{font-size:.74rem;min-height:44px;}.coverage-unlisted{padding:1.5rem;}.coverage-unlisted>.btn{width:100%;}.coverage-contact .cta-row{align-items:stretch;flex-direction:column;width:100%;}.coverage-contact .btn{width:100%;}}
+</style>
