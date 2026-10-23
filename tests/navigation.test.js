@@ -28,7 +28,7 @@ test('mobile menu manages focus, traps Tab and restores scrolling', () => {
   const originalDocument=globalThis.document,originalWindow=globalThis.window;
   const burger=element(),menu=element(),first=element(),last=element(),call=element(),main=element(),events=new Map();let resize;
   menu.querySelector=()=>first;menu.querySelectorAll=()=>[first,last];
-  globalThis.document={body:{style:{overflow:'auto'}},activeElement:burger,querySelector:s=>s==='.burger'?burger:s==='.mnav'?menu:null,querySelectorAll:s=>s==='main,footer,.util'?[main]:[call,burger],addEventListener:(name,fn)=>events.set(name,fn)};
+  globalThis.document={body:{style:{overflow:'auto'}},activeElement:burger,querySelector:s=>s==='.burger'?burger:s==='.mnav'?menu:null,querySelectorAll:s=>s==='main,footer,.util,.mobile-actions'?[main]:[call,burger],addEventListener:(name,fn)=>events.set(name,fn)};
   globalThis.window={matchMedia:()=>({addEventListener:(_,fn)=>{resize=fn;}})};
   try {
     initNavigation();burger.events.get('click')();assert.equal(burger.getAttribute('aria-expanded'),'true');assert.equal(menu.inert,false);assert.equal(main.inert,true);assert.equal(document.activeElement,first);assert.equal(document.body.style.overflow,'hidden');

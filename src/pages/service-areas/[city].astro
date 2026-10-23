@@ -69,10 +69,13 @@ const description = `24/7 property restoration in ${city.name}, FL. Water damage
     </div>
   </section>
 
+  <nav class="page-sections wrap-wide" aria-label={`Explore restoration in ${city.name}`}>
+    <span>Explore {city.name}</span><a href="#city-services">Services</a>{featuredProject && <a href="#local-project">Local project</a>}<a href="#local-context">Local conditions</a><a href="#city-help">Get help</a>
+  </nav>
   {cityProjects.map(project => <CityProjectStory project={project} story={CITY_PROJECT_STORIES[project.id]} />)}
 
   <!-- SERVICES IN CITY -->
-  <section class="pt pb">
+  <section class="pt pb" id="city-services">
     <div class="wrap-wide">
       <div class="sec-head reveal">
         <div><span class="eyebrow">01 · Services in {city.name}</span><h2 class="h2 mt-s" style="max-width:20ch;">Every restoration service, right here in {city.name}.</h2></div>
@@ -93,7 +96,7 @@ const description = `24/7 property restoration in ${city.name}, FL. Water damage
   </section>
 
   <!-- LOCAL CONTENT: contenido único por ciudad (test de 300 palabras del sheet). -->
-  <section class="insure pb">
+  <section class="insure pb" id="local-context">
     <div class="wrap-wide">
       <div class="insure-in reveal" style="align-items:start;">
         <div class="prose">
@@ -140,7 +143,7 @@ const description = `24/7 property restoration in ${city.name}, FL. Water damage
   )}
 
   <!-- EMERGENCY CTA -->
-  <section class="emcta">
+  <section class="emcta" id="city-help">
     <div class="wrap-wide emcta-in reveal">
       <div><span class="eyebrow nodash" style="color:#ffd2c4;">24/7 in {city.name}</span><h2 class="display" style="color:#fff;max-width:16ch;">Damage in {city.name}? Call now.</h2></div>
       <div class="emcta-actions">

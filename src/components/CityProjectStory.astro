@@ -14,7 +14,7 @@ const { project, story } = Astro.props;
       <div class:list={['city-proof-photos', { 'city-proof-pair': project.photos.length > 1 }]}>
         {project.photos.map((photo, index) => (
           <figure>
-            <a href={photo.src} target="_blank" rel="noopener" aria-label={`Open full photo: ${story.captions[index]}`}>
+            <a href={photo.src} data-lightbox={project.id} target="_blank" rel="noopener" aria-label={`Open full photo: ${story.captions[index]}`}>
               <img src={photo.thumbnail} srcset={`${photo.thumbnail} ${photo.thumbnailWidth}w, ${photo.src} ${photo.width}w`} sizes="(max-width:600px) 100vw, (max-width:1000px) 50vw, 30vw" width={photo.width} height={photo.height} alt={story.captions[index]} loading="lazy" decoding="async" />
             </a>
             <figcaption>{story.captions[index]}</figcaption>
@@ -35,9 +35,9 @@ const { project, story } = Astro.props;
   .city-proof-layout{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:start;}
   .city-proof-photos{display:grid;gap:1.3rem;min-width:0;}
   .city-proof-pair{grid-template-columns:repeat(2,minmax(0,1fr));}
-  .city-proof-photos img{width:100%;height:auto;background:var(--paper);}
+  .city-proof-photos img{width:100%;height:auto;background:var(--paper);border-radius:16px;}
   .city-proof-photos figcaption{font-size:.85rem;color:var(--ink-2);line-height:1.5;margin-top:.7rem;}
-  .city-proof-copy{display:grid;gap:1.5rem;}
+  .city-proof-copy{display:grid;gap:1.5rem;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:clamp(1.4rem,3vw,2rem);}
   .city-proof-copy p{color:var(--ink-2);margin-top:.5rem;}
   .city-proof-next{border-top:1px solid var(--line-strong);padding-top:1.3rem;}
   .city-proof-next a{margin-top:1rem;}

@@ -5,6 +5,7 @@ import Icon from "../components/Icon.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import projects from "../data/selected-projects.json";
 
+const heroProject = projects.find(project => project.citySlug === "doral") || projects[0];
 const title = "Paramount Restoration | Water, Fire, Mold & Storm, South Florida";
 const description = "South Florida's 24/7 restoration company. Water damage, mold remediation, fire and storm restoration. IICRC-certified, fully insured, insurance handled.";
 ---
@@ -15,17 +16,18 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
   <div class="wrap-wide home-hero-grid">
     <div class="hero-copy">
       <span class="eyebrow">Property restoration · 24/7 response</span>
-      <h1 class="display">Water, fire &amp; mold damage.<br /><em>Help starts here.</em></h1>
+      <h1 class="display">When damage happens,<br /><em>we help you move forward.</em></h1>
       <p class="lead mt-m">Get help with water, fire, mold and storm damage. Our IICRC-certified team assesses the loss, documents the work and helps you take the next step.</p>
       <div class="cta-row mt-m">
         <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-primary btn-lg">Call {COMPANY.phone} <span aria-hidden="true">↗</span></a>
         <a href="/emergency/" class="btn btn-ghost btn-lg">Request help online</a>
       </div>
       <div class="home-trust"><span>24/7 emergency response</span><span>IICRC certified</span><span>Insurance documentation</span></div>
+      <nav class="hero-quicklinks" aria-label="Find your restoration service"><a href="/restoration/water-damage/">Water damage ↗</a><a href="/restoration/mold-remediation/">Mold ↗</a><a href="/restoration/fire-damage/">Fire &amp; smoke ↗</a><a href="/restoration/storm-damage/">Storm ↗</a></nav>
     </div>
     <figure class="home-hero-photo">
-      <img src={projects[0].photos[0].thumbnail} srcset={projects[0].photos[0].thumbnail !== projects[0].photos[0].src ? `${projects[0].photos[0].thumbnail} ${projects[0].photos[0].thumbnailWidth}w, ${projects[0].photos[0].src} ${projects[0].photos[0].width}w` : undefined} sizes="(max-width:820px) 100vw, 45vw" alt={projects[0].photos[0].alt} width={projects[0].photos[0].width} height={projects[0].photos[0].height} loading="eager" fetchpriority="high" decoding="async" />
-      <figcaption><span>On site · {projects[0].city}, FL</span><a href={`/projects/#${projects[0].id}`}>See this project <span aria-hidden="true">↗</span></a></figcaption>
+      <img src={heroProject.photos[0].thumbnail} srcset={heroProject.photos[0].thumbnail !== heroProject.photos[0].src ? `${heroProject.photos[0].thumbnail} ${heroProject.photos[0].thumbnailWidth}w, ${heroProject.photos[0].src} ${heroProject.photos[0].width}w` : undefined} sizes="(max-width:820px) 100vw, 45vw" alt={heroProject.photos[0].alt} width={heroProject.photos[0].width} height={heroProject.photos[0].height} loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption><span>On site · {heroProject.city}, FL</span><a href={`/projects/#${heroProject.id}`}>See this project <span aria-hidden="true">↗</span></a></figcaption>
     </figure>
   </div>
 </section>
@@ -48,7 +50,7 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
     <div class="sec-head reveal">
       <div>
         <span class="eyebrow">01 · What we restore</span>
-        <h2 class="h2 mt-s" style="max-width:18ch;">Four disasters. One certified response across South Florida.</h2>
+        <h2 class="h2 mt-s" style="max-width:18ch;">The right help for your property.</h2>
       </div>
       <p class="body-l" style="max-width:34ch;">Start with the damage you see. Each service explains what we assess, how the work proceeds and how to request help.</p>
     </div>
@@ -125,7 +127,7 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
 <section class="pt pb" id="process">
   <div class="wrap-wide">
     <div class="sec-head reveal">
-      <div><span class="eyebrow">02 · How it works</span><h2 class="h2 mt-s" style="max-width:16ch;">From the first call to a property made whole.</h2></div>
+      <div><span class="eyebrow">02 · How it works</span><h2 class="h2 mt-s" style="max-width:16ch;">A clear path from damage to recovery.</h2></div>
     </div>
     <div class="proc-grid mt-l">
       <div class="proc reveal"><div class="proc-no">01</div><h3 class="h3">Call &amp; dispatch</h3><p>One call, day or night. We dispatch the nearest certified crew immediately.</p></div>
@@ -212,7 +214,7 @@ const description = "South Florida's 24/7 restoration company. Water damage, mol
   <div class="wrap-wide emcta-in reveal">
     <div>
       <span class="eyebrow nodash" style="color:#ffd2c4;">24/7 Emergency Response</span>
-      <h2 class="display" style="color:#fff;max-width:16ch;">If you're reading this, something went wrong today.</h2>
+      <h2 class="display" style="color:#fff;max-width:16ch;">You don’t have to handle this alone.</h2>
       <p class="lead mt-m" style="color:#ffd9cd;max-width:42ch;">Don't wait for the damage to spread. Call now or send a request, and a certified crew is on the way.</p>
     </div>
     <div class="emcta-actions">

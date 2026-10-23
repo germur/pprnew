@@ -1,6 +1,7 @@
 ---
 import { COMPANY, SERVICES } from "../data/company";
 const dropdownServices = SERVICES;
+const currentPath = Astro.url.pathname;
 ---
 <!-- UTILITY BAR -->
 <div class="util">
@@ -36,9 +37,9 @@ const dropdownServices = SERVICES;
           </div>
         </div>
       </div>
-      <a href="/service-areas/">Service Areas</a>
-      <a href="/projects/">Our Work</a>
-      <a href="/commercial/">Commercial</a>
+      <a href="/service-areas/" aria-current={currentPath === "/service-areas/" ? "page" : undefined}>Service Areas</a>
+      <a href="/projects/" aria-current={currentPath === "/projects/" ? "page" : undefined}>Our Work</a>
+      <a href="/resources/">Resources</a>
       <a href="/our-process/">Our Process</a>
     </nav>
     <div class="head-cta">

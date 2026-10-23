@@ -1,0 +1,49 @@
+<dialog class="photo-viewer" aria-label="Project photo viewer">
+  <div class="photo-viewer-bar"><span>On-site project photos</span><div class="photo-viewer-controls"><button type="button" data-photo-prev aria-label="Previous photo">←</button><span class="photo-viewer-count" aria-live="polite"></span><button type="button" data-photo-next aria-label="Next photo">→</button><button type="button" data-photo-close aria-label="Close photo viewer">✕</button></div></div>
+  <figure><img alt="" /><figcaption></figcaption></figure>
+</dialog>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('.photo-viewer');
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('a[data-lightbox]')];
+  if (dialog && typeof dialog.showModal === 'function') {
+    const image = dialog.querySelector('img')!;
+    const caption = dialog.querySelector('figcaption')!;
+    const count = dialog.querySelector('.photo-viewer-count')!;
+    const prev = dialog.querySelector<HTMLButtonElement>('[data-photo-prev]')!;
+    const next = dialog.querySelector<HTMLButtonElement>('[data-photo-next]')!;
+    let group: HTMLAnchorElement[] = [];
+    let index = 0;
+    let opener: HTMLAnchorElement | undefined;
+    let previousOverflow = '';
+    const render = () => {
+      const link = group[index];
+      image.src = link.href;
+      image.alt = link.querySelector('img')?.alt || '';
+      caption.textContent = image.alt;
+      count.textContent = `${index + 1} / ${group.length}`;
+      prev.disabled = index === 0;
+      next.disabled = index === group.length - 1;
+    };
+    links.forEach(link => link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      opener = link;
+      group = links.filter(item => item.dataset.lightbox === link.dataset.lightbox);
+      index = group.indexOf(link);
+      render();
+      previousOverflow = document.body.style.overflow;
+      dialog.showModal();
+      document.body.style.overflow = 'hidden';
+      dialog.querySelector<HTMLButtonElement>('[data-photo-close]')?.focus();
+    }));
+    prev.addEventListener('click', () => { if(index > 0) { index--; render(); } });
+    next.addEventListener('click', () => { if(index < group.length - 1) { index++; render(); } });
+    dialog.querySelector('[data-photo-close]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('keydown', event => {
+      if(event.key === 'ArrowLeft') { event.preventDefault(); prev.click(); }
+      if(event.key === 'ArrowRight') { event.preventDefault(); next.click(); }
+    });
+    dialog.addEventListener('close', () => { document.body.style.overflow = previousOverflow; opener?.focus(); });
+    dialog.addEventListener('click', event => { if(event.target === dialog) { const rect = dialog.getBoundingClientRect(); if(event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
+  }
+</script>

@@ -17,7 +17,7 @@ const cover = project.photos[0];
         <div class="work-copy"><span class="eyebrow nodash">{project.category}</span><h2 class="h3">{project.title}</h2><p>{project.summary}</p><span class="link-arrow"><span class="work-expand">View {project.photos.length === 1 ? 'photo' : `${project.photos.length} photos`}</span><span class="work-collapse">Close photos</span><span aria-hidden="true">+</span></span></div>
       </summary>
       <div class="work-photos">
-        {project.photos.map(photo => <figure><a href={photo.src} target="_blank" rel="noopener" aria-label={`Open full photo: ${photo.alt}`}><img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" /></a><figcaption>{photo.alt}</figcaption></figure>)}
+        {project.photos.map(photo => <figure><a href={photo.src} data-lightbox={project.id} target="_blank" rel="noopener" aria-label={`Open full photo: ${photo.alt}`}><img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" /></a><figcaption>{photo.alt}</figcaption></figure>)}
         <p class="small">Select a photo to open the full image.</p>
       </div>
     </details>

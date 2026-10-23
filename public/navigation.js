@@ -26,7 +26,7 @@ export function initNavigation() {
   if (!burger || !mobile) return;
   let open = false;
   let previousOverflow = '';
-  const background = [...document.querySelectorAll('main,footer,.util')];
+  const background = [...document.querySelectorAll('main,footer,.util,.mobile-actions')];
   const setOpen = value => {
     if (open === value) return;
     open = value;
