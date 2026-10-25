@@ -43,7 +43,13 @@ are not a claim of third-party Schema.org or Google Rich Results Test certificat
 Google's May 2026 FAQ rich-result retirement means valid FAQPage markup should
 not be presented as a promise of FAQ search enhancements.
 
-Hosting validation results are added after the pull-request preview deploys.
+Hosting validation on [PR #7 preview](https://deploy-preview-7--paramountpropertyrestoration.netlify.app/):
+all 54 canonical content routes returned 200 without redirects, retained their
+production canonical and were protected by noindex. All 106 tested exact legacy
+and sitemap redirect rules plus missing-route/removed-route controls passed their
+expected 301, 404 or 410 checks. Error responses contained noindex. The preview
+build completed successfully. Raw request logs are retained privately, outside
+this public repository.
 The host-consolidation rule requires a production recheck after publication,
 because a preview cannot exercise a rule restricted to the production hostname.
 
