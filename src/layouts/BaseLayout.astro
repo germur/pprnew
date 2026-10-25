@@ -1,5 +1,6 @@
 ---
 import { COMPANY } from "../data/company";
+import { buildSeo } from "../data/seo";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
@@ -17,70 +18,12 @@ export interface Props {
   noindex?: boolean;
 }
 const { title, description, path = "/", bodyClass = "", noindex = false } = Astro.props;
-const canonical = new URL(path, Astro.site).href;
+const { canonical, schema, image, isArticle } = buildSeo({ title, description, path, site: Astro.site! });
+const preview = ["deploy-preview", "branch-deploy"].includes(process.env.CONTEXT || "");
+const robots = noindex || preview ? "noindex, follow" : "index, follow, max-image-preview:large";
+// Escape '<' so editorial text cannot terminate a JSON-LD script element.
+const schemaJson = JSON.stringify(schema).replace(/</g, "\\u003c");
 
-// Schema JSON-LD LocalBusiness, crítico para local pack y rich results.
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": new URL("/", Astro.site).href + "#business",
-  name: COMPANY.name,
-  description: description,
-  url: new URL("/", Astro.site).href,
-  telephone: "+1" + COMPANY.phoneRaw,
-  email: COMPANY.email,
-  image: new URL("/ppr-logo.png", Astro.site).href,
-  logo: new URL("/ppr-logo.png", Astro.site).href,
-  sameAs: [COMPANY.social.linkedin, COMPANY.social.facebook, COMPANY.social.instagram],
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: COMPANY.address,
-    addressLocality: COMPANY.city,
-    addressRegion: COMPANY.state,
-    postalCode: COMPANY.zip,
-    addressCountry: "US",
-  },
-  areaServed: { "@type": "State", name: "Florida" },
-  knowsAbout: ["Water Damage Restoration", "Mold Remediation", "Fire Damage Restoration", "Storm Damage Restoration", "Mold Testing"],
-  availableLanguage: ["en", "es"],
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    opens: "00:00", closes: "23:59",
-  },
-};
-
-// BreadcrumbList derivado del path (rich result de migas en Google).
-const CRUMB_NAMES = {
-  restoration: "Restoration",
-  "service-areas": "Service Areas",
-  resources: "Resources",
-  commercial: "Commercial",
-  contact: "Contact",
-  emergency: "Emergency",
-  "insurance-claims": "Insurance Claims",
-  "our-process": "Our Process",
-  "water-damage": "Water Damage Restoration",
-  "fire-damage": "Fire & Smoke Damage",
-  "mold-remediation": "Mold Remediation",
-  "mold-testing": "Mold Testing",
-  "storm-damage": "Storm & Hurricane Damage",
-  "privacy-policy": "Privacy Policy",
-  "terms-of-service": "Terms of Service",
-};
-const segs = path.split("/").filter(Boolean);
-const crumbItems = [{ "@type": "ListItem", position: 1, name: "Home", item: new URL("/", Astro.site).href }];
-let acc = "";
-segs.forEach((seg, i) => {
-  acc += "/" + seg;
-  crumbItems.push({
-    "@type": "ListItem",
-    position: i + 2,
-    name: CRUMB_NAMES[seg] || seg.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" "),
-    item: new URL(acc + "/", Astro.site).href,
-  });
-});
-const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: crumbItems };
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -99,15 +42,24 @@ const breadcrumbSchema = { "@context": "https://schema.org", "@type": "Breadcrum
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <link rel="canonical" href={canonical} />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content={new URL("/ppr-logo.png", Astro.site).href} />
+  {!noindex && <link rel="canonical" href={canonical} />}
+  <meta property="og:type" content={isArticle ? "article" : "website"} />
+  <meta property="og:site_name" content={COMPANY.name} />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content={image.url} />
+  <meta property="og:image:alt" content={image.alt} />
+  {image.width && <meta property="og:image:width" content={image.width} />}
+  {image.height && <meta property="og:image:height" content={image.height} />}
+  <meta name="twitter:card" content={image.width ? "summary_large_image" : "summary"} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image.url} />
+  <meta name="twitter:image:alt" content={image.alt} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
-  <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large"} />
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  {segs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+  <meta name="robots" content={robots} />
+  {!noindex && <script type="application/ld+json" set:html={schemaJson} />}
 </head>
 <body class={bodyClass}>
   <a class="skip-link" href="#main-content">Skip to content</a>
