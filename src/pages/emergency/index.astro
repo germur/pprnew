@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { COMPANY } from "../../data/company";
 
 const title = "Emergency Restoration 24/7, Get Help Now | Paramount";
-const description = "24/7 emergency restoration in South Florida. Call now or request immediate help for water, fire, mold or storm damage. Crews dispatched immediately.";
+const description = "24/7 emergency restoration in South Florida. Call to discuss water, fire, mold or storm damage. Availability and arrival are confirmed for your property.";
 ---
 
 <BaseLayout title={title} description={description} path="/emergency/" bodyClass="epage">
@@ -12,19 +12,19 @@ const description = "24/7 emergency restoration in South Florida. Call now or re
   <div class="wrap-wide">
     <div class="ehero-grid">
       <div class="reveal">
-        <span class="ebadge"><span class="pulse"></span> Live dispatch · 24 / 7 / 365</span>
+        <span class="ebadge"><span class="pulse"></span> Emergency contact · 24 / 7 / 365</span>
         <h1 class="display mt-m" style="font-size:clamp(2.6rem,6vw,5rem);">Property emergency?<br /><em>Call us any time.</em></h1>
         <p class="lead" style="color:#aac3ff;max-width:42ch;margin-top:2rem;">Tell us what happened so we can discuss the next step. For an active emergency, call our 24/7 line. You can also send a request online.</p>
         <a href={`tel:${COMPANY.phoneRaw}`} class="ephone-big mt-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {COMPANY.phone}</a>
         <div class="chips mt-m" style="--line-strong:rgba(255,255,255,.25);">
-          <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">24/7 response</span>
-          <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">Insurance handled</span>
+          <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">24/7 contact</span>
+          <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">Insurance documentation</span>
           <span class="chip" style="background:rgba(255,255,255,.05);color:#cdd7e2;border-color:rgba(255,255,255,.2);">IICRC certified</span>
         </div>
       </div>
 
       <div class="eform reveal">
-        <div class="eyebrow nodash" style="color:#9db8ff;">Request immediate help</div>
+        <div class="eyebrow nodash" style="color:#9db8ff;">Request restoration help</div>
         <h2 class="h3" style="color:#fff;margin:.4rem 0 1.4rem;">Tell us where you need help.</h2>
         <form data-emergency name="emergency" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="emergency" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p>
           <div class="ef-grid">
@@ -56,9 +56,9 @@ const description = "24/7 emergency restoration in South Florida. Call now or re
   <div class="wrap-wide">
     <div class="reveal"><span class="eyebrow nodash" style="color:#9db8ff;">What happens next</span><h2 class="h2 mt-s" style="color:#fff;max-width:18ch;">From your call to a crew at your door.</h2></div>
     <div class="ehow-grid mt-l">
-      <div class="ehow-step reveal"><div class="n">01 / Now</div><h3>We dispatch</h3><p>A dispatcher logs your emergency and sends the nearest certified crew right away.</p></div>
-      <div class="ehow-step reveal"><div class="n">02 / On arrival</div><h3>We stop the damage</h3><p>The crew assesses, documents for your insurer, and begins mitigation immediately, extraction, containment, tarping.</p></div>
-      <div class="ehow-step reveal"><div class="n">03 / From there</div><h3>We restore</h3><p>We dry, repair and restore to pre-loss condition, coordinating your claim from first photo to final invoice.</p></div>
+      <div class="ehow-step reveal"><div class="n">01 / Contact</div><h3>Discuss availability</h3><p>Tell us your location and what happened. The team can discuss availability, access and the next step.</p></div>
+      <div class="ehow-step reveal"><div class="n">02 / On arrival</div><h3>Assess the property</h3><p>The assessment identifies affected areas and the proposed mitigation. Work depends on safe access, site conditions and the agreed scope.</p></div>
+      <div class="ehow-step reveal"><div class="n">03 / From there</div><h3>Treat and review</h3><p>Treatment and progress checks follow the agreed scope. Review completed work, project records and any additional repairs needed.</p></div>
     </div>
   </div>
 </section>

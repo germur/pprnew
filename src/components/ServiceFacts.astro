@@ -1,0 +1,13 @@
+---
+import Icon from './Icon.astro';
+const facts = [
+ { icon: 'clock', title: '24/7 contact', text: 'Discuss availability for your property' },
+ { icon: 'doc', title: 'Clear scope', text: 'Confirm the proposed work and cost' },
+ { icon: 'inspect', title: 'Project records', text: 'Document conditions and progress' },
+ { icon: 'badge', title: 'IICRC Certified', text: 'Restoration expertise' },
+];
+---
+<section class="service-facts" aria-label="What to expect"><div class="wrap-wide">{facts.map(fact => <div><Icon name={fact.icon} size={24} /><span><strong>{fact.title}</strong>{fact.text}</span></div>)}</div></section>
+<style>
+.service-facts{background:#fff;border-block:1px solid var(--line);padding:1.8rem 0}.service-facts>.wrap-wide{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem}.service-facts>.wrap-wide>div{display:flex;align-items:flex-start;gap:12px}.service-facts :global(svg){flex-shrink:0;color:var(--blue)}.service-facts span{font-size:.77rem;line-height:1.6;color:var(--ink-2)}.service-facts strong{display:block;font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:.2rem}@media(max-width:900px){.service-facts>.wrap-wide{grid-template-columns:1fr 1fr}}@media(max-width:420px){.service-facts>.wrap-wide{grid-template-columns:1fr;gap:1.1rem}}
+</style>

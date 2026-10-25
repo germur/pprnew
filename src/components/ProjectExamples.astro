@@ -1,0 +1,8 @@
+---
+import projects from '../data/selected-projects.json';
+import ProjectCard from './ProjectCard.astro';
+interface Props { cities: string[]; }
+const { cities } = Astro.props;
+const examples = cities.map(city => projects.find(project => project.citySlug === city)).filter(Boolean);
+---
+<section class="pt pb"><div class="wrap-wide"><div class="sec-head"><div><span class="eyebrow">From our project gallery</span><h2 class="h2 mt-s">Real conditions, documented.</h2></div><a class="link-arrow" href="/projects/">Explore the gallery <span aria-hidden="true">↗</span></a></div><p class="body-l mt-m" style="max-width:60ch">Explore observed conditions, inspection readings and equipment from documented visits across Florida.</p><div class="work-grid mt-l">{examples.map(project => <ProjectCard project={project!} compact />)}</div></div></section>

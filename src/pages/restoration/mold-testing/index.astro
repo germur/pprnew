@@ -1,30 +1,35 @@
 ---
 import ProjectPhoto from "../../../components/ProjectPhoto.astro";
 import { SERVICE_IMAGERY } from "../../../data/project-imagery";
+import ServiceFAQ from "../../../components/ServiceFAQ.astro";
+import InsuranceSupport from "../../../components/InsuranceSupport.astro";
+import ServiceFacts from "../../../components/ServiceFacts.astro";
+import { SERVICE_FAQS } from "../../../data/service-faqs";
+import ProjectExamples from "../../../components/ProjectExamples.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { COMPANY , REGIONS } from "../../../data/company";
 import Icon from "../../../components/Icon.astro";
 
 const title = "Mold Testing & Inspection in South Florida | Paramount";
-const description = "Independent mold testing and inspection in South Florida. Air and surface sampling, accredited lab analysis and post-remediation clearance.";
+const description = "Mold inspection and testing information in South Florida. Discuss scope, sampling, reporting, professional roles and follow-up before booking.";
 ---
 
 <BaseLayout title={title} description={description} path="/restoration/mold-testing/">
-<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span><a href="/restoration/water-damage/">Restoration</a><span>/</span> Mold Testing & Inspection</nav></div>
+<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span><a href="/restoration/">Restoration</a><span>/</span> Mold Testing & Inspection</nav></div>
 <section class="phero"><div class="wrap-wide"><div class="phero-grid">
   <div class="reveal">
     <span class="eyebrow">Inspection & Testing · South Florida</span>
     <h1 class="h1 mt-s">Mold Testing & Inspection in South Florida</h1>
-    <p class="empathy">Not sure you really have mold? Let's find out before you spend a cent on removal.</p>
-    <p class="lead maxw mt-m">Independent inspection and lab analysis, so you know <strong>exactly what you're dealing with, and whether remediation is even warranted.</strong> No fear, no upsell.</p>
-    <div class="chips mt-m"><span class="chip">24/7 response</span><span class="chip">IICRC certified</span><span class="chip">Insurance billed direct</span><span class="chip">24/7 · 365</span></div>
+    <p class="empathy">Discuss the concern and the question an inspection should answer.</p>
+    <p class="lead maxw mt-m">Understand the proposed inspection, any sampling and the limits of the findings. <strong>Confirm professional roles, scope and reporting before booking.</strong></p>
+    <div class="chips mt-m"><span class="chip">24/7 contact</span><span class="chip">IICRC certified</span><span class="chip">Project documentation</span><span class="chip">24/7 · 365</span></div>
     <ProjectPhoto selection={SERVICE_IMAGERY["mold-testing"]} eager />
   </div>
   <aside class="reveal"><div class="emcard">
     <div class="eyebrow nodash" style="color:#9db8ff;">Want answers?</div>
     <h3 class="mt-s">Book an inspection.</h3>
     <a href={`tel:${COMPANY.phoneRaw}`} class="phone">{COMPANY.phone}</a>
-    <div class="ph-note">Answered live · 24 hours a day</div>
+    <div class="ph-note">Call to discuss availability · 24/7</div>
     <hr>
     <form data-emergency class="ef-mini" name="mold-testing" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="mold-testing" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p><div style="display:flex;flex-direction:column;gap:.9rem;">
       <div class="field"><label for="mold-testing-name">Your name</label><input type="text" name="name" required placeholder="Full name" id="mold-testing-name" autocomplete="name" aria-describedby="mold-testing-name-error"><span class="msg" id="mold-testing-name-error">Enter your name</span></div>
@@ -36,36 +41,31 @@ const description = "Independent mold testing and inspection in South Florida. A
     <div data-success role="status" tabindex="-1" style="display:none;text-align:center;padding:1rem 0;"><svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="34" height="34" style="margin:0 auto .6rem;"><path d="M20 6L9 17l-5-5"/></svg><p style="color:#fff;font-weight:600;">Request received.</p><p style="color:#9db8ff;font-size:.9rem;">We'll call you shortly.</p></div>
     </form>
     <hr>
-    <ul class="ef-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> We work with all major insurers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> No-obligation on-site assessment</li></ul>
+    <ul class="ef-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Ask about insurance documentation</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Discuss the assessment scope and cost</li></ul>
   </div></aside>
 </div></div></section>
-<section class="trust"><div class="wrap-wide"><div class="trust-grid">
-  <div class="trust-item reveal"><div class="metric-sm">48hr</div><span class="num-label" style="margin-top:.4rem;display:block;">Typical lab turnaround</span></div>
-  <div class="trust-item reveal"><div class="metric-sm">24/7</div><span class="num-label" style="margin-top:.4rem;display:block;">Emergency dispatch, 365 days</span></div>
-  <div class="trust-item reveal"><div class="metric-sm">IICRC</div><span class="num-label" style="margin-top:.4rem;display:block;">Certified technicians</span></div>
-  <div class="trust-item reveal"><div class="metric-sm">Yes</div><span class="num-label" style="margin-top:.4rem;display:block;">Insurance claims supported</span></div>
-</div></div></section>
+<ServiceFacts />
 <section class="pt pb"><div class="wrap-wide">
   <div class="sec-head reveal"><div><span class="eyebrow">01, What we handle</span><h2 class="h2 mt-s" style="max-width:20ch;">The right test for the right question.</h2></div><p class="body-l" style="max-width:32ch;">Testing should answer a specific question, not just generate a bill. We scope it to what you actually need.</p></div>
   <div class="types mt-l"><div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><h3>Visual & moisture inspection</h3><p>A thorough walk-through with meters and thermal imaging.</p></div>
       <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v6M7 9h10M8 9l-2 9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l-2-9"/></svg><h3>Air-quality sampling</h3><p>Spore counts compared indoors vs. outdoors for context.</p></div>
       <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6"/></svg><h3>Surface & swab sampling</h3><p>Targeted samples to identify what's growing where.</p></div>
-      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/></svg><h3>Accredited lab analysis</h3><p>Samples analyzed by a third-party lab, not by us.</p></div>
-      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/><circle cx="12" cy="12" r="10"/></svg><h3>Post-remediation clearance</h3><p>Independent verification that a remediation actually worked.</p></div>
-      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><h3>Real-estate & pre-purchase</h3><p>Know what you're buying before you close.</p></div></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/></svg><h3>Laboratory analysis</h3><p>Confirm the laboratory, analytical methods and reporting included in the scope.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/><circle cx="12" cy="12" r="10"/></svg><h3>Post-remediation clearance</h3><p>Review against the agreed criteria, with the reviewer and scope confirmed beforehand.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><h3>Real-estate & pre-purchase</h3><p>Discuss inspection limits and any concerns relevant to the property.</p></div></div>
 </div></section>
 <section class="pb"><div class="wrap-wide">
-  <div class="sec-head reveal"><div><span class="eyebrow">02, The process</span><h2 class="h2 mt-s" style="max-width:18ch;">Test, analyze, and tell you the truth.</h2></div></div>
-  <div class="steps mt-l"><div class="step reveal"><div class="n">01 / Inspect</div><div><h3 class="h3">On-site inspection</h3><div class="sd"><p>We assess visually and with instruments to find moisture and likely growth.</p><p>Often this alone answers the question.</p></div></div></div>
-      <div class="step reveal"><div class="n">02 / Sample</div><div><h3 class="h3">Take samples</h3><div class="sd"><p>Air and/or surface samples are collected where they'll actually be informative.</p><p>We don't over-sample to pad the invoice.</p></div></div></div>
-      <div class="step reveal"><div class="n">03 / Analyze</div><div><h3 class="h3">Lab analysis</h3><div class="sd"><p>Samples go to an accredited third-party lab for objective results.</p><p>Independence is the whole point of testing.</p></div></div></div>
+  <div class="sec-head reveal"><div><span class="eyebrow">02, The process</span><h2 class="h2 mt-s" style="max-width:18ch;">Agree on the question, scope and reporting.</h2></div></div>
+  <div class="steps mt-l"><div class="step reveal"><div class="n">01 / Inspect</div><div><h3 class="h3">On-site inspection</h3><div class="sd"><p>The assessing professional reviews visible conditions, moisture concerns and inspection limits.</p><p>Discuss whether further investigation or sampling would be useful.</p></div></div></div>
+      <div class="step reveal"><div class="n">02 / Sample</div><div><h3 class="h3">Take samples</h3><div class="sd"><p>Air and/or surface samples are collected where they'll actually be informative.</p><p>Ask why each proposed sample is useful.</p></div></div></div>
+      <div class="step reveal"><div class="n">03 / Analyze</div><div><h3 class="h3">Lab analysis</h3><div class="sd"><p>Confirm the laboratory and the analysis included before booking.</p><p>Laboratory analysis and professional independence are separate questions.</p></div></div></div>
       <div class="step reveal"><div class="n">04 / Report</div><div><h3 class="h3">Clear report</h3><div class="sd"><p>You get plain-language findings, what was found, where, and what it means.</p><p>No jargon, no fear-mongering.</p></div></div></div>
-      <div class="step reveal"><div class="n">05 / Recommend</div><div><h3 class="h3">Recommend or clear</h3><div class="sd"><p>We tell you honestly whether remediation is warranted, or that you're fine.</p><p>Sometimes the best result is 'do nothing'.</p></div></div></div></div>
+      <div class="step reveal"><div class="n">05 / Recommend</div><div><h3 class="h3">Review next steps</h3><div class="sd"><p>Review findings, limitations and any recommended next steps with the assessing professional.</p><p>A sampling result does not determine an individual health risk.</p></div></div></div></div>
 </div></section>
 <section class="insight"><div class="wrap-wide"><div class="insight-in reveal">
   <span class="eyebrow nodash" style="color:#9db8ff;">How testing and removal fit together</span>
-  <p class="h2" style="color:#fff;max-width:24ch;">Testing tells you the truth. <em>Remediation acts on it.</em></p>
-  <p class="lead" style="color:#aac3ff;max-width:46ch;">An honest inspection prevents two expensive mistakes: paying to remove mold you don't have, and ignoring mold you do. When removal is warranted, our remediation team takes it from there.</p>
+  <p class="h2" style="color:#fff;max-width:24ch;">Assessment and remediation <em>have different roles.</em></p>
+  <p class="lead" style="color:#aac3ff;max-width:46ch;">Confirm who will assess the property, who would remediate it and who will review any work. Professional roles and the proposed scope should be clear before booking.</p>
   <a href="/restoration/mold-remediation/" class="link-arrow" style="color:#fff;">See mold remediation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
 </div></div></section>
 <!-- EDITORIAL BODY (keywords del sheet) -->
@@ -73,14 +73,14 @@ const description = "Independent mold testing and inspection in South Florida. A
   <div class="wrap-wide">
     <div class="insure-in reveal" style="align-items:start;">
       <div class="prose">
-        <span class="eyebrow">Independent mold testing & inspection</span>
-        <h2 class="h2 mt-s" style="max-width:24ch;">Mold testing that tells you what is really there, before and after the work.</h2>
-        <p><strong>Mold testing</strong> answers the questions a visual look cannot. You can see a stain, but you cannot see what is in the air, how far it has spread inside a wall, or whether a smell means active growth. Testing gives you data: the type of mold present, the spore levels in the air, and a clear before-and-after baseline that holds up with insurers and buyers.</p>
-        <p>A proper <strong>mold inspection</strong> comes first. We walk the property, find moisture sources, check the areas mold favors, and decide where samples actually need to be taken. Air and surface samples go to an independent lab, and the results tell us whether you have a real problem and how big it is. Because the testing is independent of any remediation, there is no incentive to over-call the result, which is exactly what makes it trustworthy.</p>
-        <p>Testing also closes the loop. After remediation, clearance testing confirms the work succeeded and the air is back to a normal baseline, so you are not taking anyone's word for it. If you have been searching <em>mold testing near me</em> because of a musty smell, a health concern, or a property you are about to buy or sell, independent testing is the step that turns a worry into a documented answer.</p>
+        <span class="eyebrow">Mold inspection and testing</span>
+        <h2 class="h2 mt-s" style="max-width:24ch;">Understand what inspection and sampling can establish.</h2>
+        <p><strong>Mold inspection</strong> should begin with the question that needs answering. Visible conditions, moisture concerns and access help determine whether further investigation is useful. A stain or a photo alone does not establish the species present or an individual health risk.</p>
+        <p><strong>Mold testing</strong> is not automatically required for every concern. Ask which samples are proposed, why they are useful and how findings would change the plan. EPA explains that sampling is generally unnecessary when mold is visible; see its <a href="https://www.epa.gov/mold/samplingtesting-mold-necessary" target="_blank" rel="noopener">mold sampling guidance</a>.</p>
+        <p>Confirm the assessor, laboratory, remediator and any post-remediation reviewer before booking. A laboratory report describes the samples analyzed and has limitations. Ask how results will be interpreted alongside site conditions, the agreed criteria and any work completed.</p>
       </div>
       <div>
-        <div class="pullcard"><span class="num-label">What we handle</span><p style="font-family:var(--serif);font-weight:300;font-size:1.4rem;line-height:1.3;margin-top:.5rem;color:var(--ink);">Independent air and surface testing, before the work and after.</p></div>
+        <div class="pullcard"><span class="num-label">What we handle</span><p style="font-family:var(--serif);font-weight:300;font-size:1.4rem;line-height:1.3;margin-top:.5rem;color:var(--ink);">Discuss inspection, any sampling and post-remediation review as clearly defined services.</p></div>
         <ul class="risk-list" style="margin-top:1rem;">
           <li><span class="risk-ico"><Icon name="inspect" size={18} /></span> Mold inspection & assessment</li>
           <li><span class="risk-ico"><Icon name="wave" size={18} /></span> Air & surface sampling</li>
@@ -91,26 +91,11 @@ const description = "Independent mold testing and inspection in South Florida. A
     </div>
   </div>
 </section>
-<section class="pt pb"><div class="wrap-wide">
-  <div class="sec-head reveal"><div><span class="eyebrow">03, Recent mold testing projects</span><h2 class="h2 mt-s" style="max-width:18ch;">Real work, documented.</h2></div></div>
-      <div class="proj-grid mt-l">
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/boca-raton/3007774556.webp" alt="Mold testing project by Paramount Property Restoration in Boca Raton, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Boca Raton · mold testing</span></figcaption></figure>
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/boca-raton/3007774414.webp" alt="Mold testing project by Paramount Property Restoration in Boca Raton, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Boca Raton · mold testing</span></figcaption></figure>
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/boca-raton/3007774123.webp" alt="Mold testing project by Paramount Property Restoration in Boca Raton, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Boca Raton · mold testing</span></figcaption></figure>
-    </div>
-  </div>
-</section>
-<section class="insure pb"><div class="wrap-wide"><div class="insure-in reveal">
-  <div><span class="eyebrow">Insurance, handled</span><h2 class="h2 mt-s" style="max-width:18ch;">We document the loss and bill your carrier directly.</h2><p class="lead maxw mt-m">Some policies require independent testing before they'll approve mold work. We provide documentation that satisfies carriers and adjusters.</p><a href="/insurance-claims/" class="btn btn-blue btn-lg mt-m">How claims work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-  <ul class="insure-list"><li><span class="num-label">01</span> Photo &amp; damage documentation</li><li><span class="num-label">02</span> Direct carrier billing</li><li><span class="num-label">03</span> Line-item scope &amp; estimate</li><li><span class="num-label">04</span> Adjuster coordination</li></ul>
-</div></div></section>
+<ProjectExamples cities={["coral-springs", "doral", "naples"]} />
+<InsuranceSupport />
 <section class="pb"><div class="wrap-wide">
   <div class="sec-head reveal"><div><span class="eyebrow">04, Common questions</span><h2 class="h2 mt-s">Mold Testing & Inspection, answered.</h2></div></div>
-  <div class="faq mt-l reveal"><details open><summary>Do I need testing, or should I just remediate? <span class="pm"></span></summary><div class="ans">If the cause and extent are obvious, testing can be skipped and you can go straight to <a href="/restoration/mold-remediation/">remediation</a>. When it's uncertain, testing saves you from guessing, in both directions.</div></details>
-      <details><summary>How much does mold testing cost? <span class="pm"></span></summary><div class="ans">It depends on the number of samples and lab work involved. We scope it to your specific question and give you the price up front, before any work begins.</div></details>
-      <details><summary>Is your testing actually independent? <span class="pm"></span></summary><div class="ans">Samples are analyzed by an accredited third-party lab. That independence is what makes the result trustworthy, and what good clearance testing requires.</div></details>
-      <details><summary>What is clearance testing? <span class="pm"></span></summary><div class="ans">It's an independent check, after remediation, that confirms the work succeeded. We recommend a different party do testing and removal whenever possible.</div></details>
-      <details><summary>Should I read up first? <span class="pm"></span></summary><div class="ans">Yes, start with our honest guide, <a href="/resources/is-black-mold-dangerous/">is black mold dangerous?</a>, so you can make an informed call about testing.</div></details></div>
+  <ServiceFAQ items={SERVICE_FAQS["mold-testing"]} />
 </div></section>
 <section class="areas pt pb"><div class="wrap-wide reveal">
   <span class="eyebrow">Where we serve</span><h2 class="h2 mt-s" style="max-width:24ch;">Mold Testing & Inspection across South Florida.</h2>
@@ -125,5 +110,4 @@ const description = "Independent mold testing and inspection in South Florida. A
   <div><span class="eyebrow nodash" style="color:#ffd2c4;">Still unsure?</span><h2 class="display" style="color:#fff;max-width:16ch;">Get the facts before you spend.</h2></div>
   <div class="emcta-actions"><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a><a href="/emergency/" class="btn btn-lg btn-block" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5);">Request help online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </div></section>
-<script type="application/ld+json" set:html={"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"How much does mold testing cost?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"It depends on the number of samples and lab work involved. We scope it to your specific question and give you the price up front, before any work begins.\"}},{\"@type\":\"Question\",\"name\":\"Is your testing actually independent?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Samples are analyzed by an accredited third-party lab. That independence is what makes the result trustworthy, and what good clearance testing requires.\"}},{\"@type\":\"Question\",\"name\":\"What is clearance testing?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"It's an independent check, after remediation, that confirms the work succeeded. We recommend a different party do testing and removal whenever possible.\"}},{\"@type\":\"Question\",\"name\":\"Should I read up first?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, start with our honest guide, is black mold dangerous? , so you can make an informed call about testing.\"}}]}"} />
 </BaseLayout>

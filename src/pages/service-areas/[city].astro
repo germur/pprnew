@@ -36,7 +36,7 @@ const featuredPhoto = featuredProject?.photos[0];
 const cityPhotos = ((companycam as Record<string, { src: string; alt: string; projectName: string }[]>)[city.slug] || []).slice(0, 6);
 const serviceFocus = CITY_SERVICE_FOCUS[city.slug];
 const title = serviceFocus?.title || `${city.name} Restoration | Water, Fire, Mold & Storm`;
-const description = serviceFocus?.description || `24/7 property restoration in ${city.name}, FL. Water damage, mold, fire and storm recovery by local IICRC-certified crews. 24/7 dispatch, insurance handled.`;
+const description = serviceFocus?.description || `Property restoration information for ${city.name}, FL. Discuss water, mold, fire or storm damage, availability and project documentation. Contact us 24/7.`;
 ---
 
 <BaseLayout title={title} description={description} path={`/service-areas/${city.slug}/`}>
@@ -48,8 +48,8 @@ const description = serviceFocus?.description || `24/7 property restoration in $
         <div class="reveal">
           <span class="eyebrow">Local restoration · {regionName}</span>
           <h1 class="h1 mt-s">Property Restoration in {city.name}, Florida</h1>
-          <p class="empathy">When disaster hits your {city.name} property, every hour counts. We answer day or night.</p>
-          <p class="lead maxw mt-m">Water, fire, mold and storm damage handled by crews that actually work {city.name}. <strong>24/7 dispatch, insurance handled end to end.</strong></p>
+          <p class="empathy">Need help with damage at your {city.name} property? Contact us to discuss the next step.</p>
+          <p class="lead maxw mt-m">Explore help with water, fire, mold and storm damage in {city.name}. <strong>Call to confirm availability</strong>, site access and the proposed scope for your property.</p>
           <div class="cta-row mt-l">
             <a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-primary btn-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a>
             <a href="/emergency/" class="btn btn-ghost btn-lg">Request help <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -65,8 +65,8 @@ const description = serviceFocus?.description || `24/7 property restoration in $
             <CoverageCard city={city.name} region={regionName} />
           )}
           <div class="trust-grid" style="grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;">
-            <div><div class="metric-sm">24/7</div><span class="num-label">Emergency dispatch to {city.name}</span></div>
-            <div><div class="metric-sm">IICRC</div><span class="num-label">Certified crews in {regionName}</span></div>
+            <div><div class="metric-sm">24/7</div><span class="num-label">Contact for {city.name} availability</span></div>
+            <div><div class="metric-sm">IICRC</div><span class="num-label">IICRC Certified · restoration expertise</span></div>
           </div>
         </aside>
       </div>
@@ -84,7 +84,7 @@ const description = serviceFocus?.description || `24/7 property restoration in $
   <section class="pt pb" id="city-services">
     <div class="wrap-wide">
       <div class="sec-head reveal">
-        <div><span class="eyebrow">01 · Services in {city.name}</span><h2 class="h2 mt-s" style="max-width:20ch;">Every restoration service, right here in {city.name}.</h2></div>
+        <div><span class="eyebrow">01 · Services in {city.name}</span><h2 class="h2 mt-s" style="max-width:20ch;">Explore restoration services for your {city.name} property.</h2></div>
         <p class="body-l" style="max-width:32ch;">Choose the service that matches the issue at your property. We can discuss the next steps for your location.</p>
       </div>
       <div class="types mt-l">

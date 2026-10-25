@@ -1,0 +1,8 @@
+---
+import type { FAQItem } from '../data/service-faqs';
+interface Props { items: FAQItem[]; }
+const { items } = Astro.props;
+const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) };
+---
+<div class="faq mt-l reveal">{items.map((item, index) => <details open={index === 0}><summary>{item.question}<span class="pm" aria-hidden="true"></span></summary><div class="ans">{item.answer}</div></details>)}</div>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
