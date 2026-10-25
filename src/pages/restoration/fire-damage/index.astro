@@ -2,30 +2,35 @@
 import LocalServiceLinks from "../../../components/LocalServiceLinks.astro";
 import ProjectPhoto from "../../../components/ProjectPhoto.astro";
 import { SERVICE_IMAGERY } from "../../../data/project-imagery";
+import ServiceFAQ from "../../../components/ServiceFAQ.astro";
+import InsuranceSupport from "../../../components/InsuranceSupport.astro";
+import ServiceFacts from "../../../components/ServiceFacts.astro";
+import { SERVICE_FAQS } from "../../../data/service-faqs";
+import ProjectExamples from "../../../components/ProjectExamples.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { COMPANY , REGIONS } from "../../../data/company";
 import Icon from "../../../components/Icon.astro";
 
 const title = "Fire & Smoke Damage Restoration in South Florida | Paramount";
-const description = "Fire and smoke damage restoration in South Florida. Soot removal, odor neutralization and contents recovery. IICRC-certified, insurance handled.";
+const description = "Fire and smoke damage restoration in South Florida. Discuss affected surfaces, contents, firefighting water and the proposed work. Contact us 24/7.";
 ---
 
 <BaseLayout title={title} description={description} path="/restoration/fire-damage/">
-<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span><a href="/restoration/water-damage/">Restoration</a><span>/</span> Fire & Smoke Damage</nav></div>
+<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span><a href="/restoration/">Restoration</a><span>/</span> Fire & Smoke Damage</nav></div>
 <section class="phero"><div class="wrap-wide"><div class="phero-grid">
   <div class="reveal">
     <span class="eyebrow">Emergency Service · 24/7 · South Florida</span>
     <h1 class="h1 mt-s">Fire & Smoke Damage Restoration</h1>
-    <p class="empathy">The fire is out, but the soot and smell keep working, we move fast to stop them.</p>
-    <p class="lead maxw mt-m">Fire is only the first loss. <strong>Smoke, soot, and the water used to fight it keep damaging your home for days.</strong> We restore all three, and recover what can be saved.</p>
-    <div class="chips mt-m"><span class="chip">24/7 response</span><span class="chip">IICRC certified</span><span class="chip">Insurance billed direct</span><span class="chip">24/7 · 365</span></div>
+    <p class="empathy">After a fire, discuss access, affected materials and the next step.</p>
+    <p class="lead maxw mt-m">A fire can affect surfaces, contents and materials exposed to smoke or firefighting water. <strong>An assessment defines the work proposed</strong> and any specialist repairs needed.</p>
+    <div class="chips mt-m"><span class="chip">24/7 contact</span><span class="chip">IICRC certified</span><span class="chip">Project documentation</span><span class="chip">24/7 · 365</span></div>
     <ProjectPhoto selection={SERVICE_IMAGERY["fire-damage"]} eager />
   </div>
   <aside class="reveal"><div class="emcard">
     <div class="eyebrow nodash" style="color:#9db8ff;">Need help now?</div>
     <h3 class="mt-s">Talk to a certified crew.</h3>
     <a href={`tel:${COMPANY.phoneRaw}`} class="phone">{COMPANY.phone}</a>
-    <div class="ph-note">Answered live · 24 hours a day</div>
+    <div class="ph-note">Call to discuss availability · 24/7</div>
     <hr>
     <form data-emergency class="ef-mini" name="fire-damage" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="fire-damage" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p><div style="display:flex;flex-direction:column;gap:.9rem;">
       <div class="field"><label for="fire-damage-name">Your name</label><input type="text" name="name" required placeholder="Full name" id="fire-damage-name" autocomplete="name" aria-describedby="fire-damage-name-error"><span class="msg" id="fire-damage-name-error">Enter your name</span></div>
@@ -37,36 +42,31 @@ const description = "Fire and smoke damage restoration in South Florida. Soot re
     <div data-success role="status" tabindex="-1" style="display:none;text-align:center;padding:1rem 0;"><svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="34" height="34" style="margin:0 auto .6rem;"><path d="M20 6L9 17l-5-5"/></svg><p style="color:#fff;font-weight:600;">Request received.</p><p style="color:#9db8ff;font-size:.9rem;">A dispatcher will call within minutes.</p></div>
     </form>
     <hr>
-    <ul class="ef-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> We work with all major insurers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> No-obligation on-site assessment</li></ul>
+    <ul class="ef-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Ask about insurance documentation</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Discuss the assessment scope and cost</li></ul>
   </div></aside>
 </div></div></section>
-<section class="trust"><div class="wrap-wide"><div class="trust-grid">
-  <div class="trust-item reveal"><div class="metric-sm">Fast</div><span class="num-label" style="margin-top:.4rem;display:block;">24/7 emergency response</span></div>
-  <div class="trust-item reveal"><div class="metric-sm">24/7</div><span class="num-label" style="margin-top:.4rem;display:block;">Emergency dispatch, 365 days</span></div>
-  <div class="trust-item reveal"><div class="metric-sm">IICRC</div><span class="num-label" style="margin-top:.4rem;display:block;">Certified technicians</span></div>
-  <div class="trust-item reveal"><div class="metric-sm">Yes</div><span class="num-label" style="margin-top:.4rem;display:block;">Insurance claims supported</span></div>
-</div></div></section>
+<ServiceFacts />
 <section class="pt pb"><div class="wrap-wide">
-  <div class="sec-head reveal"><div><span class="eyebrow">01, What we handle</span><h2 class="h2 mt-s" style="max-width:20ch;">Fire, smoke, soot, and the water that follows.</h2></div><p class="body-l" style="max-width:32ch;">A fire leaves layered damage. We treat every layer, in the right order.</p></div>
-  <div class="types mt-l"><div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c1.5 3.5 5 4.5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-5 .5 2.5 3 2.5 3 0z"/></svg><h3>Smoke & soot residue</h3><p>Acidic soot etches surfaces fast, we clean it before it sets.</p></div>
-      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12c4-4 12-4 16 0M7 15c3-3 7-3 10 0M10 18c1.5-1.5 2.5-1.5 4 0"/></svg><h3>Smoke odor removal</h3><p>Deep deodorization that removes smell, not just masks it.</p></div>
-      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M9 9h6v6H9z"/></svg><h3>Contents & textiles</h3><p>Cleaning and recovery of furniture, clothing and belongings.</p></div>
+  <div class="sec-head reveal"><div><span class="eyebrow">01, What we handle</span><h2 class="h2 mt-s" style="max-width:20ch;">Fire, smoke, soot, and the water that follows.</h2></div><p class="body-l" style="max-width:32ch;">The assessment considers the types of damage observed and the work required for each area.</p></div>
+  <div class="types mt-l"><div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c1.5 3.5 5 4.5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-5 .5 2.5 3 2.5 3 0z"/></svg><h3>Smoke & soot residue</h3><p>Discuss cleaning appropriate to the residue and affected surfaces.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12c4-4 12-4 16 0M7 15c3-3 7-3 10 0M10 18c1.5-1.5 2.5-1.5 4 0"/></svg><h3>Smoke odor removal</h3><p>Odor treatment depends on affected materials and the source identified.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M9 9h6v6H9z"/></svg><h3>Contents & textiles</h3><p>Assess items for cleaning, specialist recovery or replacement.</p></div>
       <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-7h6v7"/></svg><h3>Structural char & cleanup</h3><p>Removal of charred materials and debris, safely handled.</p></div>
       <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 16c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/></svg><h3>Water from firefighting</h3><p>The water used to put it out causes its own damage, we dry it.</p></div>
-      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><h3>Electronics & documents</h3><p>Specialized recovery for sensitive items and paperwork.</p></div></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><h3>Electronics & documents</h3><p>Discuss whether specialist recovery is appropriate for the affected items.</p></div></div>
 </div></section>
 <section class="pb"><div class="wrap-wide">
-  <div class="sec-head reveal"><div><span class="eyebrow">02, The process</span><h2 class="h2 mt-s" style="max-width:18ch;">From securing the scene to a home restored.</h2></div></div>
-  <div class="steps mt-l"><div class="step reveal"><div class="n">01 / Assess</div><div><h3 class="h3">Assess & secure</h3><div class="sd"><p>We evaluate structural safety and identify every type of damage present.</p><p>Safety first, then a clear plan and scope.</p></div></div></div>
-      <div class="step reveal"><div class="n">02 / Secure</div><div><h3 class="h3">Board-up & tarp</h3><div class="sd"><p>We secure openings and tarp the roof to protect against weather and intrusion.</p><p>Stops a bad day from getting worse overnight.</p></div></div></div>
-      <div class="step reveal"><div class="n">03 / Clean</div><div><h3 class="h3">Soot & smoke removal</h3><div class="sd"><p>We clean soot from surfaces and contents before acidic residue sets in.</p><p>The faster this happens, the more we save.</p></div></div></div>
-      <div class="step reveal"><div class="n">04 / Deodorize</div><div><h3 class="h3">Odor neutralization</h3><div class="sd"><p>Thermal fogging and air treatment remove smoke odor at the source.</p><p>Not a cover-up, actual removal.</p></div></div></div>
-      <div class="step reveal"><div class="n">05 / Restore</div><div><h3 class="h3">Restore & dry out</h3><div class="sd"><p>We dry firefighting water, then restore finishes to pre-loss condition.</p><p>One team for the whole recovery.</p></div></div></div></div>
+  <div class="sec-head reveal"><div><span class="eyebrow">02, The process</span><h2 class="h2 mt-s" style="max-width:18ch;">Assess the damage and agree the work.</h2></div></div>
+  <div class="steps mt-l"><div class="step reveal"><div class="n">01 / Assess</div><div><h3 class="h3">Assess & secure</h3><div class="sd"><p>We discuss accessible areas and observed damage; structural safety may require a qualified specialist.</p><p>Safety first, then a clear plan and scope.</p></div></div></div>
+      <div class="step reveal"><div class="n">02 / Secure</div><div><h3 class="h3">Board-up & tarp</h3><div class="sd"><p>Temporary protection may form part of the scope once access and conditions are confirmed.</p><p>Ask what temporary measures are included and their limitations.</p></div></div></div>
+      <div class="step reveal"><div class="n">03 / Clean</div><div><h3 class="h3">Soot & smoke removal</h3><div class="sd"><p>We clean soot from surfaces and contents before acidic residue sets in.</p><p>Recovery depends on material condition and the extent of damage.</p></div></div></div>
+      <div class="step reveal"><div class="n">04 / Deodorize</div><div><h3 class="h3">Odor neutralization</h3><div class="sd"><p>The proposed odor treatment depends on the assessment and affected materials.</p><p>Discuss the treatment plan and its limitations before work begins.</p></div></div></div>
+      <div class="step reveal"><div class="n">05 / Restore</div><div><h3 class="h3">Restore & dry out</h3><div class="sd"><p>The scope can include drying water-affected materials and identifying further repair needs.</p><p>Confirm who is responsible for restoration and any specialist repairs.</p></div></div></div></div>
 </div></section>
 <section class="insight"><div class="wrap-wide"><div class="insight-in reveal">
   <span class="eyebrow nodash" style="color:#9db8ff;">Don't forget</span>
   <p class="h2" style="color:#fff;max-width:24ch;">The fire's out. The <em>water isn't done.</em></p>
-  <p class="lead" style="color:#aac3ff;max-width:46ch;">The water used to fight a fire soaks into structure and contents, and in Florida humidity, that becomes mold within days. We dry it properly as part of the job.</p>
+  <p class="lead" style="color:#aac3ff;max-width:46ch;">Water used during firefighting can affect materials beyond the visibly burned area. The assessment should consider moisture and any drying work needed.</p>
   <a href="/restoration/water-damage/" class="link-arrow" style="color:#fff;">See water damage restoration <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
 </div></div></section>
 <!-- EDITORIAL BODY (keywords del sheet) -->
@@ -76,42 +76,27 @@ const description = "Fire and smoke damage restoration in South Florida. Soot re
       <div class="prose">
         <span class="eyebrow">Fire, smoke and soot, fully handled</span>
         <h2 class="h2 mt-s" style="max-width:24ch;">Fire damage restoration that addresses the fire and everything it leaves behind.</h2>
-        <p><strong>Fire damage restoration</strong> is rarely just about what burned. In most South Florida homes, the visible fire damage is only part of the loss. Smoke travels into rooms the flames never reached, soot settles on every surface, and the water used to put the fire out soaks into structure and contents. A real <strong>fire damage repair</strong> job has to treat all of it at once, or the problems come back weeks later.</p>
-        <p>We start by securing and assessing the structure, then move into <strong>smoke and soot cleanup</strong>. Soot is acidic and stains fast, so the longer it sits the more it etches into walls, cabinets and fixtures. We clean affected surfaces, neutralize the acidity, and remove the fine particulate that ordinary cleaning leaves behind. Odor is its own stage: smoke odor embeds into porous materials, and masking it does not work. We use professional deodorization to remove the source of the smell, not cover it.</p>
-        <p>Because firefighting water saturates the building, drying is part of the job. In Florida humidity, that trapped moisture turns into mold within days if it is ignored, so we dry the structure properly as we restore it. From the first call we document everything for your insurer, so the claim moves while the work moves. If you are searching <em>fire damage restoration near me</em> after a loss, what you actually need is one crew that handles fire, smoke, soot, water and odor as a single coordinated job, and that is how we run it.</p>
+        <p><strong>Fire damage restoration</strong> can involve heat-affected materials, smoke residue, contents and water used during firefighting. The assessment determines which areas can be inspected and what work is appropriate once access is permitted.</p>
+        <p><strong>Smoke and soot cleanup</strong> depends on the surfaces and materials involved. Cleaning, contents treatment and odor work should be proposed for the conditions observed. Some items may require specialist evaluation or may not be recoverable.</p>
+        <p>Where firefighting water has affected materials, the proposed scope can include extraction, drying and progress checks. Discuss the sequence, documentation and any specialist structural, electrical or other repairs separately. A photo or initial call cannot establish the full repair scope.</p>
       </div>
       <div>
-        <div class="pullcard"><span class="num-label">What we handle</span><p style="font-family:var(--serif);font-weight:300;font-size:1.4rem;line-height:1.3;margin-top:.5rem;color:var(--ink);">Fire, smoke, soot, water and odor, restored as one coordinated job.</p></div>
+        <div class="pullcard"><span class="num-label">What we handle</span><p style="font-family:var(--serif);font-weight:300;font-size:1.4rem;line-height:1.3;margin-top:.5rem;color:var(--ink);">Discuss fire, smoke, soot and water-affected materials as part of the assessment.</p></div>
         <ul class="risk-list" style="margin-top:1rem;">
           <li><span class="risk-ico"><Icon name="fire" size={18} /></span> Fire damage restoration & repair</li>
           <li><span class="risk-ico"><Icon name="wave" size={18} /></span> Smoke & soot cleanup</li>
           <li><span class="risk-ico"><Icon name="inspect" size={18} /></span> Odor neutralization</li>
-          <li><span class="risk-ico"><Icon name="home" size={18} /></span> Structural drying & rebuild</li>
+          <li><span class="risk-ico"><Icon name="home" size={18} /></span> Drying and repair scope</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
-<section class="pt pb"><div class="wrap-wide">
-  <div class="sec-head reveal"><div><span class="eyebrow">03, Recent work</span><h2 class="h2 mt-s" style="max-width:20ch;">Recent restoration projects across South Florida.</h2></div></div>
-      <div class="proj-grid mt-l">
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/miami/3231729254.webp" alt="Restoration project by Paramount Property Restoration in Miami, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Miami · recent project</span></figcaption></figure>
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/wellington/3226728074.webp" alt="Restoration project by Paramount Property Restoration in Wellington, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Wellington · recent project</span></figcaption></figure>
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/sunny-isles-beach/3216836025.webp" alt="Restoration project by Paramount Property Restoration in Sunny Isles Beach, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Sunny Isles Beach · recent project</span></figcaption></figure>
-    </div>
-  </div>
-</section>
-<section class="insure pb"><div class="wrap-wide"><div class="insure-in reveal">
-  <div><span class="eyebrow">Insurance, handled</span><h2 class="h2 mt-s" style="max-width:18ch;">We document the loss and bill your carrier directly.</h2><p class="lead maxw mt-m">Fire claims are complex, multiple types of damage, contents, and structure. We document all of it so nothing gets left off your claim.</p><a href="/insurance-claims/" class="btn btn-blue btn-lg mt-m">How claims work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-  <ul class="insure-list"><li><span class="num-label">01</span> Photo &amp; damage documentation</li><li><span class="num-label">02</span> Direct carrier billing</li><li><span class="num-label">03</span> Line-item scope &amp; estimate</li><li><span class="num-label">04</span> Adjuster coordination</li></ul>
-</div></div></section>
+<ProjectExamples cities={["miami", "cape-coral", "port-st-lucie"]} />
+<InsuranceSupport />
 <section class="pb"><div class="wrap-wide">
   <div class="sec-head reveal"><div><span class="eyebrow">04, Common questions</span><h2 class="h2 mt-s">Fire & Smoke Damage, answered.</h2></div></div>
-  <div class="faq mt-l reveal"><details open><summary>Can you really remove the smoke smell? <span class="pm"></span></summary><div class="ans">Yes. We use thermal fogging and air treatment to neutralize odor at the molecular level, it's removal, not masking. Lingering smell usually means a missed source, which we find.</div></details>
-      <details><summary>Are my belongings salvageable? <span class="pm"></span></summary><div class="ans">Often more than you'd expect. We assess contents individually and recover textiles, furniture and even documents and electronics with specialized cleaning.</div></details>
-      <details><summary>What about the water damage from firefighting? <span class="pm"></span></summary><div class="ans">We handle it as part of the job. Left wet, it causes mold within days in Florida, so drying is built into our fire restoration. See <a href="/restoration/water-damage/">water damage</a>.</div></details>
-      <details><summary>Does insurance cover fire damage? <span class="pm"></span></summary><div class="ans">Fire loss is typically covered. We document the structure, contents and smoke damage in detail. See <a href="/insurance-claims/">how claims work</a>.</div></details>
-      <details><summary>How long does fire restoration take? <span class="pm"></span></summary><div class="ans">It varies widely with severity, from days for smoke cleanup to weeks for structural restoration. We give you a clear, staged timeline.</div></details></div>
+  <ServiceFAQ items={SERVICE_FAQS["fire-damage"]} />
 </div></section>
 <section class="areas pt pb"><div class="wrap-wide reveal">
   <span class="eyebrow">Where we serve</span><h2 class="h2 mt-s" style="max-width:24ch;">Fire & Smoke Damage across South Florida.</h2>
@@ -124,8 +109,7 @@ const description = "Fire and smoke damage restoration in South Florida. Soot re
 </div></section>
 <LocalServiceLinks heading="Fire and smoke help in Bonita Springs" description="Review soot cleanup, affected contents, odor concerns and water from firefighting before requesting an assessment." links={[{ href: "/service-areas/bonita-springs/#fire-smoke", label: "Bonita Springs fire and smoke restoration" }]} />
 <section class="emcta"><div class="wrap-wide emcta-in reveal">
-  <div><span class="eyebrow nodash" style="color:#ffd2c4;">Act fast</span><h2 class="display" style="color:#fff;max-width:16ch;">Soot sets in by the hour.</h2></div>
+  <div><span class="eyebrow nodash" style="color:#ffd2c4;">Act fast</span><h2 class="display" style="color:#fff;max-width:16ch;">Discuss the next step after a fire.</h2></div>
   <div class="emcta-actions"><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a><a href="/emergency/" class="btn btn-lg btn-block" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5);">Request help online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </div></section>
-<script type="application/ld+json" set:html={"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Are my belongings salvageable?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Often more than you'd expect. We assess contents individually and recover textiles, furniture and even documents and electronics with specialized cleaning.\"}},{\"@type\":\"Question\",\"name\":\"What about the water damage from firefighting?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"We handle it as part of the job. Left wet, it causes mold within days in Florida, so drying is built into our fire restoration. See water damage .\"}},{\"@type\":\"Question\",\"name\":\"Does insurance cover fire damage?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Fire loss is typically covered. We document the structure, contents and smoke damage in detail. See how claims work .\"}},{\"@type\":\"Question\",\"name\":\"How long does fire restoration take?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"It varies widely with severity, from days for smoke cleanup to weeks for structural restoration. We give you a clear, staged timeline.\"}}]}"} />
 </BaseLayout>

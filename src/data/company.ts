@@ -15,15 +15,11 @@ export const COMPANY = {
   fullAddress: "10890 NW 17th St Suite 138, Miami, FL 33172",
   googleMapsLink: "https://www.google.com/maps/place/Paramount+Property+Restoration/",
   // Alcance y posicionamiento (del blueprint SEO 2.0):
-  tagline: "South Florida's 24/7 restoration response",
+  tagline: "Property restoration in Florida · 24/7 contact",
   region: "South Florida",
   // Credenciales REALES (sin claims de General Contractor, riesgo legal):
-  credentials: ["IICRC Certified", "Fully Insured & Bonded", "24/7 Response"],
+  credentials: ["IICRC Certified", "Fully Insured & Bonded", "24/7 Contact"],
   responseTime: "24/7",
-  // Métricas: pendientes de dato real (rating/reseñas de Google).
-  rating: "5.0",
-  reviewCount: "16",
-  projectsRestored: "",
   social: {
     linkedin: "https://www.linkedin.com/company/paramount-property-restoration",
     facebook: "https://www.facebook.com/paramountpropertyrestoration",
@@ -34,10 +30,10 @@ export const COMPANY = {
 // SILO 2.0: los servicios y sus URLs canónicas (del blueprint validado).
 export const SERVICES = [
   { slug: "water-damage",    name: "Water Damage Restoration", short: "Water Damage",      url: "/restoration/water-damage/",    vol: "135K", nearMe: "246K", icon: "water",      desc: "Extraction, drying & structural restoration" },
-  { slug: "mold-remediation",name: "Mold Remediation",         short: "Mold Remediation",  url: "/restoration/mold-remediation/",vol: "165K", nearMe: "60K",  icon: "mold",       desc: "Containment, removal & clearance" },
+  { slug: "mold-remediation",name: "Mold Remediation",         short: "Mold Remediation",  url: "/restoration/mold-remediation/",vol: "165K", nearMe: "60K",  icon: "mold",       desc: "Containment, cleanup & project review" },
   { slug: "fire-damage",     name: "Fire & Smoke Damage",      short: "Fire & Smoke",      url: "/restoration/fire-damage/",     vol: "135K", nearMe: "49K",  icon: "fire",       desc: "Soot, smoke & content recovery" },
   { slug: "storm-damage",    name: "Storm & Hurricane Damage", short: "Storm & Hurricane", url: "/restoration/storm-damage/",    vol: "110K", nearMe: "60K",  icon: "storm",      desc: "Water intrusion, tarping & repair" },
-  { slug: "mold-testing",    name: "Mold Testing & Inspection",short: "Mold Testing",      url: "/restoration/mold-testing/",    vol: "66K",  nearMe: "",     icon: "testing",    desc: "Independent inspection & lab analysis" },
+  { slug: "mold-testing",    name: "Mold Testing & Inspection",short: "Mold Testing",      url: "/restoration/mold-testing/",    vol: "66K",  nearMe: "",     icon: "testing",    desc: "Inspection, sampling & reporting" },
   { slug: "commercial",      name: "Commercial Restoration",   short: "Commercial",        url: "/commercial/",                  vol: "B2B",  nearMe: "",     icon: "commercial", desc: "Large-loss & property management" },
 ] as const;
 

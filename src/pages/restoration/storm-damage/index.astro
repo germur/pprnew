@@ -2,30 +2,35 @@
 import LocalServiceLinks from "../../../components/LocalServiceLinks.astro";
 import ProjectPhoto from "../../../components/ProjectPhoto.astro";
 import { SERVICE_IMAGERY } from "../../../data/project-imagery";
+import ServiceFAQ from "../../../components/ServiceFAQ.astro";
+import InsuranceSupport from "../../../components/InsuranceSupport.astro";
+import ServiceFacts from "../../../components/ServiceFacts.astro";
+import { SERVICE_FAQS } from "../../../data/service-faqs";
+import ProjectExamples from "../../../components/ProjectExamples.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { COMPANY , REGIONS } from "../../../data/company";
 import Icon from "../../../components/Icon.astro";
 
 const title = "Storm & Hurricane Restoration in South Florida | Paramount";
-const description = "Storm and hurricane damage restoration in South Florida. Emergency tarping, water intrusion, debris and full restoration. IICRC-certified, insurance handled, 24/7.";
+const description = "Storm and hurricane damage restoration in South Florida. Discuss safe access, temporary protection, water intrusion and the proposed scope. Contact us 24/7.";
 ---
 
 <BaseLayout title={title} description={description} path="/restoration/storm-damage/">
-<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span><a href="/restoration/water-damage/">Restoration</a><span>/</span> Storm & Hurricane Damage</nav></div>
+<div class="wrap-wide"><nav class="crumb"><a href="/">Home</a><span>/</span><a href="/restoration/">Restoration</a><span>/</span> Storm & Hurricane Damage</nav></div>
 <section class="phero"><div class="wrap-wide"><div class="phero-grid">
   <div class="reveal">
     <span class="eyebrow">Emergency Service · 24/7 · South Florida</span>
     <h1 class="h1 mt-s">Storm & Hurricane Damage Restoration</h1>
-    <p class="empathy">When the storm passes, the water keeps coming in, we tarp first and restore fast.</p>
-    <p class="lead maxw mt-m">Hurricane season turns small breaches into major losses. <strong>We secure your property, stop the water intrusion, and restore</strong>, coordinating your insurance claim through all of it.</p>
-    <div class="chips mt-m"><span class="chip">24/7 response</span><span class="chip">IICRC certified</span><span class="chip">Insurance billed direct</span><span class="chip">24/7 · 365</span></div>
+    <p class="empathy">After a storm, discuss access, affected areas and temporary protection.</p>
+    <p class="lead maxw mt-m">Wind, water and debris can affect different parts of a property. <strong>Assessment and safe access determine the proposed work</strong>, including temporary protection and water-related restoration where appropriate.</p>
+    <div class="chips mt-m"><span class="chip">24/7 contact</span><span class="chip">IICRC certified</span><span class="chip">Project documentation</span><span class="chip">24/7 · 365</span></div>
     <ProjectPhoto selection={SERVICE_IMAGERY["storm-damage"]} eager />
   </div>
   <aside class="reveal"><div class="emcard">
     <div class="eyebrow nodash" style="color:#9db8ff;">Storm emergency?</div>
-    <h3 class="mt-s">Get a crew dispatched now.</h3>
+    <h3 class="mt-s">Discuss help for your property.</h3>
     <a href={`tel:${COMPANY.phoneRaw}`} class="phone">{COMPANY.phone}</a>
-    <div class="ph-note">Answered live · 24 hours a day</div>
+    <div class="ph-note">Call to discuss availability · 24/7</div>
     <hr>
     <form data-emergency class="ef-mini" name="storm-damage" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="storm-damage" /><p hidden aria-hidden="true"><label>Do not fill this out<input name="bot-field" /></label></p><div style="display:flex;flex-direction:column;gap:.9rem;">
       <div class="field"><label for="storm-damage-name">Your name</label><input type="text" name="name" required placeholder="Full name" id="storm-damage-name" autocomplete="name" aria-describedby="storm-damage-name-error"><span class="msg" id="storm-damage-name-error">Enter your name</span></div>
@@ -37,31 +42,26 @@ const description = "Storm and hurricane damage restoration in South Florida. Em
     <div data-success role="status" tabindex="-1" style="display:none;text-align:center;padding:1rem 0;"><svg viewBox="0 0 24 24" fill="none" stroke="#46c37b" stroke-width="2" width="34" height="34" style="margin:0 auto .6rem;"><path d="M20 6L9 17l-5-5"/></svg><p style="color:#fff;font-weight:600;">Request received.</p><p style="color:#9db8ff;font-size:.9rem;">We'll call you shortly.</p></div>
     </form>
     <hr>
-    <ul class="ef-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> We work with all major insurers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> No-obligation on-site assessment</li></ul>
+    <ul class="ef-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Ask about insurance documentation</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Discuss the assessment scope and cost</li></ul>
   </div></aside>
 </div></div></section>
-<section class="trust"><div class="wrap-wide"><div class="trust-grid">
-  <div class="trust-item reveal"><div class="metric-sm">Same-day</div><span class="num-label" style="margin-top:.4rem;display:block;">Emergency tarping & board-up</span></div>
-  <div class="trust-item reveal"><div class="metric-sm">24/7</div><span class="num-label" style="margin-top:.4rem;display:block;">Emergency dispatch, 365 days</span></div>
-  <div class="trust-item reveal"><div class="metric-sm">IICRC</div><span class="num-label" style="margin-top:.4rem;display:block;">Certified technicians</span></div>
-  <div class="trust-item reveal"><div class="metric-sm">Yes</div><span class="num-label" style="margin-top:.4rem;display:block;">Insurance claims supported</span></div>
-</div></div></section>
+<ServiceFacts />
 <section class="pt pb"><div class="wrap-wide">
-  <div class="sec-head reveal"><div><span class="eyebrow">01, What we handle</span><h2 class="h2 mt-s" style="max-width:20ch;">Every way a storm gets into your home.</h2></div><p class="body-l" style="max-width:32ch;">Wind, water and debris each do their own damage. We handle the whole aftermath.</p></div>
-  <div class="types mt-l"><div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7M5 10v10h14V10"/><path d="M9 14h6"/></svg><h3>Roof damage & tarping</h3><p>Emergency tarping to stop water before the next band hits.</p></div>
+  <div class="sec-head reveal"><div><span class="eyebrow">01, What we handle</span><h2 class="h2 mt-s" style="max-width:20ch;">Every way a storm gets into your home.</h2></div><p class="body-l" style="max-width:32ch;">Discuss each affected area and confirm the work included in the scope.</p></div>
+  <div class="types mt-l"><div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7M5 10v10h14V10"/><path d="M9 14h6"/></svg><h3>Roof damage & tarping</h3><p>Discuss temporary roof protection, availability and safe access.</p></div>
       <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 16c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/></svg><h3>Water intrusion & flooding</h3><p>Extraction and drying of storm water that breached the envelope.</p></div>
-      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h9a3 3 0 1 1-3 3"/></svg><h3>Wind & debris damage</h3><p>Cleanup and repair of wind-driven structural damage.</p></div>
-      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v7M8 7l4-4 4 4M5 21c2-4 5-6 7-6s5 2 7 6"/></svg><h3>Fallen-tree impact</h3><p>Safe removal and restoration where trees hit the structure.</p></div>
-      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 18c3 0 3-3 6-3s3 3 6 3 3-3 6-3M2 22c3 0 3-3 6-3s3 3 6 3 3-3 6-3"/></svg><h3>Storm-surge & coastal flooding</h3><p>Saltwater intrusion handled with proper sanitization.</p></div>
-      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Power-loss humidity</h3><p>No A/C plus Florida heat breeds mold fast, we get ahead of it.</p></div></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h9a3 3 0 1 1-3 3"/></svg><h3>Wind & debris damage</h3><p>Assess affected areas and identify any specialist repair work.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v7M8 7l4-4 4 4M5 21c2-4 5-6 7-6s5 2 7 6"/></svg><h3>Fallen-tree impact</h3><p>Tree work and structural repairs may require separate specialists.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 18c3 0 3-3 6-3s3 3 6 3 3-3 6-3M2 22c3 0 3-3 6-3s3 3 6 3 3-3 6-3"/></svg><h3>Storm-surge & coastal flooding</h3><p>Discuss contamination concerns and the treatment proposed for affected materials.</p></div>
+      <div class="type reveal"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Power-loss humidity</h3><p>Discuss moisture and humidity concerns after a power loss.</p></div></div>
 </div></section>
 <section class="pb"><div class="wrap-wide">
   <div class="sec-head reveal"><div><span class="eyebrow">02, The process</span><h2 class="h2 mt-s" style="max-width:18ch;">Secure first, then restore.</h2></div></div>
-  <div class="steps mt-l"><div class="step reveal"><div class="n">01 / Secure</div><div><h3 class="h3">Emergency tarp & board-up</h3><div class="sd"><p>We tarp roofs and secure openings immediately to stop further intrusion.</p><p>The single most important step in the first hours.</p></div></div></div>
+  <div class="steps mt-l"><div class="step reveal"><div class="n">01 / Secure</div><div><h3 class="h3">Emergency tarp & board-up</h3><div class="sd"><p>Temporary protection can be discussed once availability, access and conditions are confirmed.</p><p>Confirm the temporary measures included in the proposed scope.</p></div></div></div>
       <div class="step reveal"><div class="n">02 / Extract</div><div><h3 class="h3">Water extraction</h3><div class="sd"><p>We remove storm water before it wicks deeper into the structure.</p><p>Speed limits the damage and the mold risk.</p></div></div></div>
-      <div class="step reveal"><div class="n">03 / Dry</div><div><h3 class="h3">Dry & dehumidify</h3><div class="sd"><p>Commercial drying equipment brings materials back to dry standard.</p><p>Verified daily until readings confirm it's done.</p></div></div></div>
-      <div class="step reveal"><div class="n">04 / Clear</div><div><h3 class="h3">Debris & structural</h3><div class="sd"><p>We clear debris and repair wind and impact damage safely.</p><p>Coordinated with your insurer at every step.</p></div></div></div>
-      <div class="step reveal"><div class="n">05 / Restore</div><div><h3 class="h3">Restore & claim</h3><div class="sd"><p>We restore to pre-loss condition and document the full claim.</p><p>One team from tarp to final walkthrough.</p></div></div></div></div>
+      <div class="step reveal"><div class="n">03 / Dry</div><div><h3 class="h3">Dry & dehumidify</h3><div class="sd"><p>Drying equipment and progress checks address the moisture identified in the assessment.</p><p>Progress checks and equipment adjustments follow the agreed drying plan.</p></div></div></div>
+      <div class="step reveal"><div class="n">04 / Clear</div><div><h3 class="h3">Debris & structural</h3><div class="sd"><p>Discuss debris and affected areas, including any specialist repairs required.</p><p>Ask what restoration documentation can be provided for your insurer.</p></div></div></div>
+      <div class="step reveal"><div class="n">05 / Restore</div><div><h3 class="h3">Review the work</h3><div class="sd"><p>Review the completed scope, records and any further repairs needed.</p><p>Confirm responsibilities for restoration and any other trades involved.</p></div></div></div></div>
 </div></section>
 <section class="insight"><div class="wrap-wide"><div class="insight-in reveal">
   <span class="eyebrow nodash" style="color:#9db8ff;">What people underestimate</span>
@@ -76,18 +76,18 @@ const description = "Storm and hurricane damage restoration in South Florida. Em
     <div class="insure-in reveal" style="align-items:start;">
       <div class="prose">
         <span class="eyebrow">Built for Florida's worst season</span>
-        <h2 class="h2 mt-s" style="max-width:22ch;">From the first tarp to fully restored.</h2>
-        <p class="mt-m"><strong>Storm and hurricane damage restoration</strong> is its own discipline in Florida. When a major system hits, the priority is stopping more water from getting in: emergency tarping of damaged roofs, board-up of broken windows and openings, and rapid water extraction before the intrusion spreads through the structure. We respond fast because in the hours after a storm, every opening is letting more damage in.</p>
-        <p><strong>Hurricane damage restoration</strong> often means handling several losses at once: wind-driven rain through the roof, surge or flood water on the ground floor, debris impact, and the mold that follows if drying is delayed. We document the full scope for your insurer, which matters enormously after a named storm when carriers scrutinize every claim.</p>
-        <p><strong>Wind damage repair</strong> covers the structural side, from compromised roofing and siding to the openings that wind and pressure create. <strong>Storm debris removal</strong> clears the way so restoration can start, safely separating what can be salvaged from what cannot. Across all of it, the constant is speed and documentation.</p>
-        <p>For homeowners across South Florida searching <em>storm damage repair near me</em> after a hurricane, the value is a local crew that can be on site fast, tarp and secure the property the same day, and carry the loss all the way through to a fully restored home, with the paperwork a Florida claim demands.</p>
+        <h2 class="h2 mt-s" style="max-width:22ch;">Assess the damage and define the restoration scope.</h2>
+        <p class="mt-m"><strong>Storm and hurricane damage restoration</strong> starts with confirming access and assessing the property. Temporary protection, water extraction and drying may be needed, depending on the damage and conditions. Availability must be discussed for each site.</p>
+        <p><strong>Hurricane damage restoration</strong> may involve several affected areas at once. Document visible conditions where available and explain any restrictions on access. The assessment and agreed scope should distinguish restoration from specialist repair work.</p>
+        <p><strong>Wind damage</strong>, roof damage and debris may require separate trades or specialists. Ask who will perform temporary protection, debris work and permanent repairs, and what is included in the proposed work.</p>
+        <p>When seeking <strong>storm damage restoration</strong>, discuss the property location, current conditions, access and priorities. Confirm availability, the proposed scope, fees and documentation before relying on a response or repair schedule.</p>
       </div>
       <div>
-        <div class="pullcard"><span class="num-label">What we handle</span><p style="font-family:var(--serif);font-weight:300;font-size:1.4rem;line-height:1.3;margin-top:.5rem;color:var(--ink);">Emergency tarping, water intrusion, debris and full structural restoration.</p></div>
+        <div class="pullcard"><span class="num-label">What we handle</span><p style="font-family:var(--serif);font-weight:300;font-size:1.4rem;line-height:1.3;margin-top:.5rem;color:var(--ink);">Discuss temporary protection, water intrusion and the agreed restoration scope.</p></div>
         <ul class="risk-list" style="margin-top:1rem;">
           <li><span class="risk-ico"><Icon name="storm" size={18} /></span> Emergency tarping &amp; board-up</li>
           <li><span class="risk-ico"><Icon name="water" size={18} /></span> Water intrusion &amp; extraction</li>
-          <li><span class="risk-ico"><Icon name="wind" size={18} /></span> Wind &amp; roof damage repair</li>
+          <li><span class="risk-ico"><Icon name="wind" size={18} /></span> Wind and roof damage assessment</li>
           <li><span class="risk-ico"><Icon name="home" size={18} /></span> Storm debris removal</li>
         </ul>
       </div>
@@ -95,26 +95,11 @@ const description = "Storm and hurricane damage restoration in South Florida. Em
   </div>
 </section>
 
-<section class="pt pb"><div class="wrap-wide">
-  <div class="sec-head reveal"><div><span class="eyebrow">03, Recent work</span><h2 class="h2 mt-s" style="max-width:20ch;">Recent restoration projects across South Florida.</h2></div></div>
-      <div class="proj-grid mt-l">
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/doral/3216119513.webp" alt="Restoration project by Paramount Property Restoration in Doral, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Doral · recent project</span></figcaption></figure>
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/bonita-springs/3215665487.webp" alt="Restoration project by Paramount Property Restoration in Bonita Springs, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Bonita Springs · recent project</span></figcaption></figure>
-      <figure class="proj reveal"><div class="proj-photo"><img src="/companycam/weston/3211565601.webp" alt="Restoration project by Paramount Property Restoration in Weston, Florida" width="600" height="450" loading="lazy" decoding="async" /></div><figcaption><span class="num-label">Weston · recent project</span></figcaption></figure>
-    </div>
-  </div>
-</section>
-<section class="insure pb"><div class="wrap-wide"><div class="insure-in reveal">
-  <div><span class="eyebrow">Insurance, handled</span><h2 class="h2 mt-s" style="max-width:18ch;">We document the loss and bill your carrier directly.</h2><p class="lead maxw mt-m">Storm claims move fast and crowded. Strong, early documentation gets yours seen and approved, that's what we deliver.</p><a href="/insurance-claims/" class="btn btn-blue btn-lg mt-m">How claims work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-  <ul class="insure-list"><li><span class="num-label">01</span> Photo &amp; damage documentation</li><li><span class="num-label">02</span> Direct carrier billing</li><li><span class="num-label">03</span> Line-item scope &amp; estimate</li><li><span class="num-label">04</span> Adjuster coordination</li></ul>
-</div></div></section>
+<ProjectExamples cities={["weston", "miami", "doral"]} />
+<InsuranceSupport />
 <section class="pb"><div class="wrap-wide">
   <div class="sec-head reveal"><div><span class="eyebrow">04, Common questions</span><h2 class="h2 mt-s">Storm & Hurricane Damage, answered.</h2></div></div>
-  <div class="faq mt-l reveal"><details open><summary>Do you respond during a hurricane? <span class="pm"></span></summary><div class="ans">We dispatch as soon as it's safe, often the moment conditions allow. Get on our list early; partners and early callers are prioritized as the storm clears.</div></details>
-      <details><summary>How fast can you tarp my roof? <span class="pm"></span></summary><div class="ans">Emergency tarping is our first move, frequently same-day once we can safely access the property. It's what stops a breach from becoming a gutted interior.</div></details>
-      <details><summary>Is storm damage covered by insurance? <span class="pm"></span></summary><div class="ans">Usually, though wind vs. flood coverage differs by policy. We document the cause and scope precisely. See <a href="/insurance-claims/">how claims work</a>.</div></details>
-      <details><summary>What about mold after the storm? <span class="pm"></span></summary><div class="ans">It's a real risk, days without power and Florida humidity breed mold fast. Our drying gets ahead of it; if needed, see <a href="/restoration/mold-remediation/">mold remediation</a>.</div></details>
-      <details><summary>Do you handle both wind and water damage? <span class="pm"></span></summary><div class="ans">Yes, roof, debris, wind repair and water extraction and drying, all by one accountable team, so nothing falls through the cracks.</div></details></div>
+  <ServiceFAQ items={SERVICE_FAQS["storm-damage"]} />
 </div></section>
 <section class="areas pt pb"><div class="wrap-wide reveal">
   <span class="eyebrow">Where we serve</span><h2 class="h2 mt-s" style="max-width:24ch;">Storm & Hurricane Damage across South Florida.</h2>
@@ -127,8 +112,7 @@ const description = "Storm and hurricane damage restoration in South Florida. Em
 </div></section>
 <LocalServiceLinks heading="Storm recovery in Deerfield Beach" description="Understand the distinction between temporary protection, interior drying and permanent repairs when describing your loss." links={[{ href: "/service-areas/deerfield-beach/#storm-assessment", label: "Deerfield Beach storm restoration" }]} />
 <section class="emcta"><div class="wrap-wide emcta-in reveal">
-  <div><span class="eyebrow nodash" style="color:#ffd2c4;">Before the next band</span><h2 class="display" style="color:#fff;max-width:16ch;">Tarp now. Restore once.</h2></div>
+  <div><span class="eyebrow nodash" style="color:#ffd2c4;">Before the next band</span><h2 class="display" style="color:#fff;max-width:16ch;">Discuss help after storm damage.</h2></div>
   <div class="emcta-actions"><a href={`tel:${COMPANY.phoneRaw}`} class="btn btn-lg" style="background:#fff;color:var(--alert);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call {COMPANY.phone}</a><a href="/emergency/" class="btn btn-lg btn-block" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5);">Request help online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </div></section>
-<script type="application/ld+json" set:html={"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"How fast can you tarp my roof?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Emergency tarping is our first move, frequently same-day once we can safely access the property. It's what stops a breach from becoming a gutted interior.\"}},{\"@type\":\"Question\",\"name\":\"Is storm damage covered by insurance?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Usually, though wind vs. flood coverage differs by policy. We document the cause and scope precisely. See how claims work .\"}},{\"@type\":\"Question\",\"name\":\"What about mold after the storm?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"It's a real risk, days without power and Florida humidity breed mold fast. Our drying gets ahead of it; if needed, see mold remediation .\"}},{\"@type\":\"Question\",\"name\":\"Do you handle both wind and water damage?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, roof, debris, wind repair and water extraction and drying, all by one accountable team, so nothing falls through the cracks.\"}}]}"} />
 </BaseLayout>
