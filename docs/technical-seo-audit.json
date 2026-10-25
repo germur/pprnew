@@ -1,0 +1,20 @@
+{
+  "html_pages": 56,
+  "indexable_pages": 54,
+  "sitemap_urls": 54,
+  "schema_counts": {
+    "LocalBusiness": 54,
+    "WebSite": 54,
+    "WebPage": 49,
+    "BreadcrumbList": 53,
+    "Service": 41,
+    "ContactPage": 1,
+    "FAQPage": 6,
+    "CollectionPage": 4,
+    "Article": 2,
+    "ItemList": 1
+  },
+  "server_rendered_projects": 8,
+  "issues": [],
+  "live": []
+}

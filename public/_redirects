@@ -1,3 +1,12 @@
+# Consolidate the default production host; deploy previews remain accessible.
+https://paramountpropertyrestoration.netlify.app/* https://paramountpropertyrestoration.com/:splat 301!
+http://paramountpropertyrestoration.netlify.app/* https://paramountpropertyrestoration.com/:splat 301!
+
+# Preserve sitemap discovery from former WordPress conventions.
+/sitemap.xml /sitemap-index.xml 301
+/sitemap_index.xml /sitemap-index.xml 301
+/wp-sitemap.xml /sitemap-index.xml 301
+
 # Paramount Property Restoration - migracion sitio viejo -> nuevo
 # 301 = consolidacion a pillar | 410 = podado
 

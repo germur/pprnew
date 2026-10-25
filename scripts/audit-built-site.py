@@ -47,7 +47,7 @@ def inventory():
         if not any(tag == 'main' or a.get('role') == 'main' for tag, a in tags):
             issue('missing-main-landmark', 'No main landmark')
         canonical = [a.get('href') for tag, a in tags if tag == 'link' and a.get('rel') == 'canonical']
-        if canonical != [ORIGIN + url]:
+        if canonical != ([] if url in ('/404.html', '/410-gone/') else [ORIGIN + url]):
             issue('canonical', canonical)
         if not any(tag == 'meta' and a.get('name') == 'description' and a.get('content') for tag, a in tags):
             issue('missing-description', '')
